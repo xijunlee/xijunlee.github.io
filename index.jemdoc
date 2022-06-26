@@ -1,4 +1,4 @@
-# jemdoc: {index.html}
+# jemdoc: nomenu, {index.html}
 ==Xijun (Ted) Li
 
 ~~~
@@ -16,13 +16,19 @@ E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
 ~~~
 
 ~~~
-{Recruiting & Admission}
+{Recruiting \& Admission}
 - \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/noah-intern-application.jpg Position Application for HUAWEI Noah's Ark Lab (华为诺亚实验室岗位申请)]\]
 - \[[https://miralab.ai/admission/admission_2023/ Admission to USTC MIRA Lab (中科大 MIRA Lab 研究生招生说明)]\]
 ~~~
 
 == About Me
 Xijun has received master degree from Shanghai Jiao Tong University, P.R. China, in 2018. Currently, he is a senior researcher of HUAWEI Noah’s Ark Lab and working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published several papers on top peer-reviewed conferences and journals (SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.). He has also been committee member of MDM 2021 Industry Track and reviewer of multiple top journals and conferences (TKDE, AAAI, ICDE, CIKM, etc.). Moreover, his research interests focus on learning to optimize combinatorial optimization problem and machine learning for computer systems.  
+
+== Experience
+- Senior Research Engineer A, HUAWEI Noah's Ark Lab, Mar 2022 – Present
+- Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Present
+- Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
+- Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
 
 == Research
 My research interests include 
@@ -59,26 +65,20 @@ My research interests include
 
 “*” indicates the equal contribution/corresponding author.
 
-== Services
-=== Program Committee Member
+=== Services
+==== Program Committee Member
 - The 23rd IEEE International Conference on Mobile Data Management (MDM), Industry Track
-=== Conference Reviewer
+==== Conference Reviewer
 - The AAAI Conference on Artificial Intelligence (AAAI) 2020/2021
 - The International Conference on Data Engineering (ICDE) 2022
 - The ACM International Conference on Information and Knowledge Management (CIKM) 2020
-=== Journal Reviewer
+==== Journal Reviewer
 - The IEEE Transactions on Knowledge and Data Engineering
 
-== Awards
+== Selected Awards
 . Innovation Pioneer Award, Dec 2020, 2012 Labs, Huawei Technologies
 . Excellent New Employee of 2012 Labs, Dec 2018, Huawei Technologies
 . National Scholarship, Sep 2014, Chinese Ministry of Education
 . National Scholarship, Sep 2017, Chinese Ministry of Education
 . Skyworth Enterprise Scholarship, First Prize, Jun 2015, Skyworth Enterprise
 . Mathematical Contest in Modeling (MCM), Meritorious Award, Mar 2014, Consortium for Mathematics and Its Applications, COMAP
-
-== Experience
-- Senior Research Engineer A, HUAWEI Noah's Ark Lab, Mar 2022 – Present
-- Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Present
-- Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
-- Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
