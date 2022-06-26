@@ -15,6 +15,12 @@ E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
 
 ~~~
 
+~~~
+{Recruiting & Admission}
+- \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/noah-intern-application.jpg Position Application for HUAWEI Noah's Ark Lab (华为诺亚实验室岗位申请)]\]
+- \[[https://miralab.ai/admission/admission_2023/ Admission to USTC MIRA Lab (中科大 MIRA Lab 研究生招生说明)]\]
+~~~
+
 == About Me
 Xijun has received master degree from Shanghai Jiao Tong University, P.R. China, in 2018. Currently, he is a senior researcher of HUAWEI Noah’s Ark Lab and working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published several papers on top peer-reviewed conferences and journals (SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.). He has also been committee member of MDM 2021 Industry Track and reviewer of multiple top journals and conferences (TKDE, AAAI, ICDE, CIKM, etc.). Moreover, his research interests focus on learning to optimize combinatorial optimization problem and machine learning for computer systems.  
 
@@ -22,12 +28,11 @@ Xijun has received master degree from Shanghai Jiao Tong University, P.R. China,
 My research interests include 
 - Learning to Optimization (L2O)
 - Machine Learning for Computer System (ML4CS)
-- Reinforcement Leraning/ Machine Learning
+- Reinforcement Leraning / Machine Learning
 - Operational Research
 - Mathematic Solver
 - Meta-Heuristic Algorithms
 
-[research.html Find out more].
 === Recent Publications 
 
 . Ji Zhang, Xijun Li*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li; LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems; 2022 59th ACM/IEEE Design Automation Conference (DAC) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
@@ -43,13 +48,26 @@ My research interests include
 
 === Working Papers
 
-. Xijun Li, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022)
+. Xijun Li, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022) (Submitted to NeurIPS 2022)
 . Qingyu Qu, Xijun Li*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
 . Jiayi Zhang, Chang Liu, Junchi Yan, Xijun Li, Hui-Ling Zhen, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
 . Wenxuan Guo, Junchi Yan, Hui-Ling Zhen, Xijun Li, Mingxuan Yuan, Yaohui Jin: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
-
+. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, Xijun Li, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs (Submitted to NeurIPS 2022)
+. Qingyu Qu, Kexin Liu, Xijun Li, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
+. Kecheng Huang, Xijun Li, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
+. Yunfan Zhou, Xijun Li*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
 
 “*” indicates the equal contribution/corresponding author.
+
+== Services
+=== Program Committee Member
+- The 23rd IEEE International Conference on Mobile Data Management (MDM), Industry Track
+=== Conference Reviewer
+- The AAAI Conference on Artificial Intelligence (AAAI) 2020/2021
+- The International Conference on Data Engineering (ICDE) 2022
+- The ACM International Conference on Information and Knowledge Management (CIKM) 2020
+=== Journal Reviewer
+- The IEEE Transactions on Knowledge and Data Engineering
 
 == Awards
 . Innovation Pioneer Award, Dec 2020, 2012 Labs, Huawei Technologies
@@ -64,4 +82,3 @@ My research interests include
 - Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Present
 - Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
 - Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
-
