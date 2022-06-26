@@ -1,4 +1,4 @@
-# jemdoc: nomenu, {index.html}
+# jemdoc: nomenu, notime, showsource, nodefaultcss, {index.html} 
 =Xijun (Ted) Li
 
 ~~~
@@ -22,7 +22,7 @@ E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
 ~~~
 
 #= News
-#- \[05-7-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
+#- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
 #- \[04-30-2020\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
 #- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeuRIPS'21 ML4CO Competition (Team qqy)!
 #- \[01-05-2022\] I passed the Ph.D. qualifying exam!
@@ -39,7 +39,7 @@ Xijun has received master degree from Shanghai Jiao Tong University, P.R. China,
 - Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
 
 = Research
-My research interests include 
+== Recent Interests
 - Learning to Optimization (L2O)
 - Machine Learning for Computer System (ML4CS)
 - Reinforcement Leraning / Machine Learning
@@ -80,7 +80,7 @@ My research interests include
 - The AAAI Conference on Artificial Intelligence (AAAI) 2020/2021
 - The International Conference on Data Engineering (ICDE) 2022
 - The ACM International Conference on Information and Knowledge Management (CIKM) 2020
-== Journal Reviewer
+=== Journal Reviewer
 - The IEEE Transactions on Knowledge and Data Engineering
 
 = Selected Awards
