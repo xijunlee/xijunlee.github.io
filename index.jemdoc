@@ -1,14 +1,14 @@
-# jemdoc: nomenu, {index.html} 
-= Xijun (Ted) Li
+# jemdoc: nomenu {index.html}, showsource 
+= Xijun Li 李希君
 
 ~~~
-{}{img_left}{https://miralab.ai/people/xijun-li/avatar.jpg}{alt text}{131}{160}{https://xijunlee.github.io/}
+{}{img_left}{https://xijun-album.oss-cn-hangzhou.aliyuncs.com/avatar_casual.jpg}{alt text}{131}{160}{https://xijunlee.github.io/}
 Senior Researcher \@ [http://dev3.noahlab.com.hk/ HUAWEI Noah's Ark Lab] \n
 [https://miralab.ai/ Laboratory of Machine Intelligence Research and Applications (MIRA)] \n
 [https://ustc.edu.cn/ University of Science and Technology of China (USTC)] \n
 
-E-mail (preferred): /xijun.li/ \[@\] huawei \[DOT\] com \n
-E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
+E-mail (preferred): /xijun.li/ \[AT\] huawei \[DOT\] com \n
+E-mail : /xijun.li/ \[AT\] miralab \[DOT\] ai
 
 \[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/ Linkedin]\] \[[https://scholar.google.com/citations?user=QXU_QbMAAAAJ&hl=en Google Scholar]\] \[[https://github.com/xijunlee Github]\] \[[https://miralab.ai/people/xijun-li/ MIRA Lab]\]  
 
@@ -22,11 +22,11 @@ E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
 
 == News
 - \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
-- \[04-30-2020\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
-- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeuRIPS'21 ML4CO Competition (Team qqy)!
+- \[04-30-2022\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
+- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition (Team qqy)!
 - \[01-05-2022\] I passed the Ph.D. qualifying exam!
 - \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
-- \[02-16-2020\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
+- \[02-16-2021\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
 
 == About
 Xijun has received master degree from Shanghai Jiao Tong University, P.R. China, in 2018. Currently, he is a senior researcher of HUAWEI Noah’s Ark Lab and working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published several papers on top peer-reviewed conferences and journals (SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.). He has also been committee member of MDM 2021 Industry Track and reviewer of multiple top journals and conferences (TKDE, AAAI, ICDE, CIKM, etc.). Moreover, his research interests focus on learning to optimize combinatorial optimization problem and machine learning for computer systems.  
