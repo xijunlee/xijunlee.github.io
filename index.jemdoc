@@ -1,4 +1,4 @@
-# jemdoc: {index.html}, nofooter  
+# jemdoc: {index.html}
 ==Xijun (Ted) Li
 
 ~~~
@@ -10,6 +10,9 @@ Senior Researcher \n
 
 E-mail (preferred): /xijun.li/ \[@\] huawei \[DOT\] com \n
 E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
+
+\[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/ Linkedin]\] \[[https://scholar.google.com/citations?user=QXU_QbMAAAAJ&hl=en Google Scholar]\] \[[https://github.com/xijunlee Github]\] \[[https://miralab.ai/people/xijun-li/ MIRA Lab]\]  
+
 ~~~
 
 == About Me
@@ -28,8 +31,8 @@ My research interests include
 === Recent Publications 
 
 . Ji Zhang, Xijun Li*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li; LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems; 2022 59th ACM/IEEE Design Automation Conference (DAC) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
-. Yunfan Zhou*, Xijun Li*, Jinhong Luo, Mingxuan Yuan, Jianguo Yao, Jia Zeng; Learning to Optimize DAG Scheduling in Heterogeneous Environment; 2022 23rd IEEE International Conference on Mobile Data Management (MDM), 137-146 \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
-. Qingyu Qu*, Xijun Li*, Yunfan Zhou; Yordle: An Efficient Imitation Learning for Branch and Bound; NeurIPS 2021 ML4CO Competition \[[https://www.ecole.ai/2021/ml4co-competition/proceedings/7.pdf pdf]\]
+. Yunfan Zhou, Xijun Li*, Jinhong Luo, Mingxuan Yuan, Jianguo Yao, Jia Zeng; Learning to Optimize DAG Scheduling in Heterogeneous Environment; 2022 23rd IEEE International Conference on Mobile Data Management (MDM), 137-146 \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
+. Qingyu Qu, Xijun Li*, Yunfan Zhou; Yordle: An Efficient Imitation Learning for Branch and Bound; NeurIPS 2021 ML4CO Competition \[[https://www.ecole.ai/2021/ml4co-competition/proceedings/7.pdf pdf]\]
 . Li, Xijun; Luo, Weilin; Yuan, Mingxuan; Wang, Jun; Lu, Jiawen; Wang, Jie; Lv, Jinhu; Zeng, Jia; Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems, 37th International Conference on Data Engineering (ICDE) \[[https://arxiv.org/pdf/2105.12899 pdf]\] \[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/overlay/1635461853634/single-media-viewer/ slides]\]
 . Tang, Yingtian; Lu, Han; Li, Xijun*; Chen, Lei; Yuan, Mingxuan; Zeng, Jia; Learning-Aided Heuristics Design for Storage System, Proceedings of the ACM SIGMOD International Conference on Management of Data 2021 \[[https://arxiv.org/pdf/2106.07288 pdf]\] \[[https://www.youtube.com/watch?v=oC6fupIdTJ8 video]\]
 . Wang, Zhenkun; Zhen, Huiling; Deng, Jingda; Qingfu, Zhang; Li, Xijun; Zhang, Qingfu; Yuan, Mingxuan; Zeng, Jia; Multiobjective Optimization-Aided Decision-Making System for Large-Scale Manufacturing Planning, IEEE Transactions on Cybernetics \[[https://ieeexplore.ieee.org/abstract/document/9345531/ pdf]\]
@@ -48,7 +51,7 @@ My research interests include
 
 “*” indicates the equal contribution/corresponding author.
 
-=== Awards
+== Awards
 . Innovation Pioneer Award, Dec 2020, 2012 Labs, Huawei Technologies
 . Excellent New Employee of 2012 Labs, Dec 2018, Huawei Technologies
 . National Scholarship, Sep 2014, Chinese Ministry of Education
