@@ -1,4 +1,4 @@
-# jemdoc: nomenu {index.html} 
+# jemdoc: menu{MENU}{index.html} 
 = Xijun Li 李希君
 
 ~~~
