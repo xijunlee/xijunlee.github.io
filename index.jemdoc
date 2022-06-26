@@ -1,4 +1,4 @@
-# jemdoc: nomenu, notime, showsource, nodefaultcss, {index.html} 
+# jemdoc: nomenu, notime, {index.html} 
 =Xijun (Ted) Li
 
 ~~~
@@ -21,13 +21,13 @@ E-mail : /xijun.li/ \[@\] miralab \[DOT\] ai
 - \[[https://miralab.ai/admission/admission_2023/ Admission to USTC MIRA Lab (中科大 MIRA Lab 研究生招生说明)]\]
 ~~~
 
-#= News
-#- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
-#- \[04-30-2020\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
-#- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeuRIPS'21 ML4CO Competition (Team qqy)!
-#- \[01-05-2022\] I passed the Ph.D. qualifying exam!
-#- \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
-#- \[02-16-2020\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
+= News
+- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
+- \[04-30-2020\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
+- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeuRIPS'21 ML4CO Competition (Team qqy)!
+- \[01-05-2022\] I passed the Ph.D. qualifying exam!
+- \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
+- \[02-16-2020\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
 
 = About Me
 Xijun has received master degree from Shanghai Jiao Tong University, P.R. China, in 2018. Currently, he is a senior researcher of HUAWEI Noah’s Ark Lab and working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published several papers on top peer-reviewed conferences and journals (SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.). He has also been committee member of MDM 2021 Industry Track and reviewer of multiple top journals and conferences (TKDE, AAAI, ICDE, CIKM, etc.). Moreover, his research interests focus on learning to optimize combinatorial optimization problem and machine learning for computer systems.  
