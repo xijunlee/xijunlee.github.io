@@ -10,7 +10,7 @@ Senior Researcher \@ [http://dev3.noahlab.com.hk/ HUAWEI Noah's Ark Lab] \n
 E-mail (preferred): xijun.li\@huawei\.com \n
 E-mail : xijun.li\@miralab\.ai
 
-\[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/ Linkedin]\] \[[https://scholar.google.com/citations?user=QXU_QbMAAAAJ&hl=en Google Scholar]\] \[[https://miralab.ai/people/xijun-li/ Info\@MIRA Lab]\]  
+\[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/ Linkedin]\] \[[https://scholar.google.com/citations?user=QXU_QbMAAAAJ&hl=en Google Scholar]\] \[[https://miralab.ai/people/xijun-li/ Info\@MIRA Lab]\]  \[[https://github.com/xijunlee Github]\] 
 ~~~
 
 ~~~
@@ -20,9 +20,9 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
-- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized as Publicity Paper!
+- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper*!
 - \[04-30-2022\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
-- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition (Team qqy)!
+- \[02-01-2022\] We won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition (Team qqy). Check [https://www.ecole.ai/2021/ml4co-competition/ this] out!
 - \[01-05-2022\] I passed the Ph.D. qualifying exam!
 - \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
 - \[02-16-2021\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
@@ -32,8 +32,8 @@ Xijun has received master degree from Shanghai Jiao Tong University, P.R. China,
 
 == Research
 === Recent Interests
-- Learning to Optimization (L2O)
-- Machine Learning for Computer System (ML4CS)
+- *Learning to Optimization (L2O)*
+- *Machine Learning for Computer System (ML4CS)*
 - Reinforcement Learning
 - Operational Research
 - Mathematic Solver
@@ -42,27 +42,27 @@ Xijun has received master degree from Shanghai Jiao Tong University, P.R. China,
 
 === Recent Publications 
 
-. Ji Zhang, Xijun Li*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li; LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems; 2022 59th ACM/IEEE Design Automation Conference (DAC) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
-. Yunfan Zhou, Xijun Li*, Jinhong Luo, Mingxuan Yuan, Jianguo Yao, Jia Zeng; Learning to Optimize DAG Scheduling in Heterogeneous Environment; 2022 23rd IEEE International Conference on Mobile Data Management (MDM), 137-146 \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
-. Qingyu Qu, Xijun Li*, Yunfan Zhou; Yordle: An Efficient Imitation Learning for Branch and Bound; NeurIPS 2021 ML4CO Competition \[[https://www.ecole.ai/2021/ml4co-competition/proceedings/7.pdf pdf]\]
-. Li, Xijun; Luo, Weilin; Yuan, Mingxuan; Wang, Jun; Lu, Jiawen; Wang, Jie; Lv, Jinhu; Zeng, Jia; Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems, 37th International Conference on Data Engineering (ICDE) \[[https://arxiv.org/pdf/2105.12899 pdf]\] \[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/overlay/1635461853634/single-media-viewer/ slides]\]
-. Tang, Yingtian; Lu, Han; Li, Xijun*; Chen, Lei; Yuan, Mingxuan; Zeng, Jia; Learning-Aided Heuristics Design for Storage System, Proceedings of the ACM SIGMOD International Conference on Management of Data 2021 \[[https://arxiv.org/pdf/2106.07288 pdf]\] \[[https://www.youtube.com/watch?v=oC6fupIdTJ8 video]\]
-. Wang, Zhenkun; Zhen, Huiling; Deng, Jingda; Qingfu, Zhang; Li, Xijun; Zhang, Qingfu; Yuan, Mingxuan; Zeng, Jia; Multiobjective Optimization-Aided Decision-Making System for Large-Scale Manufacturing Planning, IEEE Transactions on Cybernetics \[[https://ieeexplore.ieee.org/abstract/document/9345531/ pdf]\]
-. Hui-Ling Zhen, Zhenkun Wang, Xijun Li, Qingfu Zhang, Mingxuan Yuan, Jia Zeng; Accelerate the optimization of large-scale manufacturing planning using game theory; Complex & Intelligent Systems; 1-12 \[[https://link.springer.com/article/10.1007/s40747-021-00352-7 pdf]\]
-. Li, Xijun; Yuan, Mingxuan; Chen, Di; Yao, Jianguo; Zeng, Jia;  A data-driven three-layer algorithm for split delivery vehicle routing problem with 3D container loading constraint, Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining \[[https://www.researchgate.net/profile/Xijun-Li/publication/326497171_A_Data-Driven_Three-Layer_Algorithm_for_Split_Delivery_Vehicle_Routing_Problem_with_3D_Container_Loading_Constraint/links/5bdd4193299bf1124fb673f2/A-Data-Driven-Three-Layer-Algorithm-for-Split-Delivery-Vehicle-Routing-Problem-with-3D-Container-Loading-Constraint.pdf pdf]\] \[[https://www.youtube.com/watch?v=zgMSXR2q52s video]\]
-. Li, Xijun; Yao, Jianguo; Yuan, Mingxuan; Zeng, Jia; A Two-Layer Algorithmic Framework for Service Provider Configuration and Planning with Optimal Spatial Matching, Proceedings of the 27th ACM International Conference on Information and Knowledge Management \[[https://www.researchgate.net/profile/Xijun-Li/publication/328436317_A_Two-Layer_Algorithmic_Framework_for_Service_Provider_Configuration_and_Planning_with_Optimal_Spatial_Matching/links/5bdd43d392851c6b27a2a9ed/A-Two-Layer-Algorithmic-Framework-for-Service-Provider-Configuration-and-Planning-with-Optimal-Spatial-Matching.pdf pdf]\]
-. Li, Xijun; Yao, Jianguo; Liu, Xue; Guan, Haibing; A first look at information entropy-based data pricing, 2017 IEEE 37th International Conference on Distributed Computing Systems (ICDCS) \[[https://ieeexplore.ieee.org/abstract/document/7980149 pdf]\]
+. Ji Zhang, *Xijun Li*\*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li; LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems; 2022 59th ACM/IEEE Design Automation Conference (DAC) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
+. Yunfan Zhou, *Xijun Li*\*, Jinhong Luo, Mingxuan Yuan, Jianguo Yao, Jia Zeng; Learning to Optimize DAG Scheduling in Heterogeneous Environment; 2022 23rd IEEE International Conference on Mobile Data Management (MDM), 137-146 \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
+. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou; Yordle: An Efficient Imitation Learning for Branch and Bound; NeurIPS 2021 ML4CO Competition \[[https://www.ecole.ai/2021/ml4co-competition/proceedings/7.pdf pdf]\]
+. *Li, Xijun*; Luo, Weilin; Yuan, Mingxuan; Wang, Jun; Lu, Jiawen; Wang, Jie; Lv, Jinhu; Zeng, Jia; Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems, 37th International Conference on Data Engineering (ICDE) \[[https://arxiv.org/pdf/2105.12899 pdf]\] \[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/overlay/1635461853634/single-media-viewer/ slides]\]
+. Tang, Yingtian; Lu, Han; *Li, Xijun*\*; Chen, Lei; Yuan, Mingxuan; Zeng, Jia; Learning-Aided Heuristics Design for Storage System, Proceedings of the ACM SIGMOD International Conference on Management of Data 2021 \[[https://arxiv.org/pdf/2106.07288 pdf]\] \[[https://www.youtube.com/watch?v=oC6fupIdTJ8 video]\]
+. Wang, Zhenkun; Zhen, Huiling; Deng, Jingda; Qingfu, Zhang; *Li, Xijun*; Zhang, Qingfu; Yuan, Mingxuan; Zeng, Jia; Multiobjective Optimization-Aided Decision-Making System for Large-Scale Manufacturing Planning, IEEE Transactions on Cybernetics \[[https://ieeexplore.ieee.org/abstract/document/9345531/ pdf]\]
+. Hui-Ling Zhen, Zhenkun Wang, *Xijun Li*, Qingfu Zhang, Mingxuan Yuan, Jia Zeng; Accelerate the optimization of large-scale manufacturing planning using game theory; Complex & Intelligent Systems; 1-12 \[[https://link.springer.com/article/10.1007/s40747-021-00352-7 pdf]\]
+. *Li, Xijun*; Yuan, Mingxuan; Chen, Di; Yao, Jianguo; Zeng, Jia;  A data-driven three-layer algorithm for split delivery vehicle routing problem with 3D container loading constraint, Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining \[[https://www.researchgate.net/profile/Xijun-Li/publication/326497171_A_Data-Driven_Three-Layer_Algorithm_for_Split_Delivery_Vehicle_Routing_Problem_with_3D_Container_Loading_Constraint/links/5bdd4193299bf1124fb673f2/A-Data-Driven-Three-Layer-Algorithm-for-Split-Delivery-Vehicle-Routing-Problem-with-3D-Container-Loading-Constraint.pdf pdf]\] \[[https://www.youtube.com/watch?v=zgMSXR2q52s video]\]
+. *Li, Xijun*; Yao, Jianguo; Yuan, Mingxuan; Zeng, Jia; A Two-Layer Algorithmic Framework for Service Provider Configuration and Planning with Optimal Spatial Matching, Proceedings of the 27th ACM International Conference on Information and Knowledge Management \[[https://www.researchgate.net/profile/Xijun-Li/publication/328436317_A_Two-Layer_Algorithmic_Framework_for_Service_Provider_Configuration_and_Planning_with_Optimal_Spatial_Matching/links/5bdd43d392851c6b27a2a9ed/A-Two-Layer-Algorithmic-Framework-for-Service-Provider-Configuration-and-Planning-with-Optimal-Spatial-Matching.pdf pdf]\]
+. *Li, Xijun*; Yao, Jianguo; Liu, Xue; Guan, Haibing; A first look at information entropy-based data pricing, 2017 IEEE 37th International Conference on Distributed Computing Systems (ICDCS) \[[https://ieeexplore.ieee.org/abstract/document/7980149 pdf]\]
 
 === Working Papers
 
-. Xijun Li, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022) (Submitted to NeurIPS 2022)
-. Qingyu Qu, Xijun Li*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
-. Jiayi Zhang, Chang Liu, Junchi Yan, Xijun Li, Hui-Ling Zhen, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
-. Wenxuan Guo, Junchi Yan, Hui-Ling Zhen, Xijun Li, Mingxuan Yuan, Yaohui Jin: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
-. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, Xijun Li, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs (Submitted to NeurIPS 2022)
-. Qingyu Qu, Kexin Liu, Xijun Li, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
-. Kecheng Huang, Xijun Li, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
-. Yunfan Zhou, Xijun Li*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
+. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022) (Submitted to NeurIPS 2022)
+. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
+. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
+. Jiayi Zhang, Chang Liu, Junchi Yan, *Xijun Li*, Hui-Ling Zhen, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
+. Wenxuan Guo, Junchi Yan, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
+. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs (Submitted to NeurIPS 2022)
+. Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
+. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
 
 “*” indicates the equal contribution/corresponding author.
 
@@ -90,7 +90,7 @@ Xijun has received master degree from Shanghai Jiao Tong University, P.R. China,
 == Selected Awards
 - Quality Star Award, Dec 2021, 2012 Labs, Huawei Technologies
 - Innovation Pioneer Award, Dec 2020, 2012 Labs, Huawei Technologies
-- Excellent New Employee of 2012 Labs, Dec 2018, Huawei Technologies
+- Excellent New Employee, Dec 2018, 2012 Labs, Huawei Technologies
 - National Scholarship, Sep 2017, Chinese Ministry of Education
 - National Scholarship, Sep 2014, Chinese Ministry of Education
 - Skyworth Enterprise Scholarship, First Prize, Jun 2015, Skyworth Enterprise
