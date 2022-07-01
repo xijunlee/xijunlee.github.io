@@ -20,7 +20,7 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
-- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper*!
+- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper* with high market value!
 - \[04-30-2022\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
 - \[02-01-2022\] I led a team (named *qqy*) to win the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. Check out the [https://www.ecole.ai/2021/ml4co-competition/  *result*]!
 - \[01-05-2022\] I passed the Ph.D. qualifying exam!
@@ -58,8 +58,8 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022) (Submitted to NeurIPS 2022)
 . Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
-. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
-. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
+#. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
+#. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
 . Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
 . Jiayi Zhang, Chang Liu, Junchi Yan, *Xijun Li*, Hui-Ling Zhen, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
 . Wenxuan Guo, Junchi Yan, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
