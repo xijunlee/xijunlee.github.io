@@ -24,7 +24,7 @@ E-mail : xijun.li\@miralab\.ai
 - \[07-08-2022\] I delivered a talk \'Frontier of Learning to Optimization\' at the CUHKSZ-HUAWEI Computing Mathematic Forum \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/The%20Frontier%20of%20Learning%20to%20Optimization.pdf slides]\]\[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/CUHKSZ-HW-Computing-Mathematical-Forum2.jpg media]\]. 
 - \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper* with high market value!
 - \[04-30-2022\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
-- \[02-01-2022\] I led a team (named *qqy*) to win the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. Check out the [https://www.ecole.ai/2021/ml4co-competition/  *result*]!
+- \[02-01-2022\] I led a team (named *qqy*) to win the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. Check out the [https://www.ecole.ai/2021/ml4co-competition/  *result*] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ml4co_result.jpg media]\] \[[https://arxiv.org/pdf/2202.01896.pdf solution]\]!
 - \[01-05-2022\] I passed the Ph.D. qualifying exam!
 - \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
 - \[02-16-2021\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
@@ -46,7 +46,7 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 == Research
 === Recent Interests
 - *Learning to Optimization*
-- *Mathematic Solver*
+- *Mathematic Programming Solver*
 - *Neural Combination Optimization*
 - *Machine Learning for Computer System*
 - Reinforcement Learning
@@ -75,10 +75,14 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 #. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
 #. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
 . Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
-. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
+. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022) (Under review of NEUROCOMPUTING)
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022) (Under review of Machine Intelligent Research)
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs (Submitted to NeurIPS 2022)
 . Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
+
+=== Preprint
+
+. 
 
 where `\*' indicates the equal contribution/corresponding author.
 
