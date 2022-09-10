@@ -31,8 +31,7 @@ E-mail : xijun.li\@miralab\.ai
 - \[02-16-2021\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
 
 == About
-Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has received M.Sc. degree from Shanghai Jiao Tong University, P.R. China, in 2018. And now he is working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published 10 papers on top peer-reviewed conferences and journals (such as SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.) and 10\+ patents (first author in 6 patents) with Noah's Ark Lab. Besides, he has won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Mathematical Programming Solver, Learning to Optimization (L2O) and Machine Learning for Computer System (ML4CS). 
-#And now he is one of  core developers of [https://www.huaweicloud.com/product/modelarts/optverse.html HUAWEI OptVerse Solver] (both MIP and LP).
+Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has received M.Sc. degree from Shanghai Jiao Tong University, P.R. China, in 2018. And now he is working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published 10 papers on top peer-reviewed conferences and journals (such as SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.) and 10\+ patents (first author in 6 patents) with Noah's Ark Lab. Besides, he has won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Mathematical Programming Solver, Learning to Optimization (L2O) and Machine Learning for Computer System (ML4CS). And now he is one of core developers of [https://www.huaweicloud.com/product/modelarts/optverse.html HUAWEI OptVerse AI Solver].
 
 == Research
 === Recent Interests
@@ -77,17 +76,6 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 
 where `\*' indicates the equal contribution/corresponding author.
 
-== Education
-- Ph.D. Candidate, Electronic Engineering and Information Science \@ University of Science and Technology of China, 2019 - 2023 (expected)
-- M.Sc., Computer Software Engineering \@ Shanghai Jiao Tong University, 2015-2018
-- B.S., Applied Mathematics \@ South China University of Technology, 2011-2015
-
-== Experience
-- Senior Research Engineer A, HUAWEI Noah's Ark Lab, Mar 2022 – Present
-- Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Feb 2022
-- Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
-- Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
-
 == Services
 === Program Committee Member
 - The 23rd IEEE International Conference on Mobile Data Management (MDM), [http://mdmconferences.org/mdm2021/committees.html Industry Track]
@@ -100,6 +88,17 @@ where `\*' indicates the equal contribution/corresponding author.
 - The ACM International Conference on Information and Knowledge Management (CIKM) 2020
 === Journal Reviewer
 - The IEEE Transactions on Knowledge and Data Engineering
+
+== Experience
+- Senior Research Engineer A, HUAWEI Noah's Ark Lab, Mar 2022 – Present
+- Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Feb 2022
+- Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
+- Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
+
+== Education
+- Ph.D. Candidate, Electronic Engineering and Information Science \@ University of Science and Technology of China, 2019 - 2023 (expected)
+- M.Sc., Computer Software Engineering \@ Shanghai Jiao Tong University, 2015-2018
+- B.S., Applied Mathematics \@ South China University of Technology, 2011-2015
 
 == Selected Awards
 - Quality Star Award, Dec 2021, 2012 Labs, Huawei Technologies
