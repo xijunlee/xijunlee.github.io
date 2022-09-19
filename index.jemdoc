@@ -20,15 +20,16 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
+- \[09-19-2022\] The paper "Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming" is accepted by IEEE Transactions on Aerospace and Electronic Systems (to appear soon). Congrats to Qingyu and all co-authors.
 - \[08-09-2022\] I served as *PC member* for *AAAI* 2023.
 - \[07-24-2022\] I delivered a talk \'Frontier of Learning to Optimization\' at the USTC MIRA Lab \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/The%20Frontier%20of%20Learning%20to%20Optimization.pdf slides]\]\[[https://miralab.ai/news/ media]\]. 
 - \[07-08-2022\] I delivered a talk \'Frontier of Learning to Optimization\' at the CUHKSZ-HUAWEI Computing Mathematic Forum \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/The%20Frontier%20of%20Learning%20to%20Optimization.pdf slides]\]\[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/CUHKSZ-HW-Computing-Mathematical-Forum2.jpg media]\]. 
-- \[05-07-2022\] "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper* with high market value!
-- \[04-30-2022\] "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
+- \[05-07-2022\] The paper "LQoCo: Learning to Optimize Cache Capacity Overloading in Storage Systems" is accepted by DAC'22 and recognized by program committe as *Publicity Paper* with high market value!
+- \[04-30-2022\] The paper "Learning to Optimize DAG Scheduling in Heterogeneous Environment" is accepted by MDM'22!
 - \[02-01-2022\] I led a team (named *qqy*) to win the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. Check out the [https://www.ecole.ai/2021/ml4co-competition/  *result*] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ml4co_result.jpg media]\] \[[https://arxiv.org/pdf/2202.01896.pdf solution]\]!
 - \[01-05-2022\] I passed the Ph.D. qualifying exam!
-- \[03-01-2021\] "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
-- \[02-16-2021\] "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
+- \[03-01-2021\] The paper "Learning-Aided Heuristics Design for Storage System" is accepted by SIGMOD'21!
+- \[02-16-2021\] The paper "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by ICDE'21!
 
 == About
 Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has received M.Sc. degree from Shanghai Jiao Tong University, P.R. China, in 2018. He is working towards his Ph.D. degree in the University of Science and Technology of China (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published 10 papers on top peer-reviewed conferences and journals (such as SIGMOD, KDD, ICDE, DAC, CIKM, ICDCS, TCYB, etc.) and applied/published 12 patents (first author in 6 patents) with Noah's Ark Lab. And he has won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Mathematical Programming Solver, Learning to Optimization (L2O) and Machine Learning for Computer System (ML4CS). Besides, he is one of core developers of [https://www.huaweicloud.com/product/modelarts/optverse.html HUAWEI OptVerse AI Solver].
@@ -47,6 +48,7 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 
 === Recent Publications 
 
+. Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. (To appear in IEEE Transactions on Aerospace and Electronic Systems, *TAES*)
 . Ji Zhang, *Xijun Li*\*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li: L-QoCo: learning to optimize cache capacity overloading in storage systems. *DAC 2022*: 379-384 (CORE A, CCF A) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
 . Yunfan Zhou, *Xijun Li*\*, Jinhong Luo, Mingxuan Yuan, Jia Zeng, Jianguo Yao: Learning to Optimize DAG Scheduling in Heterogeneous Environment. *MDM 2022*: 137-146 (CORE A, CCF C) \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
 . Qingyu Qu, *Xijun Li*\*, Yunfan Zhou; Yordle: An Efficient Imitation Learning for Branch and Bound; *NeurIPS 2021 ML4CO Competition* \[[https://www.ecole.ai/2021/ml4co-competition/proceedings/7.pdf pdf]\]
@@ -64,7 +66,6 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 . Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
 #. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
 #. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
-. Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming (Under review of IEEE Transactions on Aerospace and Electronic Systems)
 . Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022) (Under review of NEUROCOMPUTING)
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022) (Under review of Machine Intelligent Research)
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs (Submitted to NeurIPS 2022)
