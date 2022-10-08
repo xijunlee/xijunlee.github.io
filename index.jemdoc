@@ -20,7 +20,8 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
-- \[09-19-2022\] The paper "Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming" is accepted by *IEEE Transactions on Aerospace and Electronic Systems* (to appear soon). Congratulations to Qingyu and all co-authors!
+- \[08-09-2022\] I served as *Industry PC member* for *WWW* 2023.
+- \[09-19-2022\] The paper "Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming" is accepted by *IEEE Transactions on Aerospace and Electronic Systems*. Congratulations to Qingyu and all co-authors!
 - \[08-09-2022\] I served as *PC member* for *AAAI* 2023.
 - \[07-24-2022\] I delivered a talk \'Frontier of Learning to Optimization\' at the USTC MIRA Lab \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/The%20Frontier%20of%20Learning%20to%20Optimization.pdf slides]\]\[[https://miralab.ai/news/ media]\]. 
 - \[07-08-2022\] I delivered a talk \'Frontier of Learning to Optimization\' at the CUHKSZ-HUAWEI Computing Mathematic Forum \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/The%20Frontier%20of%20Learning%20to%20Optimization.pdf slides]\]\[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/CUHKSZ-HW-Computing-Mathematical-Forum2.jpg media]\]. 
@@ -48,7 +49,7 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 
 === Recent Publications 
 
-. Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. (To appear in *IEEE Transactions on Aerospace and Electronic Systems*, *TAES*)
+. Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. (*IEEE Transactions on Aerospace and Electronic Systems*, *TAES*) \[https://ieeexplore.ieee.org/document/9904306 early access]\]
 . Ji Zhang, *Xijun Li*\*, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li: L-QoCo: learning to optimize cache capacity overloading in storage systems. *DAC 2022*: 379-384 (CORE A, CCF A) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
 . Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022 : Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
 . Yunfan Zhou, *Xijun Li*\*, Jinhong Luo, Mingxuan Yuan, Jia Zeng, Jianguo Yao: Learning to Optimize DAG Scheduling in Heterogeneous Environment. *MDM 2022*: 137-146 (CORE A, CCF C) \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\]
@@ -80,6 +81,8 @@ where `\*' indicates the equal contribution/corresponding author.
 
 == Services
 === Program Committee Member
+
+- The ACM Web Conference 2023 (formerly known as International World Wide Web Conference, abbreviated as WWW) (Industry Track)
 - The AAAI Conference on Artificial Intelligence (AAAI) 2023
 - The IEEE International Conference on Mobile Data Management (MDM) 2021, [http://mdmconferences.org/mdm2021/committees.html Industry Track]
 
@@ -118,10 +121,10 @@ where `\*' indicates the equal contribution/corresponding author.
 == Interns and Collaborators 
 
 - Weilin Luo (PhD graduated from Beihang University)
-- Qingyu Qu (PhD student @ Beihang University)
+- Qingyu Qu (PhD student @ Beihang University, arwarded *Excellent Interns* of HUAWEI Noah's Ark Lab of Year 2021 (10 out of 800\+ interns)) \[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/quqingyu_excelent.png cerification\]
+- Xiaotian Hao (PhD student @ Tianjin University, arwarded *Excellent Interns* of HUAWEI Noah's Ark Lab of Year 2022 (10 out of 800\+ interns))
 - Yufei Kuang (PhD student @ University of Science and Technology of China)
 - Zhihai Wang (PhD student @ University of Science and Technology of China)
-- Xiaotian Hao (PhD student @ Tianjin University)
 - Yiyuan Yang (PhD student @ University of Oxford, graduated from Tsinghua University)
 - Kecheng Huang (PhD student @ Chinese University of Hong Kong, graduated from Shandong University)
 - Yunfan Zhou (Msc student @ Chinese University of Hong Kong, graduated from Peking University)
