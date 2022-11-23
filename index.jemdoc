@@ -50,6 +50,7 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Recent Publications 
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. (*Machine Intelligent Research*)
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI 2023* workshop on AI to Accelerate Science and Engineering
 . Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. *Neurocomputing* \[[https://www.sciencedirect.com/science/article/abs/pii/S0925231222014035 pdf]\]
 . Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. *IEEE Transactions on Aerospace and Electronic Systems*, *TAES* \[[https://ieeexplore.ieee.org/document/9904306 early access]\]
@@ -69,7 +70,8 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 . Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
 #. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
 #. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
-. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022) (Under review of Machine Intelligent Research)
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
+. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
 #. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs
 #. Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
 
@@ -103,7 +105,7 @@ where `\*' indicates the equal contribution/corresponding author.
 - Senior Research Engineer A, HUAWEI Noah's Ark Lab, Mar 2022 – Present
 - Senior Research Engineer B, HUAWEI Noah's Ark Lab, Dec 2019 – Feb 2022
 - Research Engineer, HUAWEI Noah's Ark Lab, Apr 2018 – Nov 2019
-- Research Intern, HUAWEI Noah’s Ark Lab, Aug 2017 – Mar 2018
+- Research Intern, HUAWEI Noah's Ark Lab, Aug 2017 – Mar 2018
 
 == Education
 - Ph.D. Candidate, Electronic Engineering and Information Science \@ University of Science and Technology of China, 2019 - 2023 (expected)
