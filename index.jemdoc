@@ -67,21 +67,21 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 . *Xijun Li*, Jianguo Yao, Mingxuan Yuan, Jia Zeng: A Two-Layer Algorithmic Framework for Service Provider Configuration and Planning with Optimal Spatial Matching. *CIKM 2018*: 2273-2281 (CORE A, CCF B) \[[https://www.researchgate.net/profile/Xijun-Li/publication/328436317_A_Two-Layer_Algorithmic_Framework_for_Service_Provider_Configuration_and_Planning_with_Optimal_Spatial_Matching/links/5bdd43d392851c6b27a2a9ed/A-Two-Layer-Algorithmic-Framework-for-Service-Provider-Configuration-and-Planning-with-Optimal-Spatial-Matching.pdf pdf]\]
 . *Xijun Li*, Jianguo Yao, Xue Liu, Haibing Guan: A First Look at Information Entropy-Based Data Pricing. *ICDCS 2017*: 2053-2060 (CORE A, CCF B) \[[https://ieeexplore.ieee.org/abstract/document/7980149 pdf]\]
 
-=== Working Papers
+#=== Working Papers
 
-. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
 #. Yunfan Zhou, *Xijun Li*\*, Ji Zhang, Mingxuan Yuan, Jia Zeng: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
 #. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
-. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
-. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
 #. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs
 #. Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
 
 === Preprint
 
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022)
-. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. arXiv preprint arXiv:2202.01256
 . Yunfan Zhou, *Xijun Li*\*, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. arXiv preprint arXiv:2211.08251
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
+. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
+. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
+. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. arXiv preprint arXiv:2202.01256
 . Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022: Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
 
 where `\*' indicates the equal contribution/corresponding author.
