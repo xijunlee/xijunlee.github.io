@@ -21,9 +21,9 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
-- \[01-22-2023\] Two papers have been accepted by *ICLR 2023*, congrats to all co-authors!
+- \[01-22-2023\] Two papers have been accepted by *ICLR* 2023 and congratulations to all co-authors!
 - \[01-19-2023\] Received two *Presidential Individual Awards* from Huawei 2012 Labs and Huawei Supply Chain Department respectively!
-- \[12-18-2022\] The paper "Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning" is accepted by *AAAI 2023* workshop on AI to Accelerate Science and Engineering!
+- \[12-18-2022\] The paper "Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning" is accepted by *AAAI* 2023 workshop on AI to Accelerate Science and Engineering!
 - \[11-25-2022\] The paper "Machine Learning Methods in Solving the Boolean Satisfiability Problem" is accepted by *Machine Intelligence Research* Journal!
 - \[11-09-2022\] The paper "A Survey for Solving Mixed Integer Programming via Machine Learning" is accepted by *Neurocomputing* Journal!
 - \[10-06-2022\] I served as *Industry PC member* for *WWW* 2023.
@@ -58,8 +58,8 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 . *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR 2023* \[[https://openreview.net/pdf?id=Zob4P9bRNcK pdf]\]
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR 2023* \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\]
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI 2023* workshop on AI to Accelerate Science and Engineering
-. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*\#, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. *Machine Intelligence Research*
-. Jiayi Zhang, Chang Liu, *Xijun Li*\#, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. *Neurocomputing* \[[https://www.sciencedirect.com/science/article/abs/pii/S0925231222014035 pdf]\]
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*\#, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. *Machine Intelligence Research* Journal
+. Jiayi Zhang, Chang Liu, *Xijun Li*\#, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. *Neurocomputing* Journal \[[https://www.sciencedirect.com/science/article/abs/pii/S0925231222014035 pdf]\]
 . Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. *IEEE Transactions on Aerospace and Electronic Systems*, *TAES* \[[https://ieeexplore.ieee.org/document/9904306 early access]\]
 . Ji Zhang, *Xijun Li*\#, Xiyao Zhou, Mingxuan Yuan, Zhuo Cheng, Keji Huang, Yifan Li: L-QoCo: learning to optimize cache capacity overloading in storage systems. *DAC 2022*: 379-384 (CORE A, CCF A) \[[https://arxiv.org/pdf/2203.13678 pdf]\]
 . *Xijun Li*\*\#, Yunfan Zhou\*, Jinhong Luo, Mingxuan Yuan, Jia Zeng, Jianguo Yao: Learning to Optimize DAG Scheduling in Heterogeneous Environment. *MDM 2022*: 137-146 (CORE A, CCF C) \[[https://arxiv.org/pdf/2103.06980 pdf]\] \[[https://www.youtube.com/watch?v=KDaaOO7XYkM video]\] \[[https://xijun-doc.oss-cn-hongkong.aliyuncs.com/MDM2022_submisson/MDM_presentation.pdf slides]\]
