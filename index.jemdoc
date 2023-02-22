@@ -21,7 +21,7 @@ E-mail : xijun.li\@miralab\.ai
 ~~~
 
 == News
-- \[02-01-2023\] Received the *Presidential Individual Award* from Huawei Supply Chain Department!
+- \[02-22-2023\] My intern Yunfan Zhou has been arwarded *Excellent Intern* of HUAWEI Noah's Ark Lab (10 out of 800+ interns). 
 - \[01-22-2023\] Two papers have been accepted by *ICLR* 2023 and congratulations to all co-authors!
 - \[01-01-2023\] Received the *Presidential Individual Award* from Huawei 2012 Labs!
 - \[12-18-2022\] The paper "Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning" is accepted by *AAAI* 2023 workshop on AI to Accelerate Science and Engineering!
@@ -56,7 +56,7 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Recent Publications 
-. *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR 2023* \[[https://arxiv.org/pdf/2302.00244.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] 
+. *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR 2023* \[[https://arxiv.org/pdf/2302.00244.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] \[[https://gitee.com/mindspore/models/tree/master/research/l2o/hem-learning-to-cut code]\] 
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR 2023* \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\]
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI 2023* workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*\#, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. *Machine Intelligence Research* Journal
@@ -139,13 +139,13 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 == Interns and Collaborators 
 
 - Weilin Luo (PhD graduated from Beihang University)
-- Qingyu Qu (PhD student @ Beihang University, *Excellent Intern* of HUAWEI Noah's Ark Lab of Year 2021) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/quqingyu_excelent.png cerification]\]
-- Xiaotian Hao (PhD student @ Tianjin University, *Excellent Intern* of HUAWEI Noah's Ark Lab of Year 2022) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/xiaotian_excellent_intern.jpg cerification]\]
+- Qingyu Qu (PhD student @ Beihang University, *Excellent Intern* of HUAWEI Noah's Ark Lab of Year 2021H2) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/quqingyu_excelent.png cerification]\]
+- Xiaotian Hao (PhD student @ Tianjin University, *Excellent Intern* of HUAWEI Noah's Ark Lab of Year 2022H1) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/xiaotian_excellent_intern.jpg cerification]\]
 - Yufei Kuang (PhD student @ University of Science and Technology of China)
 - Zhihai Wang (PhD student @ University of Science and Technology of China)
 - Yiyuan Yang (PhD student @ University of Oxford, graduated from Tsinghua University)
 - Kecheng Huang (PhD student @ Chinese University of Hong Kong, graduated from Shandong University)
-- Yunfan Zhou (Msc student @ Chinese University of Hong Kong, graduated from Peking University)
+- Yunfan Zhou (Msc student @ Chinese University of Hong Kong, graduated from Peking University, *Excellent Intern* of HUAWEI Noah's Ark Lab of Year 2022H2)
 - Yingtian Tang (Msc student @ University of Pennsylvania, graduated from UESTC)
 
 It is pleased and appreciated to work with you guys!
