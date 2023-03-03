@@ -59,10 +59,10 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Recent Publications 
-. Hongduo Liu, Peiyu Liao, Mengchuan Zou, Bowen Pang, *Xijun Li*, Mingxuan Yuan, Tsung-Yi Ho, Bei Yu: Layout Decomposition via Boolean Satisfiability. *DAC* 2023
+. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
 . *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR* 2023 \[[https://arxiv.org/pdf/2302.00244.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] \[[https://gitee.com/mindspore/models/tree/master/research/l2o/hem-learning-to-cut code (MindSpore Version)]\] \[[https://github.com/xijunlee/L2O-HEM-Torch code (PyTorch Version)]\]
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR* 2023 \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\]
-. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
+. Hongduo Liu, Peiyu Liao, Mengchuan Zou, Bowen Pang, *Xijun Li*, Mingxuan Yuan, Tsung-Yi Ho, Bei Yu: Layout Decomposition via Boolean Satisfiability. *DAC* 2023
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*\#, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. *Machine Intelligence Research* Journal
 . Jiayi Zhang, Chang Liu, *Xijun Li*\#, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. *Neurocomputing* Journal \[[https://www.sciencedirect.com/science/article/abs/pii/S0925231222014035 pdf]\]
 . Qingyu Qu, Kexin Liu, *Xijun Li*, Yunfan Zhou, Jinhu Lv: Satellite Observation and Data-Transmission Scheduling using Imitation Learning based on Mixed Integer Linear Programming. *IEEE Transactions on Aerospace and Electronic Systems*, *TAES* \[[https://ieeexplore.ieee.org/document/9904306 early access]\]
@@ -138,7 +138,7 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 - The ACM International Conference on Information and Knowledge Management (CIKM) 2020
 === Journal Reviewer
 - The IEEE Transactions on Knowledge and Data Engineering
-- The IEEE Transactions on Emerging Topics in Computational Intelligence
+#- The IEEE Transactions on Emerging Topics in Computational Intelligence
 
 == Interns and Collaborators 
 
