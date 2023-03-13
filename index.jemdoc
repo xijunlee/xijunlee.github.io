@@ -1,5 +1,5 @@
 # jemdoc: nomenu {index.html} 
-= Xijun Li (李希君)
+= Xijun Li 李希君
 
 ~~~
 {}{img_left}{https://xijun-album.oss-cn-hangzhou.aliyuncs.com/avatar_casual.jpg}{alt text}{115}{175}{https://xijunlee.github.io/}
@@ -55,7 +55,6 @@ Xijun is a senior researcher of HUAWEI Noah’s Ark Lab. Before that, he has rec
 - *Machine Learning for Computer System*
 - Reinforcement Learning
 - Operational Research
-
 - Meta-Heuristic Algorithms
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
