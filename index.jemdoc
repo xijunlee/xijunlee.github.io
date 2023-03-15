@@ -60,8 +60,8 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 
 === Recent Publications 
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
-. *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR* 2023 \[[https://arxiv.org/pdf/2302.00244.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] \[[https://gitee.com/mindspore/models/tree/master/research/l2o/hem-learning-to-cut code (MindSpore Version)]\] \[[https://github.com/xijunlee/L2O-HEM-Torch code (PyTorch Version)]\]
-. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR* 2023 \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\]
+. *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR* 2023 \[[https://openreview.net/pdf?id=Zob4P9bRNcK pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] \[[https://gitee.com/mindspore/models/tree/master/research/l2o/hem-learning-to-cut code (MindSpore Version)]\] \[[https://github.com/xijunlee/L2O-HEM-Torch code (PyTorch Version)]\]
+. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR* 2023 \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\] \[[https://github.com/Thinklab-SJTU/ROCO code]\]
 . Hongduo Liu, Peiyu Liao, Mengchuan Zou, Bowen Pang, *Xijun Li*, Mingxuan Yuan, Tsung-Yi Ho, Bei Yu: Layout Decomposition via Boolean Satisfiability. *DAC* 2023
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*\#, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. *Machine Intelligence Research* Journal
 . Jiayi Zhang, Chang Liu, *Xijun Li*\#, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. *Neurocomputing* Journal \[[https://www.sciencedirect.com/science/article/abs/pii/S0925231222014035 pdf]\]
@@ -85,14 +85,13 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 #. Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
 
 === Preprint
-
-. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. CoRR abs/2201.06216 (2022)
-. *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
-. Yunfan Zhou\*, *Xijun Li*\*\#, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. arXiv preprint arXiv:2211.08251
-. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. CoRR abs/2203.04755 (2022)
-. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. CoRR abs/2203.02878 (2022)
-. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. CoRR abs/2201.06213 (2022)
-. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. arXiv preprint arXiv:2202.01256
+. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
+. *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems. \[[https://arxiv.org/abs/2303.08066 arxiv]\]
+. Yunfan Zhou\*, *Xijun Li*\*\#, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. \[[https://arxiv.org/abs/2211.08251 arxiv]\]
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. \[[https://arxiv.org/abs/2203.04755 arxiv]\]
+. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. \[[https://arxiv.org/abs/2203.02878 arxiv]\]
+. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. \[[https://arxiv.org/abs/2201.06213 arxiv]\]
+. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. \[[https://arxiv.org/abs/2202.01256 arxiv]\]
 . Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022: Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
 
 where `\*' indicates the equal contribution and `\#' stands for corresponding author.
