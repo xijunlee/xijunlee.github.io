@@ -21,6 +21,7 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 == News
+- \[02-24-2023\] The paper "HardSATGEN: Understanding the Difficulty of Hard SAT Formula Generation and A Strong Structure-Hardness-Aware Baseline" is accepted by *KDD* 2023!
 - \[03-06-2023\] I delivered a talk "Order matters: Boosting Mathematical Programming Solver via Machine Learning Techniques" at the [https://www.cuhk.edu.cn/en CUHKSZ 香港中文大学 (深圳)] and [http://www.sribd.cn/event/720 SRIBD 深圳大数据研究院] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/Order%20matters-20230305-CUHKSZ.pdf slides]\] \[[https://www.bilibili.com/video/BV1eY4y197kf/?spm_id_from=333.999.0.0 video]\]. 
 - \[02-24-2023\] The paper "Layout Decomposition via Boolean Satisfiability" is accepted by *DAC* 2023!
 - \[02-22-2023\] My intern [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/yunfan_excellent_intern.jpg Yunfan] has been arwarded *Excellent Intern* of Huawei Noah's Ark Lab (10 out of 800+ all interns). 
@@ -59,6 +60,7 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Recent Publications 
+. Yang Li, Xinyan Chen, Wenxuan Guo, *Xijun Li*, Wanqian Luo, Junhua Huang, Hui-Ling Zhen, Mingxuan Yuan, Junchi Yan: HardSATGEN: Understanding the Difficulty of Hard SAT Formula Generation and A Strong Structure-Hardness-Aware Baseline. *KDD* 2023 \[[https://arxiv.org/pdf/2302.02104 preprint]\]
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
 . *Xijun Li*\*, Zhihai Wang\*, Jie Wang, Yufei Kuang, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning Cut Selection for Mixed-Integer Linear Programming via Hierarchical Sequence Model. *ICLR* 2023 \[[https://openreview.net/pdf?id=Zob4P9bRNcK pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ICLR-2023-HEM-Presentation.pdf slides]\] \[[https://gitee.com/mindspore/models/tree/master/research/l2o/hem-learning-to-cut code (MindSpore)]\] \[[https://github.com/xijunlee/L2O-HEM-Torch code (PyTorch)]\] \[[https://zhuanlan.zhihu.com/p/614739029 media]\]
 . Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Xiaokang Yang, Junchi Yan: ROCO: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs. *ICLR* 2023 \[[https://openreview.net/pdf?id=2r6YMqz4Mml pdf]\] \[[https://github.com/Thinklab-SJTU/ROCO code]\] 
