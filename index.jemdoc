@@ -21,6 +21,8 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 == News
+- \[09-22-2023\] The paper "A Deep Instance Generative Framework For MILP Solvers Under Limited Data Availability" has been accepted at *NeurIPS* 2023 as a *spotlight*! Congratulations!
+- \[09-20-2023\] I will serve as *PC member* for *ICLR* 2024.
 - \[08-28-2022\] Our intern [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ExcellentIntern_Yufei.pdf Yufei] has been arwarded *Excellent Intern* of Huawei Noah's Ark Lab (5 out of 400+ all interns)! Congratulations!
 - \[07-16-2023\] I will serve as *PC member* for *AAAI* 2024.
 - \[07-07-2023\] Our OptVerse AI Solver received [https://bbs.huaweicloud.com/blogs/405080 *WAIC SAIL Award 卓越人工智能引领者*] and I gave a tutorial on behalf of our team! \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/WAIC2023/9b68728713a7b97d331b0471b9c5708.jpg pic1]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/WAIC2023/f5f3cbbcd0dfbe1031071793b6d682f.jpg pic2]\]
@@ -96,6 +98,7 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 === Preprint
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
 . *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems. \[[https://arxiv.org/abs/2303.08066 arxiv]\]
+. Zhihai Wang, Lei Chen, Jie Wang, *Xing Li*, Yinqi Bai, Xijun Li, Mingxuan Yuan, Jianye Hao, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design \[[https://arxiv.org/pdf/2309.03208 arxiv]\]
 . Yunfan Zhou\*, *Xijun Li*\*\#, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. \[[https://arxiv.org/abs/2211.08251 arxiv]\]
 . Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. \[[https://arxiv.org/abs/2203.04755 arxiv]\]
 . Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. \[[https://arxiv.org/abs/2203.02878 arxiv]\]
@@ -144,6 +147,7 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 
 == Services
 === Program Committee Member
+- The Twelfth International Conference on Learning Representations (ICLR) 2024
 - The AAAI Conference on Artificial Intelligence (AAAI) 2024
 - Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS) 2023
 - The International Conference on Data Engineering (ICDE) 2023
