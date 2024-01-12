@@ -71,7 +71,7 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
-. *Xijun Li*, Fangzhou Zhu, Hui-Ling Zhen, et al.: Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]\[[https://browse.arxiv.org/html/2401.05960v1 page]\]
+. *Xijun Li*, Fangzhou Zhu, Hui-Ling Zhen, et al.: Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]
 . Zijie Geng, *Xijun Li*, Jie Wang, Xiao Li, Yongdong Zhang, Feng Wu: A Deep Instance Generative Framework for MILP Solvers Under Limited Data Availability. *NeurIPS* 2023 (*Spotlight*) \[[https://miralab-ustc.github.io/L2O-G2MILP/ page]\] \[[https://arxiv.org/pdf/2310.02807v1.pdf pdf]\] \[[https://github.com/xijunlee/L2O-G2MILP code]\] 
 . Yang Li, Xinyan Chen, Wenxuan Guo, *Xijun Li*, Wanqian Luo, Junhua Huang, Hui-Ling Zhen, Mingxuan Yuan, Junchi Yan: HardSATGEN: Understanding the Difficulty of Hard SAT Formula Generation and A Strong Structure-Hardness-Aware Baseline. *KDD* 2023 \[[https://dl.acm.org/doi/10.1145/3580305.3599837 pdf]\] \[[https://github.com/Thinklab-SJTU/HardSATGEN code]\]
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
@@ -103,7 +103,7 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 
 === Software
 
-Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]\[[https://browse.arxiv.org/html/2401.05960v1 html]\]
+Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://browse.arxiv.org/html/2401.05960v1 page]\]
 
 === Preprint
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
