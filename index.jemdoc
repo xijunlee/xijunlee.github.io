@@ -21,6 +21,7 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 == News
+- \[02-29-2024\] I successfully defensed my Ph.D. thesis!
 - \[01-16-2024\] Two papers are accepted by *ICLR* 2024. The camera-ready version will be released soon!
 - \[01-12-2024\] We released a position paper [https://browse.arxiv.org/html/2401.05960v2 "Machine Learning Insides OptVerse AI Solver: Design Principles and Applications"]. Please stay tuned with OptVerse AI Solver! 
 - \[10-14-2023\] I delivered a talk "天筹AI求解器及运筹优化落地实践" on AI4OR workshop at [https://www.nudt.edu.cn/yssz/xtgcxy/index.htm National Univesrity of Defense Technology]. 
@@ -73,6 +74,8 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 
 === Publications 
 . *Xijun Li*, Fangzhou Zhu, Hui-Ling Zhen, et al.: Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]
+. Yufei Kuang, Jie Wang, Haoyang Liu, Fangzhou Zhu, Xijun Li, Jia Zeng, Jianye HAO, Bin Li, Feng Wu: Rethinking Branching on Exact Combinatorial Optimization Solver: The First Deep Symbolic Discovery Framework. *ICLR* 2024\[[https://openreview.net/pdf?id=jKhNBulNMh pdf]\]
+. Chang Liu, Zhichen Dong, Haobo Ma, Weilin Luo, *Xijun Li*, Bowen Pang, Jia Zeng, Junchi Yan: L2P-MIP: Learning to Presolve for Mixed Integer Programming. *ICLR* 2024 \[[https://openreview.net/pdf?id=McfYbKnpT8 pdf]\]
 . Zijie Geng, *Xijun Li*, Jie Wang, Xiao Li, Yongdong Zhang, Feng Wu: A Deep Instance Generative Framework for MILP Solvers Under Limited Data Availability. *NeurIPS* 2023 (*Spotlight*) \[[https://miralab-ustc.github.io/L2O-G2MILP/ page]\] \[[https://arxiv.org/pdf/2310.02807v1.pdf pdf]\] \[[https://github.com/xijunlee/L2O-G2MILP code]\] 
 . Yang Li, Xinyan Chen, Wenxuan Guo, *Xijun Li*, Wanqian Luo, Junhua Huang, Hui-Ling Zhen, Mingxuan Yuan, Junchi Yan: HardSATGEN: Understanding the Difficulty of Hard SAT Formula Generation and A Strong Structure-Hardness-Aware Baseline. *KDD* 2023 \[[https://dl.acm.org/doi/10.1145/3580305.3599837 pdf]\] \[[https://github.com/Thinklab-SJTU/HardSATGEN code]\]
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Jie Wang: Accelerating Linear Programming Solving by Exploiting the Performance Variability via Reinforcement Learning. *AAAI* 2023 workshop on AI to Accelerate Science and Engineering \[[https://ai-2-ase.github.io/papers/2%5cSubmission%5cAAAI2023_Learning_to_ReformulationCameraReadVersion.pdf pdf]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_poster.pdf poster]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_%20slides.pdf slides]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/aaai2023/AAAI2023_presentation_video.mp4 video]\]
@@ -192,7 +195,7 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 - Research Intern, Huawei Noah's Ark Lab, Aug 2017 – Mar 2018
 
 == Education
-- Ph.D. Candidate, Electronic Engineering and Information Science \@ University of Science and Technology of China, 2019 - 2024 March (expected)
+- Ph.D. Candidate, Electronic Engineering and Information Science \@ University of Science and Technology of China, 2019 Sep. - 2024 March
 - M.Sc., Computer Software Engineering \@ Shanghai Jiao Tong University, 2015-2018
 - B.S., Applied Mathematics \@ South China University of Technology, 2011-2015
 
