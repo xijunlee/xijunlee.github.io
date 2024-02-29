@@ -74,7 +74,7 @@ Xijun is a senior researcher of Huawei Noah’s Ark Lab. Before that, he has rec
 
 === Publications 
 . *Xijun Li*, Fangzhou Zhu, Hui-Ling Zhen, et al.: Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]
-. Yufei Kuang, Jie Wang, Haoyang Liu, Fangzhou Zhu, Xijun Li, Jia Zeng, Jianye HAO, Bin Li, Feng Wu: Rethinking Branching on Exact Combinatorial Optimization Solver: The First Deep Symbolic Discovery Framework. *ICLR* 2024\[[https://openreview.net/pdf?id=jKhNBulNMh pdf]\]
+. Yufei Kuang, Jie Wang, Haoyang Liu, Fangzhou Zhu, *Xijun Li*, Jia Zeng, Jianye HAO, Bin Li, Feng Wu: Rethinking Branching on Exact Combinatorial Optimization Solver: The First Deep Symbolic Discovery Framework. *ICLR* 2024\[[https://openreview.net/pdf?id=jKhNBulNMh pdf]\]
 . Chang Liu, Zhichen Dong, Haobo Ma, Weilin Luo, *Xijun Li*, Bowen Pang, Jia Zeng, Junchi Yan: L2P-MIP: Learning to Presolve for Mixed Integer Programming. *ICLR* 2024 \[[https://openreview.net/pdf?id=McfYbKnpT8 pdf]\]
 . Zijie Geng, *Xijun Li*, Jie Wang, Xiao Li, Yongdong Zhang, Feng Wu: A Deep Instance Generative Framework for MILP Solvers Under Limited Data Availability. *NeurIPS* 2023 (*Spotlight*) \[[https://miralab-ustc.github.io/L2O-G2MILP/ page]\] \[[https://arxiv.org/pdf/2310.02807v1.pdf pdf]\] \[[https://github.com/xijunlee/L2O-G2MILP code]\] 
 . Yang Li, Xinyan Chen, Wenxuan Guo, *Xijun Li*, Wanqian Luo, Junhua Huang, Hui-Ling Zhen, Mingxuan Yuan, Junchi Yan: HardSATGEN: Understanding the Difficulty of Hard SAT Formula Generation and A Strong Structure-Hardness-Aware Baseline. *KDD* 2023 \[[https://dl.acm.org/doi/10.1145/3580305.3599837 pdf]\] \[[https://github.com/Thinklab-SJTU/HardSATGEN code]\]
