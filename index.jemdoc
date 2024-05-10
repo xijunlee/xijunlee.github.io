@@ -20,6 +20,7 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 == News
+- \[05-3-2024\] Two papers are accepted by *ICML* 2024. The camera-ready version will be released soon!
 - \[03-19-2024\] The paper "Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers" is accepted by *MSST* 2024!
 - \[03-10-2024\] The paper "Joint Directory, File and IO Trace Feature Extraction and Feature-based Trace Regeneration for Enterprise Storage Systems" is accepted by *ICDE* 2024. Congrats to Kecheng!
 - \[02-29-2024\] I successfully defended my doctoral thesis \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/phd_defense.jpg pic]\]!
@@ -59,12 +60,13 @@ E-mail: xijun.lee\@hotmail\.com \n
 - \[02-16-2021\] The paper "Learning to Optimize Industry-Scale Dynamic Pickup and Delivery Problems" is accepted by *ICDE* 2021!
 
 == About
-Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has received master degree under the supervision of [http://www.se.sjtu.edu.cn/Data/List/leadership Prof. Jianguo Yao] (the Dean of the School of Software) from Shanghai Jiao Tong University in 2018. He received his Ph.D. degree from the University of Science and Technology of China in 2024 (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang] (the Vice Dean of the School of the Gifted Young). He has published many papers on top peer-reviewed conferences and journals (such as NeurIPS, ICLR, KDD, ICDE, SIGMOD, DAC, etc.) and applied\/published a series of patents with Huawei Noah's Ark Lab. He has also won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Learning to Optimization (L2O) and Large Language Model for Optimization\/Reasoning. Last but not least, he is one of core developers of the [https://www.huaweicloud.com/product/modelarts/optverse.html Huawei Cloud OptVerse AI Solver] and [https://www.huaweicloud.com/product/pangu.html Huawei Pangu Large Language Models].
+Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has received master degree under the supervision of [http://www.se.sjtu.edu.cn/Data/List/leadership Prof. Jianguo Yao] (the Dean of the School of Software) from Shanghai Jiao Tong University in 2018. He received his Ph.D. degree from the University of Science and Technology of China in 2024 (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang] (the Vice Dean of the School of the Gifted Young). He has published many papers on top peer-reviewed conferences and journals (such as NeurIPS, ICLR, ICML, KDD, ICDE, SIGMOD, DAC, etc.) and applied\/published a series of patents with Huawei Noah's Ark Lab. He has also won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Learning to Optimization (L2O) and Large Language Model for Optimization\/Reasoning. Last but not least, he is one of core developers of the [https://www.huaweicloud.com/product/optverse.html Huawei Cloud OptVerse AI Solver] and [https://www.huaweicloud.com/product/pangu.html Huawei Pangu Large Language Models].
 
 == Research
 === Recent Interests
 - *Learning to Optimize*
 - *Large Language Model for Optimization\/Reasoning*
+- *Data Synthesis for Large Language Model*
 - *Mathematical Programming Solver*
 - *Neural Combinatorial Optimization*
 - *Machine Learning for Computer System*
@@ -74,6 +76,8 @@ Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
+. Zhihai Wang, Lei Chen, Jie Wang, Yinqi Bai, Xing Li, *Xijun Li*, Mingxuan Yuan, Jianye HAO, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design. *ICML* 2024 \[[https://0.0.0.0 coming soon]\]
+. Yufei Kuang, Jie Wang, Yuyan Zhou, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Feng Wu: Towards General Algorithm Discovery for Combinatorial Optimization: Learning Symbolic Branching Policy from Bipartite Graph. *ICML* 2024 \[[https://0.0.0.0 coming soon]\]
 . Hankun Cao, Shai Bergman, Si Sun, Yanbo Albert Zhou, *Xijun Li*, Jun Gao, Zhuo Cheng, Ji Zhang: Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers. *MSST* 2024 \[[https://0.0.0.0 coming soon]\]
 . Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory, File and IO Trace Feature Extraction and Feature-based Trace Regeneration for Enterprise Storage Systems. *ICDE* 2024 \[[https://0.0.0.0 coming soon]\]
 . *Xijun Li*, Fangzhou Zhu, Hui-Ling Zhen, et al.: Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://arxiv.org/abs/2401.05960 arxiv]\]
