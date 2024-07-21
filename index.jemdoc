@@ -20,6 +20,7 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 == News
+- \[05-03-2024\] One paper "Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming" accepted to IEEE TPAMI. Congratulations to Zhihai and all co-authors.
 - \[05-03-2024\] Two papers are accepted by *ICML* 2024. The camera-ready version will be released soon!
 - \[03-19-2024\] The paper "Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers" is accepted by *MSST* 2024!
 - \[03-10-2024\] The paper "Joint Directory, File and IO Trace Feature Extraction and Feature-based Trace Regeneration for Enterprise Storage Systems" is accepted by *ICDE* 2024. Congrats to Kecheng!
@@ -76,6 +77,7 @@ Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
+. Jie Wang, Zhihai Wang, *Xijun Li*, Yufei Kuang, Zhihao Shi, Fangzhou Zhu, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*)
 . Zhihai Wang, Lei Chen, Jie Wang, Yinqi Bai, Xing Li, *Xijun Li*, Mingxuan Yuan, Jianye HAO, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design. *ICML* 2024 \[[https://0.0.0.0 coming soon]\]
 . Yufei Kuang, Jie Wang, Yuyan Zhou, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Feng Wu: Towards General Algorithm Discovery for Combinatorial Optimization: Learning Symbolic Branching Policy from Bipartite Graph. *ICML* 2024 \[[https://0.0.0.0 coming soon]\]
 . Hankun Cao, Shai Bergman, Si Sun, Yanbo Albert Zhou, *Xijun Li*, Jun Gao, Zhuo Cheng, Ji Zhang: Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers. *MSST* 2024 \[[https://0.0.0.0 coming soon]\]
