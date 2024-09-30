@@ -13,11 +13,11 @@ E-mail: xijun.lee\@hotmail\.com \n
 \[[https://scholar.google.com/citations?user=QXU_QbMAAAAJ&hl=en Google Scholar]\] \[[https://miralab.ai/people/xijun-li/ Info\@MIRA Lab]\] \[[https://github.com/xijunlee Github]\] \[[https://www.linkedin.com/in/xijun-ted-li-a7a8a1111/ Linkedin]\]
 ~~~
 
-~~~
+#~~~
 #{Recruiting \& Admission}
 #- [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/noah-intern-application-2024.jpg Internship Application for Huawei Noah's Ark Lab (华为诺亚实验室岗位申请说明)]
 #- [https://miralab.ai/admission/admission_2024/ Admission to USTC MIRA Lab (中国科学技术大学 MIRA Lab 研究生招生说明)]
-~~~
+#~~~
 
 == News
 - \[09-30-2024\] I have concluded my period at Huawei Noah's Ark Lab. It was an exceptional chapter in my career. In October, I shall commence my role as an Assistant Professor at the School of Software, Shanghai Jiao Tong University.
@@ -47,7 +47,7 @@ Xijun has been a researcher of Huawei Noah’s Ark Lab between 2018 and 2024. Be
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
-Haoyang Liu, Jie Wang, Wanbo Zhang, Zijie Geng, Yufei Kuang, *Xijun Li*, Bin Li, Yongdong Zhang, Feng Wu: MILP-StuDio: MILP Instance Generation via Block Structure Decomposition. *NeurIPS* 2024 \[[0.0.0.0 incoming]\]
+. Haoyang Liu, Jie Wang, Wanbo Zhang, Zijie Geng, Yufei Kuang, *Xijun Li*, Bin Li, Yongdong Zhang, Feng Wu: MILP-StuDio: MILP Instance Generation via Block Structure Decomposition. *NeurIPS* 2024 \[[0.0.0.0 incoming]\]
 . Jie Wang, Zhihai Wang, *Xijun Li*, Yufei Kuang, Zhihao Shi, Fangzhou Zhu, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*) \[[https://ieeexplore.ieee.org/document/10607926 pdf]\]
 . Zhihai Wang, Lei Chen, Jie Wang, Yinqi Bai, Xing Li, *Xijun Li*, Mingxuan Yuan, Jianye HAO, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design. *ICML* 2024 \[[https://openreview.net/pdf?id=1KemC8DNa0 pdf]\]
 . Yufei Kuang, Jie Wang, Yuyan Zhou, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Feng Wu: Towards General Algorithm Discovery for Combinatorial Optimization: Learning Symbolic Branching Policy from Bipartite Graph. *ICML* 2024 \[[https://openreview.net/pdf?id=ULleq1Dtaw pdf]\]
