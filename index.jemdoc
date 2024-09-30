@@ -3,10 +3,10 @@
 
 ~~~
 {}{img_left}{https://xijun-album.oss-cn-hangzhou.aliyuncs.com/avatar_casual.jpg}{alt text}{115}{170}{https://xijunlee.github.io/}
-Principal Researcher \@ [http://dev3.noahlab.com.hk/ Huawei Noah's Ark Lab] \n
+Incoming Assistant Professor \@ [http://www.se.sjtu.edu.cn/ Shanghai Jiao Tong University] \n
+Previous Principal Researcher \@ [http://dev3.noahlab.com.hk/ Huawei Noah's Ark Lab] \n
 Ph.D. \@ [https://ustc.edu.cn/ University of Science and Technology of China] \n
 
-E-mail: xijun.li\@huawei\.com (preferred) \n
 E-mail: xijun.lee\@hotmail\.com \n
 #E-mail : xijun.li\@miralab\.ai
 
@@ -14,13 +14,15 @@ E-mail: xijun.lee\@hotmail\.com \n
 ~~~
 
 ~~~
-{Recruiting \& Admission}
-- [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/noah-intern-application-2024.jpg Internship Application for Huawei Noah's Ark Lab (华为诺亚实验室岗位申请说明)]
-- [https://miralab.ai/admission/admission_2024/ Admission to USTC MIRA Lab (中国科学技术大学 MIRA Lab 研究生招生说明)]
+#{Recruiting \& Admission}
+#- [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/noah-intern-application-2024.jpg Internship Application for Huawei Noah's Ark Lab (华为诺亚实验室岗位申请说明)]
+#- [https://miralab.ai/admission/admission_2024/ Admission to USTC MIRA Lab (中国科学技术大学 MIRA Lab 研究生招生说明)]
 ~~~
 
 == News
-- \[05-03-2024\] One paper "Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming" accepted to IEEE *TPAMI*. Congratulations to Zhihai and all co-authors.
+- \[09-30-2024\] I have concluded my period at Huawei Noah's Ark Lab. It was an exceptional chapter in my career. In October, I shall commence my role as an Assistant Professor at the School of Software, Shanghai Jiao Tong University.
+- \[09-26-2024\] The paper "MILP-StuDio: MILP Instance Generation via Block Structure Decomposition" is accepted to *NeurIPS* 2024. Congratulations to Haoyang and all co-authors.
+- \[05-03-2024\] The paper "Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming" is accepted to IEEE *TPAMI*. Congratulations to Zhihai and all co-authors.
 - \[05-03-2024\] Two papers are accepted by *ICML* 2024. The camera-ready version will be released soon!
 - \[03-19-2024\] The paper "Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers" is accepted by *MSST* 2024!
 - \[03-10-2024\] The paper "Joint Directory, File and IO Trace Feature Extraction and Feature-based Trace Regeneration for Enterprise Storage Systems" is accepted by *ICDE* 2024. Congrats to Kecheng!
@@ -29,7 +31,7 @@ E-mail: xijun.lee\@hotmail\.com \n
 - \[01-12-2024\] We released a position paper [https://browse.arxiv.org/html/2401.05960v2 "Machine Learning Insides OptVerse AI Solver: Design Principles and Applications"]. Please stay tuned with OptVerse AI Solver! 
 
 == About
-Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has received master degree under the supervision of [http://www.se.sjtu.edu.cn/Data/List/leadership Prof. Jianguo Yao] (the Dean of the School of Software) from Shanghai Jiao Tong University in 2018. He received his Ph.D. degree from the University of Science and Technology of China in 2024 (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang] (the Vice Dean of the School of the Gifted Young). He has published many papers on top peer-reviewed conferences and journals (such as NeurIPS, ICLR, ICML, KDD, ICDE, SIGMOD, DAC, etc.) and applied\/published a series of patents with Huawei Noah's Ark Lab. He has also won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Learning to Optimization (L2O) and Large Language Model for Optimization\/Reasoning. Last but not least, he is one of core developers of the [https://www.huaweicloud.com/product/optverse.html Huawei Cloud OptVerse AI Solver] and [https://www.huaweicloud.com/product/pangu.html Huawei Pangu Large Language Models].
+Xijun has been a researcher of Huawei Noah’s Ark Lab between 2018 and 2024. Before that, he has received master degree under the supervision of [http://www.se.sjtu.edu.cn/Data/List/leadership Prof. Jianguo Yao] from Shanghai Jiao Tong University in 2018. He received his Ph.D. degree from the University of Science and Technology of China in 2024 (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang]. He has published many papers on top peer-reviewed conferences and journals (such as NeurIPS, ICLR, ICML, KDD, ICDE, SIGMOD, DAC, etc.) and applied\/published a series of patents with Huawei Noah's Ark Lab. He has also won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Learning to Optimization (L2O) and Large Language Model for Optimization\/Reasoning. Last but not least, he is one of core developers of the [https://www.huaweicloud.com/product/optverse.html Huawei Cloud OptVerse AI Solver] and [https://www.huaweicloud.com/product/pangu.html Huawei Pangu Large Language Models].
 
 == Research
 === Recent Interests
@@ -45,6 +47,7 @@ Xijun is a principal researcher of Huawei Noah’s Ark Lab. Before that, he has 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
+Haoyang Liu, Jie Wang, Wanbo Zhang, Zijie Geng, Yufei Kuang, *Xijun Li*, Bin Li, Yongdong Zhang, Feng Wu: MILP-StuDio: MILP Instance Generation via Block Structure Decomposition. *NeurIPS* 2024 \[[0.0.0.0 incoming]\]
 . Jie Wang, Zhihai Wang, *Xijun Li*, Yufei Kuang, Zhihao Shi, Fangzhou Zhu, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*) \[[https://ieeexplore.ieee.org/document/10607926 pdf]\]
 . Zhihai Wang, Lei Chen, Jie Wang, Yinqi Bai, Xing Li, *Xijun Li*, Mingxuan Yuan, Jianye HAO, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design. *ICML* 2024 \[[https://openreview.net/pdf?id=1KemC8DNa0 pdf]\]
 . Yufei Kuang, Jie Wang, Yuyan Zhou, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Feng Wu: Towards General Algorithm Discovery for Combinatorial Optimization: Learning Symbolic Branching Policy from Bipartite Graph. *ICML* 2024 \[[https://openreview.net/pdf?id=ULleq1Dtaw pdf]\]
