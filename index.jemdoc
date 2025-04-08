@@ -29,6 +29,7 @@ Address: Room 1411, Software Building, SJTU, Minhang District, Shanghai, China \
 ~~~
 
 == News
+- \[3-20-2024\] Two papers are accepted by *ICLR* 2024. Congrats to Zijie and Haoyang!
 - \[09-30-2024\] I have concluded my period at Huawei Noah's Ark Lab. It was an exceptional chapter in my career. In October, I shall commence my role as an Assistant Professor at the School of Software, Shanghai Jiao Tong University.
 - \[09-26-2024\] The paper "MILP-StuDio: MILP Instance Generation via Block Structure Decomposition" is accepted to *NeurIPS* 2024. Congratulations to Haoyang and all co-authors.
 - \[05-03-2024\] The paper "Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming" is accepted to IEEE *TPAMI*. Congratulations to Zhihai and all co-authors.
@@ -56,6 +57,8 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publications 
+. Zijie Geng, Jie Wang, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Bin Li, Feng Wu: Differentiable Integer Linear Programming. *ICLR* 2025 (*Spotlight*) \[[https://openreview.net/pdf?id=FPfCUJTsCn pdf]\]
+. Haoyang Liu, Jie Wang, Zijie Geng, *Xijun Li*, Yuxuan Zong, Fangzhou Zhu, Jianye HAO, Feng Wu: Apollo-MILP: An Alternating Prediction-Correction Neural Solving Framework for Mixed-Integer Linear Programming. *ICLR* 2025 \[[https://openreview.net/pdf?id=mFY0tPDWK8 pdf]\]
 . Haoyang Liu, Jie Wang, Wanbo Zhang, Zijie Geng, Yufei Kuang, *Xijun Li*, Bin Li, Yongdong Zhang, Feng Wu: MILP-StuDio: MILP Instance Generation via Block Structure Decomposition. *NeurIPS* 2024 \[[https://openreview.net/pdf?id=W433RI0VU4 pdf]\]
 . Jie Wang, Zhihai Wang, *Xijun Li*, Yufei Kuang, Zhihao Shi, Fangzhou Zhu, Mingxuan Yuan, Jia Zeng, Yongdong Zhang, Feng Wu: Learning to Cut via Hierarchical Sequence/Set Model for Efficient Mixed-Integer Programming. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*) \[[https://ieeexplore.ieee.org/document/10607926 pdf]\]
 . Zhihai Wang, Lei Chen, Jie Wang, Yinqi Bai, Xing Li, *Xijun Li*, Mingxuan Yuan, Jianye HAO, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design. *ICML* 2024 \[[https://openreview.net/pdf?id=1KemC8DNa0 pdf]\]
