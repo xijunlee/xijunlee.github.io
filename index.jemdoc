@@ -92,11 +92,6 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 #. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs
 #. Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
 
-=== Software
-
-. Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://browse.arxiv.org/html/2401.05960v2 page]\]
-. AI助力求解性能持续全面突破，诺亚方舟助力天筹求解器登顶5项权威榜单 \[[https://mp.weixin.qq.com/s/usvJWGb-KeQl4xwLpeGHfg page]\]
-
 === Preprint
 . *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
 . *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems. \[[https://arxiv.org/abs/2303.08066 arxiv]\]
@@ -111,6 +106,12 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 . Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022: Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
 
 where `\*' indicates the equal contribution and `\#' stands for corresponding author.
+
+
+=== Software
+
+. Machine Learning Insides OptVerse AI Solver: Design Principles and Applications \[[https://browse.arxiv.org/html/2401.05960v2 page]\]
+. AI助力求解性能持续全面突破，诺亚方舟助力天筹求解器登顶5项权威榜单 \[[https://mp.weixin.qq.com/s/usvJWGb-KeQl4xwLpeGHfg page]\]
 
 === Patents
 . CN116661676A 一种带宽控制方法、数据处理系统及相关设备：*李希君*，周云帆，李文思，张霁，袁明轩  
