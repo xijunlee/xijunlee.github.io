@@ -23,6 +23,7 @@ Address: Room 1411, Software Building, 800 Dongchuan Road, Minghang, Shanghai, C
 ~~~
 
 == News
+- \[06-26-2025\] I am selected as *PI* as Shanghai Municipal 2025 Basic Research Program: Natural Science Foundation (Young Scientist).
 - \[06-17-2025\] Congratulations to Jiexiang for having his undergraduate thesis selected among the *top 5%* as an Outstanding Thesis by the School of Computer Science, Shanghai Jiao Tong University!
 - \[04-09-2025\] One papers is accepted by *TPAMI*. Congrats to Yufei!
 - \[03-20-2025\] Two papers are accepted by *ICLR* 2025. Congrats to Zijie and Haoyang!
@@ -33,9 +34,6 @@ Address: Room 1411, Software Building, 800 Dongchuan Road, Minghang, Shanghai, C
 - \[03-19-2024\] The paper "Answering the Call to ARMs with PACER: Power-Efficiency in Storage Servers" is accepted by *MSST* 2024!
 - \[03-10-2024\] The paper "Joint Directory, File and IO Trace Feature Extraction and Feature-based Trace Regeneration for Enterprise Storage Systems" is accepted by *ICDE* 2024. Congrats to Kecheng!
 - \[02-29-2024\] I successfully defended my doctoral thesis \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/phd_defense.jpg pic]\]!
-- \[01-16-2024\] Two papers are accepted by *ICLR* 2024. The camera-ready version will be released soon!
-- \[01-12-2024\] We released a position paper [https://browse.arxiv.org/html/2401.05960v2 "Machine Learning Insides OptVerse AI Solver: Design Principles and Applications"]. Please stay tuned with OptVerse AI Solver! 
-
 == About
 Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and a faculty member of the [https://tcloud.sjtu.edu.cn/people/lixijun/ Shanghai Key Labraotry of Scalable Computing and Systems]. Previously, he has served as a princinpal researcher in Huawei Noah’s Ark Lab between 2018 and 2024. He has received his Ph.D. degree from the University of Science and Technology of China in March 2024 (HUAWEI-USTC Joint Ph.D. Program) under the supervision of [https://miralab.ai/people/jie-wang/ Prof. Jie Wang] and received the master degree under the supervision of [http://www.se.sjtu.edu.cn/Data/List/leadership Prof. Jianguo Yao] from Shanghai Jiao Tong University in 2018. He has published many papers on top peer-reviewed conferences and journals (such as TPAMI, NeurIPS, ICLR, ICML, KDD, ICDE, SIGMOD, DAC, etc.) and applied\/published a series of patents with Huawei Noah's Ark Lab. He has also won the championship of student learderboard in Dual Track of NeurIPS'21 ML4CO Competition. His recent research interests focus on Learning to Optimization (L2O) and Large Language Model for Optimization\/Reasoning. Last but not least, he was one of core developers of the [https://www.huaweicloud.com/product/optverse.html Huawei Cloud OptVerse AI Solver] and [https://www.huaweicloud.com/product/pangu.html Huawei Pangu Large Language Models].
 
@@ -134,7 +132,7 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 
 . *3rd* Place, Parallel Track, SAT Competition 2023 \[[https://satcompetition.github.io/2023/downloads/satcomp23slides.pdf result]\] \[[https://tuhat.helsinki.fi/ws/files/269128852/sc2023_proceedings.pdf solution]\]
 . *1st* Place, Student Learderboard in Dual Track, NeurIPS 2021 ML4CO Competition \[[https://www.ecole.ai/2021/ml4co-competition/ result]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ml4co_result.jpg media]\] \[[https://arxiv.org/pdf/2202.01896.pdf solution]\]
-. *Meritorious Award*, Mathematical Contest in Modeling (MCM) 2014, Consortium for Mathematics and Its Applications \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/%E7%BE%8E%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E8%AF%81%E6%98%8E.pdf cerification]\]
+. *Meritorious Award*, Mathematical Contest in Modeling (MCM) 2014, Consortium for Mathematics and Its Applications \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/%E7%BE%8E%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E8%AF%81%E6%98%8E.pdf certificate]\]
 
 == Invited Talks
 - "天筹AI求解器及运筹优化落地实践" on AI4OR workshop at [https://www.nudt.edu.cn/yssz/xtgcxy/index.htm National Univesrity of Defense Technology]
@@ -156,20 +154,20 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 - B.Sc., Applied Mathematics, South China University of Technology, 2011-2015
 
 == Selected Awards
-- Battlefield Heroes Award (战地英雄奖), Oct 2024, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/BattlefieldHeroAward2024.jpg cerification]\]
-- Siye Special Research Award for Pangu LLM (四野特别攻关奖), Sept 2024, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/siye_team_awards.jpg cerification]\]
-- Presidential Individual Award (总裁个人奖), Jan 2023, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/PresidentialIndividualAward1.jpg cerification]\]
-- Presidential Individual Award (总裁个人奖), Jan 2023, Supply Chain Department, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/PresidentialIndividualAward2.jpg cerification]\]
-- Battlefield Heroes Award (战地英雄奖), Nov 2022, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/BattlefieldHeroAward.jpg cerification]\]
-- Quality Star Award (质量之星奖), Dec 2021, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/qualityStarAward.jpg cerification]\] 
-- Gold Medal Team Award (金牌团队奖), Dec 2020, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/goldenMedalTeamAward1.jpg cerification1]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/goldenMedalTeamAward2.jpg cerification2]\]
-- Innovation Pioneer Award (创新先锋奖), Dec 2020, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/pioneerAward.jpg cerification]\]
-- Excellent New Employee (优秀新员工), Dec 2018, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/ExcellentNewEmployeeAward.jpg cerification]\]
-- Outstanding Graduate, Jun 2018, Shanghai Jiao Tong University \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/OutstandingGraduateSJTU.jpg cerification]\]
-- *National Scholarship* (国家奖学金  / top 5% out of all students), Sep 2017, Chinese Ministry of Education \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/2017NationalScholarship.jpg cerification]\]
-- *National Scholarship* (国家奖学金 / top 5% out of all students), Sep 2014, Chinese Ministry of Education \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/2014NationalScholarship.jpg cerification]\]
-- Skyworth Enterprise Scholarship (创维企业奖学金 / top 5%), First Prize, Jun 2015, Skyworth Enterprise \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/SkyworthEnterpriseScholarship.jpg cerification]\]
-- Mathematical Contest in Modeling (MCM), *Meritorious Award*, Mar 2014, Consortium for Mathematics and Its Applications \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/%E7%BE%8E%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E8%AF%81%E6%98%8E.pdf cerification]\]
+- Battlefield Heroes Award (战地英雄奖), Oct 2024, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/BattlefieldHeroAward2024.jpg certificate]\]
+- Siye Special Research Award for Pangu LLM (四野特别攻关奖), Sept 2024, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/siye_team_awards.jpg certificate]\]
+- Presidential Individual Award (总裁个人奖), Jan 2023, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/PresidentialIndividualAward1.jpg certificate]\]
+- Presidential Individual Award (总裁个人奖), Jan 2023, Supply Chain Department, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/PresidentialIndividualAward2.jpg certificate]\]
+- Battlefield Heroes Award (战地英雄奖), Nov 2022, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/BattlefieldHeroAward.jpg certificate]\]
+- Quality Star Award (质量之星奖), Dec 2021, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/qualityStarAward.jpg certificate]\] 
+- Gold Medal Team Award (金牌团队奖), Dec 2020, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/goldenMedalTeamAward1.jpg certificate1]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/goldenMedalTeamAward2.jpg certificate2]\]
+- Innovation Pioneer Award (创新先锋奖), Dec 2020, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/pioneerAward.jpg certificate]\]
+- Excellent New Employee (优秀新员工), Dec 2018, 2012 Labs, Huawei Technologies \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/ExcellentNewEmployeeAward.jpg certificate]\]
+- Outstanding Graduate, Jun 2018, Shanghai Jiao Tong University \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/OutstandingGraduateSJTU.jpg certificate]\]
+- *National Scholarship* (国家奖学金  / top 5% out of all students), Sep 2017, Chinese Ministry of Education \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/2017NationalScholarship.jpg certificate]\]
+- *National Scholarship* (国家奖学金 / top 5% out of all students), Sep 2014, Chinese Ministry of Education \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/2014NationalScholarship.jpg certificate]\]
+- Skyworth Enterprise Scholarship (创维企业奖学金 / top 5%), First Prize, Jun 2015, Skyworth Enterprise \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/SkyworthEnterpriseScholarship.jpg certificate]\]
+- Mathematical Contest in Modeling (MCM), *Meritorious Award*, Mar 2014, Consortium for Mathematics and Its Applications \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/awards/%E7%BE%8E%E8%B5%9B%E4%B8%80%E7%AD%89%E5%A5%96%E8%AF%81%E6%98%8E.pdf certificate]\]
 
 == Services
 === Conference Reviewer and Program Committee Member
@@ -197,7 +195,7 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 - Yunfan Zhou (Incoming Ph.D. student @ Shanghai Jiao Tong University)
 - Tianyu Wang (Incoming Ph.D. student @ Shanghai Jiao Tong University)
 - Jinghao Wang (Incoming master student @ Shanghai Jiao Tong University)
-- Jiexiang Yang (Incoming master student @ Shanghai Jiao Tong University, *Outstanding Thesis*) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis.jpg cerification]\] \[[https://mp.weixin.qq.com/s/3x_Zj_OL7N2nzZq-ZgEDLg news]\]
+- Jiexiang Yang (Incoming master student @ Shanghai Jiao Tong University, *Outstanding Thesis*) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis.jpg certificate]\] \[[https://mp.weixin.qq.com/s/3x_Zj_OL7N2nzZq-ZgEDLg news]\]
 - Ye Zhu (Master student @ Shanghai Jiao Tong University, graduated from Huazhong University of Science and Technology)
 - Junqing Song (Master student @ Shanghai Jiao Tong University, graduated from Shanghai Jiao Tong University)
 - Mengqi Guo (Master student @ Shanghai Jiao Tong University, graduated from Shanghai Jiao Tong University)
@@ -205,13 +203,12 @@ where `\*' indicates the equal contribution and `\#' stands for corresponding au
 == Interns and Collaborators 
 
 - Dr. Weilin Luo (PhD graduated from Beihang University)
-- Dr. Qingyu Qu (PhD graduated from Beihang University, *Excellent Intern* of Huawei Noah's Ark Lab of 2021H2) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/quqingyu_excelent.png cerification]\]
-- Dr. Xiaotian Hao (PhD graduated from Tianjin University, *Excellent Intern* of Huawei Noah's Ark Lab of 2022H1) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/xiaotian_excellent_intern.jpg cerification]\]
-- Dr. Yufei Kuang (PhD graduated from University of Science and Technology of China, *Excellent Intern* of Huawei Noah's Ark Lab of 2023H1) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ExcellentIntern_Yufei.pdf cerification]\]
+- Dr. Qingyu Qu (PhD graduated from Beihang University, *Excellent Intern* of Huawei Noah's Ark Lab of 2021H2) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/quqingyu_excelent.png certificate]\]
+- Dr. Xiaotian Hao (PhD graduated from Tianjin University, *Excellent Intern* of Huawei Noah's Ark Lab of 2022H1) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/xiaotian_excellent_intern.jpg certificate]\]
+- Dr. Yufei Kuang (PhD graduated from University of Science and Technology of China, *Excellent Intern* of Huawei Noah's Ark Lab of 2023H1) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/ExcellentIntern_Yufei.pdf certificate]\]
 - Dr. Zhihai Wang (PhD graduated from University of Science and Technology of China)
-- Yunfan Zhou (Msc graduated from Chinese University of Hong Kong (Shenzhen), graduated from Peking University, *Excellent Intern* of Huawei Noah's Ark Lab of 2022H2) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/yunfan_excellent_intern.jpg cerification]\]
+- Yunfan Zhou (Msc graduated from Chinese University of Hong Kong (Shenzhen), graduated from Peking University, *Excellent Intern* of Huawei Noah's Ark Lab of 2022H2) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/yunfan_excellent_intern.jpg certificate]\]
 - Yiyuan Yang (PhD student @ University of Oxford, graduated from Tsinghua University)
 - Kecheng Huang (PhD student @ Chinese University of Hong Kong, graduated from Shandong University)
 - Yingtian Tang (Msc student @ University of Pennsylvania, graduated from UESTC)
 - Zijie Geng (PhD student @ University of Science and Technology of China)
-
