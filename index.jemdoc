@@ -80,26 +80,6 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 . *Xijun Li*, Jianguo Yao, Xue Liu, Haibing Guan: A First Look at Information Entropy-Based Data Pricing. *ICDCS* 2017: 2053-2060 (CORE A, CCF B) \[[https://ieeexplore.ieee.org/abstract/document/7980149 pdf]\]
 . *李希君*, 上海, 上海交通大学: 基于信息熵的数据交易定价研究 \[[https://scholar.google.com/citations?view_op=view_citation&hl=en&user=QXU_QbMAAAAJ&citation_for_view=QXU_QbMAAAAJ:dhFuZR0502QC master thesis]\]
 
-#=== Working Paper
-
-#. Yunfan Zhou, *Xijun Li*\*, Ji Zhang: Pascal - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems
-#. Kecheng Huang, *Xijun Li*, Mingxuan Yuan, Ji Zhang, Zili Shao: Joint Directory and IO Workload Features Extraction and Feature-based Trace Regeneration for Networked Storage Systems (Submitted to NSDI 2023)
-#. Han Lu, Zenan Li, Runzhong Wang, Qibing Ren, Xiaokang Yang, *Xijun Li*, Mingxuan Yuan, Jia Zeng, Junchi Yan: A General Framework for Evaluating Robustness of Combinatorial Optimization Solvers on Graphs
-#. Yiyuan Yang, Rongshang Li, Qiquan Shi, *Xijun Li*, Gang Hu, Xing Li, Mingxuan Yaun: SGDP: A Stream-Graph Neural Network Based Data Prefetcher
-
-=== Preprint
-. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
-. *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems. \[[https://arxiv.org/abs/2303.08066 arxiv]\]
-. Jie Wang, Zijie Geng, *Xijun Li*, Jianye Hao, Yongdong Zhang, Feng Wu: G2MILP: Learning to Generate Mixed-Integer Linear Programming Instances for MILP Solvers \[[https://www.techrxiv.org/articles/preprint/G2MILP_Learning_to_Generate_Mixed-Integer_Linear_Programming_Instances_for_MILP_Solvers/24566554/1/files/43168525.pdf techrxiv]\]
-. Yunfan Zhou\*, *Xijun Li*\*\#, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. \[[https://arxiv.org/abs/2211.08251 arxiv]\]
-. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. \[[https://arxiv.org/abs/2201.06213 arxiv]\]
-. Zhihai Wang, Lei Chen, Jie Wang, *Xing Li*, Yinqi Bai, Xijun Li, Mingxuan Yuan, Jianye Hao, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design \[[https://arxiv.org/pdf/2309.03208 arxiv]\]
-. Haoyang Liu, Yufei Kuang, Jie Wang, *Xijun Li*, Yongdong Zhang, Feng Wu: Promoting Generalization for Exact Solvers via Adversarial Instance Augmentation. \[[https://arxiv.org/pdf/2310.14161.pdf arxiv]\]
-. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. \[[https://arxiv.org/abs/2203.04755 arxiv]\]
-. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. \[[https://arxiv.org/abs/2203.02878 arxiv]\]
-. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. \[[https://arxiv.org/abs/2202.01256 arxiv]\]
-. Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022: Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
-
 - where `\*' indicates the equal contribution and `\#' stands for corresponding author.
 
 === Grant
@@ -108,7 +88,6 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 . Shanghai Municipal Basic Research Program: Natural Science Foundation (上海市自然科学基金项目) (*Principal Investigator*, 2025-2028, 250,000 RMB)
 . Start-up Fund for Newly-introduced Young Teachers at Shanghai Jiao Tong University (上海交通大学新进教师启动计划, *Principal Investigator*, 2024-2027)
 . National Key Research and Development Program of China on the Next Generation Artificial Intelligence under the National Science and Technology Innovation 2030 Initiative​ (科技创新 2030 –“新一代人工智能”重大项目, *Core Member*, 2022-2025, \~6,000,000 RMB)
-
 
 === Software
 
@@ -131,6 +110,21 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 . CN116050522A 预求解配置方法及装置：罗威林，庞博文，*李希君*，刘畅，严骏驰，曾嘉
 . CN116483633A 一种数据增广方法及相关装置：黄俊华，罗万千，*李希君*，甄慧玲，郦洋，严骏驰
 . CN117422206B 提升工程问题决策和调度效率的方法、设备及存储介质：王杰，刘昊洋，匡宇飞，*李希君*，张勇东，吴枫
+
+=== Preprint
+. *Xijun Li*, Qingyu Qu, Fangzhou Zhu, Jia Zeng, Mingxuan Yuan, Kun Mao, Jie Wang: Learning to Reformulate for Linear Programming. \[[https://arxiv.org/abs/2201.06216 arxiv]\]
+. *Xijun Li*\*, Yunfan Zhou*, Ji Zhang: PASCAL - A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems. \[[https://arxiv.org/abs/2303.08066 arxiv]\]
+. Jie Wang, Zijie Geng, *Xijun Li*, Jianye Hao, Yongdong Zhang, Feng Wu: G2MILP: Learning to Generate Mixed-Integer Linear Programming Instances for MILP Solvers \[[https://www.techrxiv.org/articles/preprint/G2MILP_Learning_to_Generate_Mixed-Integer_Linear_Programming_Instances_for_MILP_Solvers/24566554/1/files/43168525.pdf techrxiv]\]
+. Yunfan Zhou\*, *Xijun Li*\*\#, Qingyu Qu: Offline Reinforcement Learning with Adaptive Behavior Regularization. \[[https://arxiv.org/abs/2211.08251 arxiv]\]
+. Qingyu Qu, *Xijun Li*\*, Yunfan Zhou, Jia Zeng, Mingxuan Yuan, Jie Wang, Jinhu Lv, Kexin Liu, Kun Mao: An Improved Reinforcement Learning Algorithm for Learning to Branch. \[[https://arxiv.org/abs/2201.06213 arxiv]\]
+. Zhihai Wang, Lei Chen, Jie Wang, *Xing Li*, Yinqi Bai, Xijun Li, Mingxuan Yuan, Jianye Hao, Yongdong Zhang, Feng Wu: A Circuit Domain Generalization Framework for Efficient Logic Synthesis in Chip Design \[[https://arxiv.org/pdf/2309.03208 arxiv]\]
+. Haoyang Liu, Yufei Kuang, Jie Wang, *Xijun Li*, Yongdong Zhang, Feng Wu: Promoting Generalization for Exact Solvers via Adversarial Instance Augmentation. \[[https://arxiv.org/pdf/2310.14161.pdf arxiv]\]
+. Wenxuan Guo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Yaohui Jin, Junchi Yan: Machine Learning Methods in Solving the Boolean Satisfiability Problem. \[[https://arxiv.org/abs/2203.04755 arxiv]\]
+. Jiayi Zhang, Chang Liu, *Xijun Li*, Hui-Ling Zhen, Junchi Yan, Mingxuan Yuan: A Survey for Solving Mixed Integer Programming via Machine Learning. \[[https://arxiv.org/abs/2203.02878 arxiv]\]
+. Jianye Hao, Jiawen Lu, *Xijun Li*, Xialiang Tong, Xiang Xiang, Mingxuan Yuan, Hankz Hankui Zhuo: Introduction to The Dynamic Pickup and Delivery Problem Benchmark--ICAPS 2021 Competition. \[[https://arxiv.org/abs/2202.01256 arxiv]\]
+. Xinyan Chen, Wenxuan Guo, Yang Li, Wanqian Luo, Hui-Ling Zhen, *Xijun Li*, Mingxuan Yuan, Junchi Yan: Proceedings of SAT Competition 2022: Solver and Benchmark Descriptions \[[https://helda.helsinki.fi/bitstream/handle/10138/347211/sc2022_proceedings.pdf?sequence=3&isAllowed=y pdf]\] \[[https://helda.helsinki.fi/handle/10138/347211 link]\]
+
+- where `\*' indicates the equal contribution and `\#' stands for corresponding author.
 
 === Competitions
 
