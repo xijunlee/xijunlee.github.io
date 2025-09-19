@@ -23,12 +23,13 @@ Address: Rm 1411, Software Bldg, 800 Dongchuan Road, Minhang, Shanghai, China \n
 ~~~
 
 == News
+- \[09-19-2025\] *Three* papers have been accepted by *NeurIPS* 2025. Congrats to all co-authors!
 - \[09-05-2025\] I have been invited by the organizers of *ICLR* 2026 to serve as a *Area Chair*.
 - \[08-27-2025\] I am selected as *Principal Investigator* as National Natural Science Foundation of China: Young Scientist Program (*国自然科学青年基金C类*).
 - \[06-26-2025\] I am selected as *Principal Investigator* as Shanghai Municipal Basic Research Program: Natural Science Foundation (*上海市自然科学基金项目*).
 - \[06-17-2025\] Congratulations to Jiexiang for having his undergraduate thesis selected among the *top 5%* as an [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis2.jpg Outstanding Thesis] by the School of Computer Science, Shanghai Jiao Tong University!
-- \[04-09-2025\] One papers is accepted by *TPAMI*. Congrats to Yufei!
-- \[03-20-2025\] Two papers are accepted by *ICLR* 2025. Congrats to Zijie and Haoyang!
+- \[04-09-2025\] One papers has been accepted by *TPAMI*. Congrats to Yufei!
+- \[03-20-2025\] Two papers have been accepted by *ICLR* 2025. Congrats to Zijie and Haoyang!
 - \[09-30-2024\] I have concluded my period at Huawei Noah's Ark Lab. It was an exceptional chapter in my career. In October, I shall commence my role as an Assistant Professor at the School of Software, Shanghai Jiao Tong University.
 
 == About
@@ -47,6 +48,9 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publication
+. *Xijun Li*, Jiexiang Yang, Jinghao Wang, Bo Peng, Jianguo Yao, Haibing Guan: STRCMP: Integrating Graph Structural Priors with Language Models for Combinatorial Optimization. *NeurIPS* 2025
+. Mingxuan Ye, Jie Wang, Fangzhou Zhu, Zhihai Wang, Yufei Kuang, *Xijun Li*, Weilin Luo, Jianye HAO, Feng Wu: Dynamic Configuration for Cutting Plane Separators via Reinforcement Learning on Incremental Graph. *NeurIPS* 2025
+. Kaijun Zhou, Xingyu Yan, Xingda Wei, *Xijun Li*, Jinyu Gu: Multimodal Generation Made Efficient with Speculative Diffusion and Speculative Verification. *NeurIPS* 2025
 . Yufei Kuang, *Xijun Li*\*, Jie Wang, Fangzhou Zhu, Meng Lu, Zhihai Wang, Jia Zeng, Houqiang Li, Yongdong Zhang, Feng Wu: Accelerate Presolve in Large-Scale Linear Programming via Reinforcement Learning. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*) \[[https://arxiv.org/abs/2310.11845 pdf]\]
 . Zijie Geng, Jie Wang, *Xijun Li*, Fangzhou Zhu, Jianye HAO, Bin Li, Feng Wu: Differentiable Integer Linear Programming. *ICLR* 2025 (*Spotlight*) \[[https://openreview.net/pdf?id=FPfCUJTsCn pdf]\]
 . Haoyang Liu, Jie Wang, Zijie Geng, *Xijun Li*, Yuxuan Zong, Fangzhou Zhu, Jianye HAO, Feng Wu: Apollo-MILP: An Alternating Prediction-Correction Neural Solving Framework for Mixed-Integer Linear Programming. *ICLR* 2025 \[[https://openreview.net/pdf?id=mFY0tPDWK8 pdf]\]
