@@ -23,8 +23,9 @@ Address: Rm 1411, Software Bldg, 800 Dongchuan Road, Minhang, Shanghai, China \n
 ~~~
 
 == News
+- \[09-25-2025\] I gave a talk on the workshop of [https://www.xxpie.com/m/album?id=68cd10f434fc6f6580cd4014&source=SHARE_LINK#album 2025 Learning to Optimize in the Era of Large ModelsFrom Algorithmic Innovation to Cross-Industry Applications] organized by Huawei.
 - \[09-19-2025\] Three papers have been accepted by *NeurIPS* 2025. Congrats to all co-authors!
-- \[09-05-2025\] I have been invited by the organizers of *ICLR* 2026 to serve as a *Area Chair*.
+- \[09-05-2025\] I have been invited by the organizers of *ICLR* 2026 to serve as an *Area Chair*.
 - \[08-27-2025\] I am selected as *Principal Investigator* as National Natural Science Foundation of China: Young Scientist Program (*国自然科学青年基金C类*).
 - \[06-26-2025\] I am selected as *Principal Investigator* as Shanghai Municipal Basic Research Program: Natural Science Foundation (*上海市自然科学基金项目*).
 - \[06-17-2025\] Congratulations to Jiexiang for having his undergraduate thesis selected among the *top 5%* as an [https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis2.jpg Outstanding Thesis] by the School of Computer Science, Shanghai Jiao Tong University!
@@ -144,6 +145,7 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 . *(Assitant)* SE3332: Introduction to Machine Learning, Shanghai Jiao Tong University, 2024-2025, Spring
 
 == Invited Talk
+- "Integrating Graph Structural Priors with Language Models for Combinatorial Optimization" on [https://www.xxpie.com/m/album?id=68cd10f434fc6f6580cd4014&source=SHARE_LINK#album 2025 Learning to Optimize in the Era of Large ModelsFrom Algorithmic Innovation to Cross-Industry Applications] workshop
 - "天筹AI求解器及运筹优化落地实践" on AI4OR workshop at [https://www.nudt.edu.cn/yssz/xtgcxy/index.htm National Univesrity of Defense Technology]
 - "Order matters: Boosting Mathematical Programming Solver via Machine Learning Techniques" at the [https://xijun-doc.oss-cn-hongkong.aliyuncs.com/%E4%B8%AD%E5%9B%BD%E8%BF%90%E7%AD%B9%E5%AD%A6%E4%BC%9A%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%92%E5%88%86%E4%BC%9A%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%B1%8A%E5%85%A8%E5%9B%BD%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96%E5%AD%A6%E6%9C%AF%E4%BC%9A%E8%AE%AE%E6%9A%A8%E7%AC%AC%E4%B8%83%E6%AC%A1%E4%BC%9A%E5%91%98%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A-%E5%AE%A3%E4%BC%A0%E6%89%8B%E5%86%8C.pdf MOS2023 中国运筹学会] \[[https://xijun-doc.oss-cn-hongkong.aliyuncs.com/Order%20matters-20230513-mos2023.pdf slides (updated)]\]
 - "Order matters: Boosting Mathematical Programming Solver via Machine Learning Techniques" at the [https://www.cuhk.edu.cn/en CUHKSZ 香港中文大学 (深圳)] and [http://www.sribd.cn/event/720 SRIBD 深圳大数据研究院] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/Order%20matters-20230305-CUHKSZ.pdf slides]\] \[[https://www.bilibili.com/video/BV1eY4y197kf/?spm_id_from=333.999.0.0 video]\]
@@ -202,12 +204,15 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 == Supervised and Co-supervised Students
 - Yunfan Zhou (Ph.D. student @ Shanghai Jiao Tong University)
 - Tianyu Wang (Ph.D. student @ Shanghai Jiao Tong University)
+- Chao Shen (Incoming Ph.D. student @ Shanghai Jiao Tong University)
+- Qi Liu (Incoming Ph.D. student @ Shanghai Jiao Tong University)
 - Jiexiang Yang (master student @ Shanghai Jiao Tong University, *Outstanding Thesis*) \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis.jpg cert. 1]\] \[[https://xijun-album.oss-cn-hangzhou.aliyuncs.com/JiexiangYang-OutstandingThesis2.jpg cert. 2]\] \[[https://mp.weixin.qq.com/s/3x_Zj_OL7N2nzZq-ZgEDLg news]\]
 - Jinghao Wang (master student @ Shanghai Jiao Tong University)
 - Zhengdong He (master student @ Shanghai Jiao Tong University)
 - Ye Zhu (Master student @ Shanghai Jiao Tong University, graduated from Huazhong University of Science and Technology)
 - Junqing Song (Master student @ Shanghai Jiao Tong University, graduated from Shanghai Jiao Tong University)
 - Mengqi Guo (Master student @ Shanghai Jiao Tong University, graduated from Shanghai Jiao Tong University)
+- Mingrui Yu (Incoming Master student @ Shanghai Jiao Tong University)
 
 == Interns and Collaborators 
 
