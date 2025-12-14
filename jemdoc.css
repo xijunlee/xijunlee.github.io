@@ -271,6 +271,12 @@ div.infoblock p + p {
 	margin-top: 0.8em;
 }
 
+/* 调整infoblock中列表的缩进，使其与右边保持一致 */
+div.infoblock ul, div.infoblock ol {
+	margin-left: 0.5em;
+	padding-left: 0.5em;
+}
+
 div.codeblock > div.blockcontent {
 	background: #f6f6f6;
 }
