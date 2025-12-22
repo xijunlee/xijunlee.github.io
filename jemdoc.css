@@ -263,6 +263,11 @@ div.infoblock p {
 	margin-bottom: 0em;
 }
 
+div.infoblock ul, div.infoblock ol {
+	margin-left: 1.0em; /* 调整这个值以控制左侧缩进 */
+	padding-left: 0.0em; /* 与blockcontent的padding-right匹配 */
+}
+
 div.infoblock li p, div.infoblock dd p {
 	margin-bottom: 0.5em;
 }
