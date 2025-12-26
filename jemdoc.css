@@ -267,11 +267,6 @@ div.infoblock li p, div.infoblock dd p {
 	margin-bottom: 0.5em;
 }
 
-div.infoblock ul, div.infoblock ol {
-	margin-left: 0.5em; /* 调整这个值以控制左侧缩进 */
-	padding-left: 0.5em; /* 与blockcontent的padding-right匹配 */
-}
-
 div.infoblock p + p {
 	margin-top: 0.8em;
 }
@@ -356,6 +351,11 @@ td {
 	padding-right: 0.5em;
 	text-align: center;
 	border: 1px solid gray;
+}
+
+div.infoblock ul, div.infoblock ol {
+	margin-left: 0.5em; /* 调整这个值以控制左侧缩进 */
+	padding-left: 0.5em; /* 与blockcontent的padding-right匹配 */
 }
 
 table + table {
