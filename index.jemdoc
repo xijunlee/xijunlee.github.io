@@ -64,6 +64,7 @@ Currently, Xijun is an assistant professor in Shanghai Jiao Tong University and 
 - Applications in Logistics, Supply Chain, Storage Systems, etc. 
 
 === Publication
+. Haoyang Liu, Jie Wang, Yufei Kuang, *Xijun Li*, Yongdong Zhang, Feng Wu: Promoting Generalization for Exact Combinatorial Solvers via Adversarial Instance Augmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence (*TPAMI*) \[[https://ieeexplore.ieee.org/abstract/document/11541051 pdf]\]
 . Kaijun Zhou, DaPeng, Qiwei Chen, Zhiyang Li, *Xijun Li*, Jinyu Gu: Characterizing Vision-Language-Action Models across XPUs: Constraints and Acceleration for On-Robot Deployment. *ICML* 2026 \[[https://arxiv.org/html/2604.24447v1 pdf]\]
 . Mengqi Guo, *Xijun Li*\#, Jianguo Yao: Level-Up: Iterative Optimization of Collaborative Planning and Solving Mechanism for Reasoning. *CSCWD* 2026 \[[https://fyust.edu.cn/gjhyqk/cscwd2026/papers/paper_975.pdf pdf]\]
 . *Xijun Li*, Jiexiang Yang, Jinghao Wang, Bo Peng, Jianguo Yao, Haibing Guan: STRCMP: Integrating Graph Structural Priors with Language Models for Combinatorial Optimization. *NeurIPS* 2025 \[[https://openreview.net/pdf?id=VhGUS8kyaC pdf]\] \[[https://github.com/Y-Palver/L2O-STRCMP code]\]
