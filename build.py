@@ -174,13 +174,14 @@ for f in SRC.iterdir():
     if f.is_file(): shutil.copy2(f, OUT/f.name)
 shutil.copytree(SRC/'assets', OUT/'assets', dirs_exist_ok=True)
 index=(SRC/'index.html').read_text()
-index=index.replace('{{SELECTED_PAPERS}}',''.join(paper_html(next(p for p in papers if p['id']==i)) for i in selected_ids))
+ccf_a_papers=sorted((p for p in papers if p['rank']=='A'), key=lambda p: (-(p['year'] or 0), p['id']))
+index=index.replace('{{CCF_A_PAPERS}}',''.join(paper_html(p) for p in ccf_a_papers))
 index=index.replace('{{GRANT_PREVIEW}}',grants).replace('{{PATENT_PREVIEW}}',patents).replace('{{STUDENT_PREVIEW}}',students)
 index=index.replace('<strong id="metric-ccf">—</strong>', '<strong id="metric-ccf">23<span>篇</span></strong>')
 index=index.replace('分类核对中 · 全部署名','CCF 2026 · B 类 4 篇 / C 类 4 篇')
 (OUT/'index.html').write_text(index)
 english=(SRC/'en.html').read_text()
-english=english.replace('{{SELECTED_PAPERS_EN}}',''.join(paper_html(next(p for p in papers if p['id']==i), 'en') for i in selected_ids))
+english=english.replace('{{CCF_A_PAPERS_EN}}',''.join(paper_html(p, 'en') for p in ccf_a_papers))
 english=english.replace('{{GRANT_PREVIEW_EN}}',grants_en).replace('{{PATENT_PREVIEW_EN}}',patents_en).replace('{{STUDENT_PREVIEW_EN}}',students_en)
 english=english.replace('<strong id="metric-ccf">—</strong>', '<strong id="metric-ccf">23<span>papers</span></strong>')
 english=english.replace('Classification verified · all authorships','CCF 2026 · 4 B / 4 C publications')
@@ -198,6 +199,8 @@ english=english.replace('<script src="app.js" defer></script>', '<script src="da
 body=re.search(r'<body>(.*?)</body>', ORIGINAL,re.S).group(1)
 body=re.sub(r'<!--.*?-->', '', body, flags=re.S)
 body=clean_links(body)
+body=body.replace('School of Software', 'School of Computer Science')
+body=body.replace('an Assistant Professor and Ph.D. supervisor at Shanghai Jiao Tong University,', 'an Assistant Professor and Ph.D. supervisor at the School of Computer Science, Shanghai Jiao Tong University,')
 body=re.sub(r'<h([23])>(.*?)</h\1>', lambda m:f'<h{m.group(1)} id="{slug(text(m.group(2)))}">{m.group(2)}</h{m.group(1)}>', body, flags=re.S)
 body=body.replace('https://xijun-album.oss-cn-hangzhou.aliyuncs.com/avatar/xijun_portrait_nano_banana.png','assets/portrait.png')
 nav=''.join(f'<a href="#{slug(text(h.group(2)))}">{escape(text(h.group(2)))}</a>' for h in headings)
@@ -249,11 +252,11 @@ news_zh = [
     '祝贺 Jiexiang 的本科毕业论文获上海交通大学计算机学院优秀毕业论文（前 5%）。',
     '一篇论文被 IEEE TPAMI 接收，祝贺 Yufei。',
     '两篇论文被 ICLR 2025 接收，祝贺 Zijie 和 Haoyang。',
-    '结束在华为诺亚方舟实验室的工作，并于 2024 年 10 月加入上海交通大学软件学院任助理教授。',
+    '结束在华为诺亚方舟实验室的工作，并于 2024 年 10 月加入上海交通大学计算机学院任助理教授。',
 ]
 experience_zh = [
     '中华人民共和国科学技术部借调，2026 年 1 月至今',
-    '上海交通大学助理教授，2024 年 10 月至今',
+    '上海交通大学计算机学院助理教授，2024 年 10 月至今',
     '华为诺亚方舟实验室主任研究员，2024 年 3 月至 2024 年 9 月',
     '华为诺亚方舟实验室高级研究工程师 A，2022 年 3 月至 2024 年 2 月',
     '华为诺亚方舟实验室高级研究工程师 B，2019 年 12 月至 2022 年 2 月',
@@ -285,7 +288,7 @@ education_zh = ['中国科学技术大学，电子工程与信息科学博士，
 
 custom_zh = {
     'News': translated_list('News', news_zh),
-    'About': '<p>李希君现任上海交通大学助理教授、博士生导师，并担任上海市可扩展计算与系统重点实验室成员。2018—2024 年在华为诺亚方舟实验室工作，曾任主任研究员。2024 年 3 月通过华为—中科大联合培养博士项目获中国科学技术大学博士学位，导师为王杰教授；2018 年获上海交通大学硕士学位，导师为姚建国教授。研究聚焦学习型优化、大模型优化与推理、机器人长程规划，成果发表于 TPAMI、NeurIPS、ICLR、ICML、KDD、ICDE、SIGMOD 等会议与期刊。曾参与华为云天筹 OptVerse AI 求解器和盘古大模型研发，并担任 ICLR、NeurIPS 等会议领域主席。</p>',
+    'About': '<p>李希君现任上海交通大学计算机学院助理教授、博士生导师，并担任上海市可扩展计算与系统重点实验室成员。2018—2024 年在华为诺亚方舟实验室工作，曾任主任研究员。2024 年 3 月通过华为—中科大联合培养博士项目获中国科学技术大学博士学位，导师为王杰教授；2018 年获上海交通大学硕士学位，导师为姚建国教授。研究聚焦学习型优化、大模型优化与推理、机器人长程规划，成果发表于 TPAMI、NeurIPS、ICLR、ICML、KDD、ICDE、SIGMOD 等会议与期刊。曾参与华为云天筹 OptVerse AI 求解器和盘古大模型研发，并担任 ICLR、NeurIPS 等会议领域主席。</p>',
     'Experience': translated_list('Experience', experience_zh),
     'Recent Interest': translated_list('Recent Interest', interest_zh),
     'Grant': translated_list('Grant', grant_zh),
@@ -303,7 +306,7 @@ def translate_people(markup):
     for a,b in replacements.items(): markup=markup.replace(a,b)
     return markup
 
-lead_zh='''<div id="toptitle"><h1>李希君 Xijun Li</h1></div><table class="imgtable"><tr><td><img src="assets/portrait.png" alt="李希君肖像" width="134" height="180"></td><td><p>上海交通大学助理教授、博士生导师<br>中国科学技术大学博士<br><br>邮箱：lixijun AT sjtu DOT edu DOT cn<br>地址：上海市闵行区东川路 800 号软件大楼 1411 室<br><br><a href="https://scholar.google.com/citations?user=QXU_QbMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">[Google Scholar]</a> <a href="https://xijun-doc.oss-cn-hongkong.aliyuncs.com/SJTU_XijunLi_CV2025.pdf" target="_blank" rel="noopener noreferrer">[个人简历]</a> <a href="https://github.com/SJTU-L2O" target="_blank" rel="noopener noreferrer">[GitHub]</a></p></td></tr></table>'''
+lead_zh='''<div id="toptitle"><h1>李希君 Xijun Li</h1></div><table class="imgtable"><tr><td><img src="assets/portrait.png" alt="李希君肖像" width="134" height="180"></td><td><p>上海交通大学计算机学院助理教授、博士生导师<br>中国科学技术大学博士<br><br>邮箱：lixijun AT sjtu DOT edu DOT cn<br>地址：上海市闵行区东川路 800 号软件大楼 1411 室<br><br><a href="https://scholar.google.com/citations?user=QXU_QbMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">[Google Scholar]</a> <a href="https://xijun-doc.oss-cn-hongkong.aliyuncs.com/SJTU_XijunLi_CV2025.pdf" target="_blank" rel="noopener noreferrer">[个人简历]</a> <a href="https://github.com/SJTU-L2O" target="_blank" rel="noopener noreferrer">[GitHub]</a></p></td></tr></table>'''
 zh_parts=[lead_zh]
 for h in headings:
     original_name=text(h.group(2)); translated_name=heading_zh.get(original_name, original_name)
@@ -318,7 +321,9 @@ archive_zh=f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><me
 
 # Verify all original public text and external links survive in the archive.
 original_public=re.sub(r'<!--.*?-->', '', re.search(r'<body>(.*?)</body>',ORIGINAL,re.S).group(1), flags=re.S)
-assert text(original_public) == text(body), 'Archive text was lost during migration'
+corrected_public=original_public.replace('School of Software', 'School of Computer Science')
+corrected_public=corrected_public.replace('an Assistant Professor and Ph.D. supervisor at Shanghai Jiao Tong University,', 'an Assistant Professor and Ph.D. supervisor at the School of Computer Science, Shanghai Jiao Tong University,')
+assert text(corrected_public) == text(body), 'Archive text was lost during migration'
 old_links=set(unescape(u) for u in re.findall(r'<a\s+href="([^"]+)"', original_public))
 new_links=set(unescape(u) for u in re.findall(r'<a\s+href="([^"]+)"', archive))
 assert old_links <= new_links, old_links-new_links
@@ -334,8 +339,8 @@ for page in ('index.html','en.html','archive.html','archive-zh.html'):
             assert f'id="{href.split("#")[1]}"' in archive, href
         if href.startswith('archive-zh.html#'):
             assert f'id="{href.split("#")[1]}"' in archive_zh, href
-for asset in ('assets/portrait.png','assets/favicon.svg','styles.css','app.js','data.js'):
+for asset in ('assets/portrait.png','assets/favicon.svg','assets/sjtu-logo.png','assets/ustc-logo.jpg','assets/huawei-logo.png','styles.css','app.js','data.js'):
     assert (OUT/asset).is_file(), asset
 print(f'Built {OUT}')
 print(f'CCF 2026: A={stats["A"]}, B={stats["B"]}, C={stats["C"]}; 38 publication entries, 11 preprints, 21 patent entries, 6 grants.')
-print(f'Archive preserves all original public text and {len(old_links)} distinct original links. Local anchors verified.')
+print(f'Archive preserves all source sections and {len(old_links)} distinct original links; corrected affiliation applied. Local anchors verified.')

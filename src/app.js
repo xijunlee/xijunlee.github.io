@@ -22,18 +22,18 @@
   const data = window.ACADEMIC_DATA;
   if (!data) return;
   const copy = language === 'en' ? {
-    labels:{selected:'Selected publications',all:'All publications and preprints',A:'CCF A',B:'CCF B',C:'CCF C',other:'Other papers, preprints and theses'}, spotlight:'✧ Spotlight',
+    labels:{all:'All publications and preprints',A:'CCF A',B:'CCF B',C:'CCF C',other:'Other papers, preprints and theses'}, spotlight:'✧ Spotlight',
     empty:'No matching publications. Try another query or select “All”.', search:'Search', read:'Read', archive:'archive.html#publication',
     notes:{'竞赛报告':'Competition paper','论文类型待核对 · 会议 CCF A':'Paper type pending · venue is CCF A','硕士学位论文':'Master thesis','CCF 目录外':'Outside CCF directory','预印本 / 技术报告':'Preprint / technical report'}
   } : {
-    labels:{selected:'代表论文',all:'全部论文与预印本',A:'CCF A 类',B:'CCF B 类',C:'CCF C 类',other:'其他论文、预印本与学位论文'}, spotlight:'✧ 亮点论文',
+    labels:{all:'全部论文与预印本',A:'CCF A 类',B:'CCF B 类',C:'CCF C 类',other:'其他论文、预印本与学位论文'}, spotlight:'✧ 亮点论文',
     empty:'没有找到匹配的论文。试试其他关键词，或选择“全部”。', search:'搜索', read:'阅读', archive:'archive-zh.html#publication', notes:{}
   };
   const list = document.querySelector('#paper-list');
   const search = document.querySelector('#paper-search');
   const status = document.querySelector('#paper-status');
   const buttons = [...document.querySelectorAll('[data-filter]')];
-  let activeFilter = 'selected';
+  let activeFilter = 'A';
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
   function renderPaper(p) {
@@ -47,9 +47,8 @@
 
   function render() {
     const query = search.value.trim().toLocaleLowerCase();
-    let papers = data.papers.filter(p => (activeFilter === 'all' || (activeFilter === 'selected' ? p.selected : p.rank === activeFilter)) && p.search.toLocaleLowerCase().includes(query));
-    if (activeFilter === 'selected') papers.sort((a,b) => data.selected_ids.indexOf(a.id) - data.selected_ids.indexOf(b.id));
-    else papers.sort((a,b) => (b.year || 0) - (a.year || 0) || a.id - b.id);
+    let papers = data.papers.filter(p => (activeFilter === 'all' || p.rank === activeFilter) && p.search.toLocaleLowerCase().includes(query));
+    papers.sort((a,b) => (b.year || 0) - (a.year || 0) || a.id - b.id);
     list.innerHTML = papers.length ? papers.map(renderPaper).join('') : `<p class="empty-result">${copy.empty}</p>`;
     status.textContent = `${copy.labels[activeFilter]} · ${papers.length}${language === 'zh' ? ' 条' : ''}${query ? ` · ${copy.search} “${search.value.trim()}”` : ''}`;
     buttons.forEach(button => {

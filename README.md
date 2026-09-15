@@ -21,7 +21,7 @@ The local preview runs at http://127.0.0.1:4317. Open `/index.html` for Chinese 
 - Source profile lists 21 patent entries. This is not an assertion that all 21 are granted or legally active; one uses an internal-looking reference, and legal status/families have not been independently checked.
 - Grants: 5 PI projects/funding entries and 1 core-participant national project.
 - Spotlight: 2 papers as explicitly marked in the original publication list.
-- Google Scholar citations and h-index are unverified. No fabricated metric is displayed; the page links directly to the profile.
+- The metrics strip shows publication, CCF A, patent and project counts. Google Scholar remains available as a profile link without a citation metric.
 - Journal years 2026, 2025 and 2024 for the three TPAMI entries are based on source News/context. Other missing years are left blank.
 
 ## Editing
@@ -32,5 +32,7 @@ The local preview runs at http://127.0.0.1:4317. Open `/index.html` for Chinese 
 - `src/app.js`: navigation and publication search/category filters.
 - `build.py`: original-content extraction, CCF mapping and static build validation.
 - `source/original.html`: original English content and links.
+
+Institution marks are bundled locally from the official SJTU visual identity package, the official USTC emblem download, and the Huawei website header asset. They appear only in the factual education and work history strip.
 
 No backend, external JavaScript, tracking, or framework dependencies are required. Portrait is bundled locally from the image referenced by the supplied homepage.
