@@ -51,14 +51,14 @@ descriptions = {
     8: '探索可微整数线性规划，将优化问题与学习过程相连接。',
     18: '在数据有限的条件下，为混合整数线性规划求解器生成问题实例。',
     21: '通过层次化序列模型学习割平面选择，提升混合整数规划求解效率。',
-    2: '分析视觉—语言—动作模型在异构计算平台上的约束与机器人部署加速。',
+    2: '分析视觉—语言—动作模型在异构计算平台上的约束与具身系统部署加速。',
 }
 descriptions_en = {
     4: 'Combines graph structural priors with language models for combinatorial optimization.',
     8: 'Connects integer linear programming with learning through differentiable optimization.',
     18: 'Generates mixed-integer programming instances when solver training data is limited.',
     21: 'Learns cut selection with a hierarchical sequence model for efficient mixed-integer programming.',
-    2: 'Characterizes VLA models across heterogeneous hardware and accelerates on-robot deployment.',
+    2: 'Characterizes VLA models across heterogeneous hardware and accelerates deployment in embodied systems.',
 }
 selected_ids = [4, 8, 18, 21, 2]
 papers = []
@@ -201,6 +201,8 @@ body=re.sub(r'<!--.*?-->', '', body, flags=re.S)
 body=clean_links(body)
 body=body.replace('School of Software', 'School of Computer Science')
 body=body.replace('an Assistant Professor and Ph.D. supervisor at Shanghai Jiao Tong University,', 'an Assistant Professor and Ph.D. supervisor at the School of Computer Science, Shanghai Jiao Tong University,')
+body=body.replace('Robotics/GPU/NPU/CPU', 'Embodied Intelligence/GPU/NPU/CPU')
+body=body.replace('<b>Long-Horizon Planning for Robotics</b>', '<b>Embodied Intelligence and Long-Horizon Planning</b>')
 body=re.sub(r'<h([23])>(.*?)</h\1>', lambda m:f'<h{m.group(1)} id="{slug(text(m.group(2)))}">{m.group(2)}</h{m.group(1)}>', body, flags=re.S)
 body=body.replace('https://xijun-album.oss-cn-hangzhou.aliyuncs.com/avatar/xijun_portrait_nano_banana.png','assets/portrait.png')
 nav=''.join(f'<a href="#{slug(text(h.group(2)))}">{escape(text(h.group(2)))}</a>' for h in headings)
@@ -263,7 +265,7 @@ experience_zh = [
     '华为诺亚方舟实验室研究工程师，2018 年 4 月至 2019 年 11 月',
     '华为诺亚方舟实验室研究实习生，2017 年 8 月至 2018 年 3 月',
 ]
-interest_zh = ['学习型优化','机器人长程规划','面向优化与推理的大语言模型','面向代码优化的大语言模型','数学规划求解器','强化学习','运筹学','元启发式算法','物流、供应链、存储系统等领域应用']
+interest_zh = ['学习优化','具身智能','面向优化与推理的大语言模型','面向代码优化的大语言模型','数学规划求解器','强化学习','运筹学','元启发式算法','物流、供应链、存储系统等领域应用']
 grant_zh = [
     '<b>负责人</b>，国家自然科学基金青年科学基金 C 类，2026—2028，30 万元',
     '<b>负责人</b>，上海市自然科学基金，2025—2028，25 万元',
@@ -288,7 +290,7 @@ education_zh = ['中国科学技术大学，电子工程与信息科学博士，
 
 custom_zh = {
     'News': translated_list('News', news_zh),
-    'About': '<p>李希君现任上海交通大学计算机学院助理教授、博士生导师，并担任上海市可扩展计算与系统重点实验室成员。2018—2024 年在华为诺亚方舟实验室工作，曾任主任研究员。2024 年 3 月通过华为—中科大联合培养博士项目获中国科学技术大学博士学位，导师为王杰教授；2018 年获上海交通大学硕士学位，导师为姚建国教授。研究聚焦学习型优化、大模型优化与推理、机器人长程规划，成果发表于 TPAMI、NeurIPS、ICLR、ICML、KDD、ICDE、SIGMOD 等会议与期刊。曾参与华为云天筹 OptVerse AI 求解器和盘古大模型研发，并担任 ICLR、NeurIPS 等会议领域主席。</p>',
+    'About': '<p>李希君现任上海交通大学计算机学院助理教授、博士生导师，并担任上海市可扩展计算与系统重点实验室成员。2018—2024 年在华为诺亚方舟实验室工作，曾任主任研究员。2024 年 3 月通过华为—中科大联合培养博士项目获中国科学技术大学博士学位，导师为王杰教授；2018 年获上海交通大学硕士学位，导师为姚建国教授。研究聚焦学习优化、大模型优化与推理、具身智能，成果发表于 TPAMI、NeurIPS、ICLR、ICML、KDD、ICDE、SIGMOD 等会议与期刊。曾参与华为云天筹 OptVerse AI 求解器和盘古大模型研发，并担任 ICLR、NeurIPS 等会议领域主席。</p>',
     'Experience': translated_list('Experience', experience_zh),
     'Recent Interest': translated_list('Recent Interest', interest_zh),
     'Grant': translated_list('Grant', grant_zh),
@@ -323,6 +325,8 @@ archive_zh=f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><me
 original_public=re.sub(r'<!--.*?-->', '', re.search(r'<body>(.*?)</body>',ORIGINAL,re.S).group(1), flags=re.S)
 corrected_public=original_public.replace('School of Software', 'School of Computer Science')
 corrected_public=corrected_public.replace('an Assistant Professor and Ph.D. supervisor at Shanghai Jiao Tong University,', 'an Assistant Professor and Ph.D. supervisor at the School of Computer Science, Shanghai Jiao Tong University,')
+corrected_public=corrected_public.replace('Robotics/GPU/NPU/CPU', 'Embodied Intelligence/GPU/NPU/CPU')
+corrected_public=corrected_public.replace('<b>Long-Horizon Planning for Robotics</b>', '<b>Embodied Intelligence and Long-Horizon Planning</b>')
 assert text(corrected_public) == text(body), 'Archive text was lost during migration'
 old_links=set(unescape(u) for u in re.findall(r'<a\s+href="([^"]+)"', original_public))
 new_links=set(unescape(u) for u in re.findall(r'<a\s+href="([^"]+)"', archive))
