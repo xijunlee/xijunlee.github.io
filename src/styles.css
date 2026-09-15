@@ -159,3 +159,48 @@ h1{font-size:clamp(38px,3.65vw,52px);line-height:1.19;margin-bottom:14px}
 .metrics{grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.experience-strip{grid-template-columns:1fr;gap:5px}.experience-item{padding:7px 9px}.experience-copy strong{font-size:12px}.experience-copy em{font-size:11px}}
 @media(max-width:680px){.identity{align-items:flex-start}.identity-membership{white-space:normal}.experience-logo{width:38px;height:38px}.experience-logo img{width:32px;height:32px}.experience-item{grid-template-columns:38px minmax(0,1fr)}.experience-item:last-child{grid-template-columns:62px minmax(0,1fr)}.experience-logo-wide{width:62px}.experience-logo-wide img{width:54px;height:25px}.metric:last-child{grid-column:auto}.metric:last-child>strong{font-size:34px}}
+
+/* SJTU blue on a light academic canvas */
+:root{--sjtu-blue:#004b95;--ink:#17344f;--text:#3e5367;--muted:#6e8193;--line:#d9e4ed;--paper:#fbfdff;--soft:#f2f7fb;--teal:#07599f;--mint:#dcecf8;--navy:#eaf3fa}
+body{background:var(--paper)}
+.site-header{background:rgba(252,253,255,.96);border-color:var(--line)}
+.wordmark{flex:0 0 auto}
+.site-logo{width:192px;height:auto;object-fit:contain}
+.nav-join{background:#e5f0f8;color:#175382;border-color:#d2e3f0}
+.nav-join:hover{background:#d8e9f5;color:#074d89}
+.lang-switch [aria-current="page"]{background:#e5f0f8;color:#07548f}
+.recruit-card{background:#eff5fa;color:#536879;border-color:#d9e5ee;box-shadow:0 15px 35px -27px #315d7f70}
+.profile-top{border-bottom-color:#d8e5ee}
+.button-light{background:#dbeaf6;color:#154f7e}
+.button-light:hover{background:#cde2f1;color:#074b80}
+.research-tags>span,.highlight,.news-section,.research-diagram,.empty-result{background:#f2f7fb}
+.highlight,.research-card,.grant-panel,.application-card{border-color:#dce7ef}
+.research-diagram span{border-color:#d9e5ee}
+.research-diagram span.diagram-active,.ccf-badge{border-color:#c7ddeb;background:#e7f1f9;color:#07599f}
+.filter:hover,.highlight:hover,.experience-item:hover{background:#ebf3f9}
+.projects-section,.industry-panel,.join-section{background:#f0f5f9}
+.join-section{border-color:#d9e5ee;color:#586d7e}
+.join-positions>span{color:#315d7e;border-color:#c8dce9;background:#fafcfe}
+.application-card{background:#fbfdff}
+.experience-item{background:#f6f9fc;border-color:#dde8ef}
+.experience-current{background:#f3f7fa;border-color:#d9e5ed}
+
+/* Archive pages retain the compact profile + notice layout of the original site. */
+.legacy-content #toptitle h1{font-size:28px;margin:0 0 15px;letter-spacing:-.4px}
+.legacy-content .archive-profile{margin:0 0 21px}
+.legacy-content .archive-profile td:first-child{width:154px}
+.legacy-content .archive-profile td:last-child{padding-top:2px}
+.legacy-content .archive-profile td p{font-size:13px;line-height:1.75}
+.legacy-content .archive-profile-links{display:flex;flex-wrap:wrap;gap:5px 12px}
+.legacy-content .archive-profile-links a{white-space:nowrap}
+.legacy-content .archive-recruit{margin:0 0 25px;border-left:3px solid #8db3cf;background:#f2f7fb}
+.legacy-content .archive-recruit-title{text-align:center;color:#07599f;font-weight:700;letter-spacing:.4px;margin-bottom:10px}
+.legacy-content .archive-recruit ul{margin:0;padding-left:22px}
+.legacy-content .archive-recruit li{margin-bottom:7px}
+.legacy-content .archive-recruit li:last-child{margin-bottom:0}
+.archive-section{scroll-margin-top:94px}
+.archive-level-3{padding-left:12px;border-left:1px solid #e2e8f4}
+
+@media(max-width:1100px){.site-logo{width:174px}}
+@media(min-width:681px) and (max-width:900px){.legacy-content .archive-profile td{display:table-cell}.legacy-content .archive-profile td:first-child{width:132px;padding-right:20px}.legacy-content .archive-profile img{width:110px}}
+@media(max-width:680px){.site-logo{width:150px}.legacy-content #toptitle h1{font-size:25px}.legacy-content .archive-profile td:first-child{width:auto}.legacy-content .archive-profile td:first-child a{display:inline-block}.legacy-content .archive-profile img{width:96px}.legacy-content .archive-profile td p{font-size:14px;line-height:1.7}.legacy-content .archive-profile-links{gap:4px 10px}.legacy-content .archive-recruit{padding:14px}.archive-level-3{padding-left:0;border-left:0}}
