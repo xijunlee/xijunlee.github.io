@@ -204,3 +204,46 @@ body{background:var(--paper)}
 @media(max-width:1100px){.site-logo{width:174px}}
 @media(min-width:681px) and (max-width:900px){.legacy-content .archive-profile td{display:table-cell}.legacy-content .archive-profile td:first-child{width:132px;padding-right:20px}.legacy-content .archive-profile img{width:110px}}
 @media(max-width:680px){.site-logo{width:150px}.legacy-content #toptitle h1{font-size:25px}.legacy-content .archive-profile td:first-child{width:auto}.legacy-content .archive-profile td:first-child a{display:inline-block}.legacy-content .archive-profile img{width:96px}.legacy-content .archive-profile td p{font-size:14px;line-height:1.7}.legacy-content .archive-profile-links{gap:4px 10px}.legacy-content .archive-recruit{padding:14px}.archive-level-3{padding-left:0;border-left:0}}
+
+/* Profile masthead: portrait and name lead; research and recruiting stay secondary. */
+.hero-refined{display:grid;grid-template-columns:minmax(0,1fr) 17.5rem;align-items:start;gap:2.25rem;padding-block:2.25rem 1.75rem}
+.hero-refined .hero-copy{min-width:0;padding:0}
+.hero-profile{display:grid;grid-template-columns:12.5rem minmax(0,1fr);grid-template-areas:"portrait identity" "portrait summary";gap:1.25rem 1.75rem;align-items:start}
+.hero-portrait{grid-area:portrait;margin:0;overflow:hidden;border-radius:12px;background:#edf3f8;box-shadow:0 8px 24px -12px #17344f40}
+.hero-portrait img{width:100%;height:auto;aspect-ratio:134/180;object-fit:contain}
+.hero-identity{grid-area:identity;min-width:0;padding-top:2px}
+.hero-refined .hero-identity h1{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .8rem;margin:0 0 .5rem;font-size:2.75rem;line-height:1.15;letter-spacing:-1px;font-weight:650}
+.hero-refined .hero-identity h1 span{font-size:1.25rem;line-height:1.4;letter-spacing:0;font-weight:450;color:var(--muted)}
+.hero-role{font-size:.9375rem;line-height:1.6;font-weight:550;color:var(--ink)}
+.hero-membership{display:inline-block;margin-top:.25rem;font-size:.8125rem;line-height:1.5;color:var(--muted)}
+.hero-membership span{color:var(--teal);white-space:nowrap}
+.hero-summary{grid-area:summary;min-width:0}
+.hero-summary h2{font-size:1.75rem;line-height:1.35;letter-spacing:-.5px;font-weight:550;text-wrap:balance}
+.hero-summary h2 span{color:var(--teal)}
+.hero-refined .hero-description{font-size:1rem;line-height:1.7;margin-top:.625rem;color:var(--text)}
+.hero-refined .hero-links{display:flex;flex-wrap:wrap;gap:.5rem 1.125rem;margin-top:.875rem;font-size:.875rem;font-weight:550}
+.hero-refined .hero-links a:last-child{display:inline}
+.hero-refined .experience-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1.375rem;padding-top:1rem;border-top:1px solid var(--line)}
+.hero-refined .experience-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.625rem;padding:.375rem 0;background:transparent;border:0;border-radius:0;align-items:center}
+.hero-refined .experience-logo,.hero-refined .experience-logo-wide{width:2.5rem;height:2.5rem;background:transparent;border-radius:0}
+.hero-refined .experience-logo img{width:2.25rem;height:2.25rem}
+.hero-refined .experience-logo-wide img{width:2.5rem;height:auto}
+.hero-refined .experience-copy{line-height:1.4}
+.hero-refined .experience-copy small{font:500 .75rem/1.45 var(--sans);letter-spacing:0;margin-bottom:.125rem}
+.hero-refined .experience-copy strong{font-size:.875rem;line-height:1.4;font-weight:550}
+.hero-refined .experience-copy em{font-size:.75rem;line-height:1.45;margin-top:.125rem}
+.hero-refined .recruit-card{display:block;align-self:start;border-radius:12px;background:#f0f6fb;border:1px solid #dce8f1;box-shadow:none}
+.hero-refined .recruit-body{padding:1.375rem}
+.hero-refined .open-label{font-size:.75rem;line-height:1.5;letter-spacing:.6px}
+.hero-refined .open-label .status-dot{background:var(--teal)}
+.hero-refined .recruit-body h2{margin-top:.75rem;font-size:1.375rem;line-height:1.35;font-weight:600;letter-spacing:-.3px}
+.hero-refined .recruit-body p{font-size:.875rem;line-height:1.65;margin-top:.625rem;color:var(--text)}
+.hero-refined .position-list{gap:.375rem .75rem;margin-top:1rem;font-size:.75rem;line-height:1.5}
+.hero-refined .position-list span{padding:.25rem .5rem;background:#fbfdff;border:1px solid #dce8f1;border-radius:4px}
+.hero-refined .position-list span+span:before{content:none}
+.hero-refined .recruit-body .button{margin-top:1.125rem;padding:.625rem .75rem;font-size:.875rem;line-height:1.5;gap:.5rem}
+.hero-refined .recruit-email{margin-top:.625rem;font-size:.8125rem;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:1100px){.hero-refined{grid-template-columns:minmax(0,1fr) 16rem;gap:1.75rem}.hero-profile{grid-template-columns:11rem minmax(0,1fr);column-gap:1.375rem}.hero-refined .hero-identity h1{font-size:2.5rem}.hero-summary h2{font-size:1.625rem}.hero-refined .recruit-body{padding:1.125rem}}
+@media(max-width:1000px){.hero-refined{grid-template-columns:1fr;gap:1.5rem}.hero-profile{grid-template-columns:12.5rem minmax(0,1fr);column-gap:1.75rem}.hero-refined .recruit-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:2rem;align-items:start}.hero-refined .open-label{grid-column:1;grid-row:1}.hero-refined .recruit-body h2{grid-column:1;grid-row:2;margin-top:.375rem}.hero-refined .recruit-body p{grid-column:1;grid-row:3/5}.hero-refined .position-list{grid-column:2;grid-row:1/3;margin-top:0}.hero-refined .recruit-body .button{grid-column:2;grid-row:3;margin-top:.75rem}.hero-refined .recruit-email{grid-column:2;grid-row:4}}
+@media(max-width:680px){.hero-refined{display:grid;padding-block:1.5rem;gap:1.25rem}.hero-profile{grid-template-columns:7.5rem minmax(0,1fr);grid-template-areas:"portrait identity" "summary summary";gap:1.25rem}.hero-refined .hero-identity h1{font-size:2rem;gap:.125rem .5rem;letter-spacing:-.5px}.hero-refined .hero-identity h1 span{font-size:1rem}.hero-role{font-size:.875rem;line-height:1.55}.hero-membership{font-size:.75rem;margin-top:.375rem}.hero-summary h2{font-size:1.5rem;line-height:1.4}.hero-refined .hero-description{font-size:1rem}.hero-refined .hero-links{gap:.5rem 1.25rem}.hero-refined .experience-strip{grid-template-columns:1fr;gap:.5rem;margin-top:1rem;padding-top:.75rem}.hero-refined .experience-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.75rem}.hero-refined .experience-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.125rem .5rem}.hero-refined .experience-copy strong{grid-row:1;grid-column:1}.hero-refined .experience-copy small{grid-row:1;grid-column:2;margin:0;align-self:center;text-align:right}.hero-refined .experience-copy em{grid-row:2;grid-column:1/-1;margin:0}.hero-refined .recruit-body{display:block;padding:1.125rem}.hero-refined .recruit-body h2{font-size:1.25rem;margin-top:.5rem}.hero-refined .position-list{margin-top:.75rem}.hero-refined .recruit-body .button{margin-top:.875rem}}
+@media(max-width:360px){.hero-profile{grid-template-columns:6rem minmax(0,1fr);column-gap:1rem}.hero-refined .hero-identity h1{font-size:1.875rem}.hero-refined .experience-copy{grid-template-columns:minmax(0,1fr)}.hero-refined .experience-copy small{grid-row:2;grid-column:1;text-align:left}.hero-refined .experience-copy em{grid-row:3}}
