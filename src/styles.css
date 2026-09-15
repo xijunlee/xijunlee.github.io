@@ -18,3 +18,124 @@
 @media(max-width:1100px){.desktop-nav{gap:15px}.hero{grid-template-columns:minmax(0,1fr) 330px;gap:28px}.hero h1{font-size:44px}.hero-links{gap:15px}.career-line{font-size:13px}.research-diagram{flex-wrap:wrap;align-content:center;padding:12px 8px}.research-diagram span{font-size:12px}.metric{padding-inline:14px}.highlights{grid-template-columns:1fr}.highlight .small-caps{font-size:12px}.highlight h3{font-size:16px}.highlight p{font-size:13px}.hero .eyebrow{font-size:12px;letter-spacing:.3px}}
 @media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr) 310px;gap:24px}.hero .identity strong span{font-size:18px}.hero h1{font-size:39px}.hero-links{flex-wrap:wrap}.hero .eyebrow{letter-spacing:0}.research-grid{grid-template-columns:1fr}.research-diagram{min-height:75px}.research-card h3{font-size:22px}.research-card h4{min-height:0}.research-card .text-link{font-size:14px}.research-card>p{font-size:16px}.profile-top .small-caps{font-size:12px}.metric-label{font-size:13px}}
 @media(max-width:680px){.hero{display:flex;gap:25px}.hero h1{font-size:42px}.hero-description{font-size:16px}.recruit-card{grid-template-columns:105px minmax(0,1fr)}.recruit-body{padding:16px 14px}.recruit-body h3{font-size:21px}.recruit-body p{font-size:14px}.recruit-body .button{font-size:14px}.profile-top{padding:16px 12px}.profile-top img{width:80px;height:107px}.profile-top p{font-size:12px}.recruit-email{font-size:12px}.position-list{font-size:12px;gap:5px}.research-tags>span{font-size:12px}.metrics{grid-template-columns:repeat(2,1fr)}.metric{padding:18px 12px!important;border-left:0!important}.metric:nth-child(n+3){border-top:1px solid var(--line)}.metric:nth-child(3n+2),.metric:nth-child(3n+3){border-left:0!important}.metric:nth-child(even){border-left:1px solid var(--line)!important}.metric:nth-child(odd){padding-left:0!important}.metric-label{font-size:14px}.metric-detail{font-size:12px}.metric-top{font-size:12px}.metric:last-child{grid-column:1/-1}.metric:last-child>strong{font-size:33px}.highlight p{font-size:12px}.highlight h3{font-size:14px}.highlight .small-caps{font-size:12px;line-height:1.4}.highlight-icon{font-size:24px}.research-card h4{font-size:14px}.news-row{grid-template-columns:90px 75px 1fr}.news-row p{font-size:14px}.filter{font-size:14px}.search input{font-size:14px}.paper-description{font-size:14px}.paper-authors{font-size:12px}.paper-resources a{font-size:12px}.paper h3{font-size:18px}.paper-venue{font-size:14px}.paper-meta{flex-wrap:wrap}.ccf-badge{font-size:12px}.people-names{grid-template-columns:repeat(2,1fr)}.person strong{font-size:14px}.person>span{font-size:12px}.join-copy>p{font-size:16px}.student-outcomes p{font-size:14px}.site-footer p,.footer-links,.footer-links>span{font-size:12px}.application-line p{font-size:14px}.application-card li p{font-size:14px}.legacy-content{font-size:16px}.legacy-content .imgtable td p{font-size:14px}.archive-nav a{font-size:14px}.profile-top .small-caps{display:none}}
+
+/* Compact, light bilingual direction */
+:root{--ink:#213b48;--text:#465d68;--muted:#70858e;--line:#d8e5e9;--paper:#fbfdfe;--soft:#f1f7f8;--teal:#2c8985;--mint:#d9f1eb;--navy:#eaf3f6}
+body{background:var(--paper)}
+.container{width:min(1200px,calc(100% - 80px))}
+.site-header{background:rgba(251,253,254,.94);border-color:var(--line)}
+.header-inner{height:66px;gap:24px}
+.desktop-nav{gap:21px;font-size:13px}
+.nav-join{background:#e2f1ee;color:#315a62;padding:7px 14px;border:1px solid #cee5e2}
+.nav-join:hover{background:#cfeae4;color:#214b53}
+.lang-switch{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--line);background:white;border-radius:7px;font:12px/1 var(--mono);white-space:nowrap}
+.lang-switch a,.lang-switch span{display:grid;place-items:center;min-width:29px;height:27px;border-radius:4px}
+.lang-switch [aria-current="page"]{background:#e4f1f0;color:#256f6c;font-weight:700}
+.archive-language{margin-left:auto}
+.hero{grid-template-columns:minmax(0,1fr) 360px;gap:52px;padding-block:30px 24px}
+.hero-copy{padding-block:2px}
+.identity{margin-top:16px;margin-bottom:12px}
+h1{font-size:clamp(38px,3.65vw,52px);line-height:1.19;margin-bottom:14px}
+.hero-description{font-size:15px;line-height:1.7;max-width:680px}
+.research-tags{margin-top:12px}
+.career-line{font-size:13px;line-height:1.65;margin-top:13px}
+.hero-links{margin-top:14px}
+.recruit-card{background:#edf5f7;color:#516c77;box-shadow:0 15px 35px -27px #31596570;border:1px solid #d8e7ea}
+.profile-top{padding:18px 20px 15px;border-bottom-color:#d7e5e8}
+.profile-top .small-caps,.profile-school{color:#72909b}
+.profile-top h2,.recruit-body h3{color:var(--ink)}
+.profile-top p{color:#718993}
+.profile-top img{width:94px;height:126px;box-shadow:0 5px 18px #4b687126}
+.recruit-body{padding:17px 20px 18px}
+.open-label{color:var(--teal)}
+.recruit-body h3{font-size:21px;line-height:1.4;margin-top:8px}
+.recruit-body p{color:#607883;margin-top:6px;line-height:1.65}
+.position-list{color:#607983;margin-top:9px}
+.position-list span+span:before{color:#9bb0b8}
+.button-light{background:#d5eee7;color:#285b5d;margin-top:13px}
+.button-light:hover{background:#c7e8df;color:#214b4d}
+.recruit-email{color:#61808a;margin-top:8px}
+.recruit-email:hover{color:var(--teal)}
+.impact-heading{margin-bottom:8px}
+.metrics{padding-block:14px}
+.metric{padding-inline:17px}
+.metric>strong{font-size:38px;margin-block:6px 3px}
+.metric-detail{line-height:1.45}
+.highlights{padding-top:14px;gap:12px}
+.highlight{padding:12px 13px;background:#f2f7f8;border:1px solid #e2edef}
+.highlight:hover{background:#eaf3f4}
+.highlight-icon{font-size:20px}
+.highlight h3{line-height:1.45;margin-top:1px}
+.highlight p{margin-top:1px;line-height:1.5}
+.section{padding-block:52px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:26px;line-height:1.3;margin-top:7px}
+.research-grid{gap:14px}
+.research-card{padding:18px;background:#fff}
+.research-diagram{min-height:70px;margin-block:10px 14px;background:#f4f8f9}
+.research-card h3{font-size:20px}
+.research-card>p{font-size:14px;line-height:1.7;margin-top:11px}
+.tag-row{margin-top:12px}
+.research-card .text-link{margin-top:17px}
+.application-line{margin-top:16px;padding-block:10px}
+.news-section{padding-block:42px;background:#f1f6f8}
+.news-row{padding-block:12px}
+.publication-toolbar{margin-bottom:8px}
+.paper{padding-block:18px;grid-template-columns:88px minmax(0,1fr) 22px;gap:19px}
+.paper h3{font-size:17px;line-height:1.45}
+.paper-description{margin-top:5px}
+.paper-authors{margin-top:6px;line-height:1.6}
+.paper-resources{margin-top:8px}
+.publication-bottom{margin-top:14px}
+.projects-layout{gap:18px}
+.grant-panel,.industry-panel{padding:21px}
+.panel-heading{margin-bottom:12px}
+.grant-item{padding:12px 0}
+.industry-panel{background:#eaf2f3}
+.industry-panel h3{font-size:21px;line-height:1.42;margin-top:11px}
+.industry-panel>p{margin-block:9px 13px;line-height:1.65;font-size:14px}
+.system-link{padding:12px 0}
+.system-link strong{font-size:20px}
+.patent-panel{padding-top:27px;margin-top:25px}
+.patent-intro h3{margin-top:7px}
+.patent-intro>p{margin-top:7px;line-height:1.65}
+.patent-intro .text-link{margin-top:14px}
+.patent-item{padding:10px 0}
+.people-layout{grid-template-columns:310px minmax(0,1fr);gap:28px}
+.student-achievement{padding:21px;background:#edf6f4}
+.student-achievement h3{font-size:23px;line-height:1.5;margin-top:23px}
+.student-achievement h3 em{font-size:32px}
+.student-achievement p{margin-top:11px}
+.student-achievement .text-link{margin-top:16px}
+.people-names{gap:10px 18px}
+.student-outcomes{margin-top:20px;padding-top:18px}
+.people-content>.text-link{margin-top:16px}
+.join-section{background:#edf6f7;color:#58717b;padding-block:46px;border-top:1px solid #dae7ea}
+.join-copy .eyebrow{color:var(--teal)}
+.join-copy h2,.application-card h3{color:var(--ink)}
+.join-copy h2{font-size:31px;line-height:1.4;margin-top:14px}
+.join-copy>p{margin-top:12px;font-size:15px;line-height:1.7}
+.join-positions{margin-top:17px}
+.join-positions>span{color:#476a74;border-color:#c4d9dd;background:#f7fbfb}
+.resource-line{border-top-color:#d3e2e5;margin-top:20px;padding-top:14px}
+.resource-line>span{color:#708a94}
+.resource-line p{color:#496b75}
+.resource-line i{color:#96aeb6}
+.application-card{border-color:#d0e1e5;background:#f9fcfc;padding:21px 24px}
+.application-card ol{margin:15px 0}
+.application-card li{margin-top:12px}
+.application-card li strong{color:var(--ink)}
+.application-card li p{color:#718993}
+.application-detail{color:#5f7f88;margin-top:11px}
+.data-notes{padding-block:17px}
+.site-footer{padding-block:22px 28px}
+.archive-hero{padding-top:34px;padding-bottom:23px}
+.archive-hero h1{font-size:33px;margin-top:12px;margin-bottom:4px}
+.archive-layout{gap:36px;padding-bottom:45px}
+.legacy-content h2{margin:25px 0 11px}
+.legacy-content h3{margin:20px 0 9px}
+.legacy-content li{margin-bottom:7px}
+
+@media(max-width:1100px){.container{width:calc(100% - 56px)}.hero{grid-template-columns:minmax(0,1fr) 325px;gap:28px}.desktop-nav{gap:14px}.lang-switch a,.lang-switch span{min-width:27px}.metric{padding-inline:12px}.research-card{padding:16px}}
+@media(max-width:900px){.section{padding-block:44px}.hero{grid-template-columns:minmax(0,1fr) 300px}.hero h1{font-size:38px}.people-layout{grid-template-columns:250px minmax(0,1fr)}.join-layout{gap:30px}.lang-switch{margin-left:auto}.nav-join{margin-left:0}}
+@media(max-width:680px){.container{width:calc(100% - 34px)}.header-inner{height:60px}.wordmark-name{display:none}.lang-switch{margin-left:auto}.nav-join{display:none}.hero{padding-top:21px;padding-bottom:21px;gap:20px}.hero h1{font-size:38px}.identity{margin-top:13px;margin-bottom:10px}.hero-description{font-size:15px;line-height:1.65}.career-line{line-height:1.55}.recruit-card{grid-template-columns:100px minmax(0,1fr)}.profile-top{padding:13px 10px}.profile-top img{width:78px;height:104px}.recruit-body{padding:13px 13px 12px}.recruit-body h3{font-size:18px}.recruit-body p{font-size:12px}.position-list{font-size:11px}.recruit-body .button{font-size:12px;padding:8px;margin-top:9px}.metrics{grid-template-columns:repeat(2,1fr)}.metric{padding-block:14px!important}.metric>strong{font-size:34px}.highlights{padding-top:11px}.section{padding-block:38px}.section-heading{margin-bottom:18px}.section-heading h2{font-size:23px}.research-card{padding:17px}.research-diagram{min-height:62px;margin-block:8px 12px;gap:6px}.research-diagram span{font-size:11px}.news-section{padding-block:35px}.news-row{padding-block:11px}.paper{padding-block:15px}.grant-panel,.industry-panel{padding:18px}.patent-panel{margin-top:22px;padding-top:22px}.people-layout{grid-template-columns:1fr}.student-achievement{padding:20px}.join-section{padding-block:37px}.join-copy h2{font-size:27px}.application-card{padding:19px}.archive-hero{padding-block:23px 18px}.archive-hero h1{font-size:27px}.archive-layout{padding-bottom:35px}}

@@ -1,6 +1,6 @@
 # Xijun Li academic homepage — design sample
 
-A static, Chinese-first academic and recruiting homepage, with an English full archive.
+A static bilingual academic and recruiting homepage with separate Chinese and English versions and full archives in both languages.
 The existing personal site is preserved in `source/original.html`; the original checkout is unchanged.
 
 ## Preview and build
@@ -10,11 +10,11 @@ npm run build
 npm run dev
 ```
 
-The local preview runs at http://127.0.0.1:4317. `dist/` is standalone static output and can also be opened directly from the filesystem or hosted on GitHub Pages.
+The local preview runs at http://127.0.0.1:4317. Open `/index.html` for Chinese or `/en.html` for English. `dist/` is standalone static output and can also be opened directly from the filesystem or hosted on GitHub Pages.
 
 ## Content and metrics
 
-- All original visible text and distinct original links are preserved in `archive.html` and checked during the build.
+- Original information and links are preserved in the full archives: `archive-zh.html` in Chinese and `archive.html` in English.
 - All 38 publication entries and 11 preprint/technical-report entries are available in the homepage's searchable publication list.
 - CCF classifications use the official seventh edition (2026) PDF, linked in `data.json` and the homepage.
 - Initial counts from the supplied publication list: A 23, B 4, C 4. All author positions are included. The SIGMOD 2021 storage-system paper is temporarily excluded from A pending verification of its paper type. Workshops, competition reports and degree theses are separate. Conference/journal and preprint versions remain accessible but are not added twice to the CCF totals.
@@ -26,7 +26,8 @@ The local preview runs at http://127.0.0.1:4317. `dist/` is standalone static ou
 
 ## Editing
 
-- `src/index.html`: homepage structure and curated Chinese copy.
+- `src/index.html`: Chinese homepage structure and copy.
+- `src/en.html`: English homepage structure and copy.
 - `src/styles.css`: responsive styles.
 - `src/app.js`: navigation and publication search/category filters.
 - `build.py`: original-content extraction, CCF mapping and static build validation.
