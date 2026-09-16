@@ -268,11 +268,12 @@ body{background:var(--paper)}
   .news-row>span:last-child{grid-column:4;grid-row:1;align-self:center;justify-self:end}
 }
 
-/* Chinese experience labels are compact enough to use the space more efficiently. */
-body[data-lang="zh"] .hero-refined .experience-strip{gap:.625rem 1rem;grid-auto-rows:1fr}
-body[data-lang="zh"] .hero-refined .experience-item{grid-template-columns:2.625rem minmax(0,1fr);gap:.75rem;padding:.25rem 0;min-height:4.25rem;height:100%;align-self:stretch}
-body[data-lang="zh"] .hero-refined .experience-logo{width:2.625rem;height:2.625rem}
-body[data-lang="zh"] .hero-refined .experience-logo img{width:2.5rem;height:2.5rem}
+/* Keep experience cards aligned while giving each logo a strong, balanced presence. */
+body[data-lang="zh"] .hero-refined .experience-strip{gap:.625rem 1rem}
+.hero-refined .experience-strip{grid-auto-rows:1fr}
+.hero-refined .experience-item{grid-template-columns:3.5rem minmax(0,1fr);gap:.625rem;padding:.25rem 0;min-height:4.25rem;height:100%;align-self:stretch}
+.hero-refined .experience-logo{width:3.5rem;height:3.5rem}
+.hero-refined .experience-logo img{width:3.25rem;height:3.25rem}
 body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 .hero-refined .experience-copy small{font-size:.875rem}
 .hero-refined .experience-copy small.experience-status{display:flex;align-items:baseline;gap:.375rem;white-space:nowrap}
@@ -285,14 +286,10 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 @media(max-width:360px){
   .hero-refined .experience-copy small.experience-status{justify-content:flex-start}
 }
-@media(min-width:681px) and (max-width:1279px){
+@media(min-width:681px){
   body[data-lang="zh"] .hero-refined .experience-strip{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)}
 }
 @media(min-width:1280px){
-  body[data-lang="zh"] .hero-refined .experience-strip{grid-template-columns:minmax(0,.8fr) minmax(0,1.25fr) minmax(0,.93fr) minmax(0,1.02fr);column-gap:1rem}
-  body[data-lang="zh"] .hero-refined .experience-item{grid-template-columns:2.25rem minmax(0,1fr);gap:.375rem}
-  body[data-lang="zh"] .hero-refined .experience-logo{width:2.25rem;height:2.25rem}
-  body[data-lang="zh"] .hero-refined .experience-logo img{width:2.125rem;height:2.125rem}
   body[data-lang="zh"] .hero-refined .experience-copy small.experience-status{gap:.25rem}
   body[data-lang="zh"] .hero-refined .experience-copy strong{text-wrap:balance}
 }
