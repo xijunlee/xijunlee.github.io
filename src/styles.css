@@ -275,8 +275,16 @@ body[data-lang="zh"] .hero-refined .experience-logo{width:2.625rem;height:2.625r
 body[data-lang="zh"] .hero-refined .experience-logo img{width:2.5rem;height:2.5rem}
 body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 body[data-lang="zh"] .hero-refined .experience-copy small{font-size:.875rem}
+body[data-lang="zh"] .hero-refined .experience-copy small.experience-status{display:flex;align-items:baseline;gap:.375rem;white-space:nowrap}
+body[data-lang="zh"] .hero-refined .experience-copy .experience-status time{font:500 .75rem/1.4 var(--mono);letter-spacing:0;color:var(--muted)}
 body[data-lang="zh"] .hero-refined .experience-copy strong{font-size:1rem}
 body[data-lang="zh"] .hero-refined .experience-copy em{font-size:.875rem}
+@media(max-width:680px){
+  body[data-lang="zh"] .hero-refined .experience-copy small.experience-status{justify-content:flex-end}
+}
+@media(max-width:360px){
+  body[data-lang="zh"] .hero-refined .experience-copy small.experience-status{justify-content:flex-start}
+}
 @media(min-width:1280px){
   body[data-lang="zh"] .hero-refined .experience-strip{grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr) minmax(0,1fr) minmax(0,1.08fr)}
   body[data-lang="zh"] .hero-refined .experience-item:nth-child(2) .experience-copy strong{white-space:nowrap}
