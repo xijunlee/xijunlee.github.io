@@ -208,7 +208,8 @@ body{background:var(--paper)}
 /* Profile masthead: portrait and name lead; research and recruiting stay secondary. */
 .hero-refined{display:grid;grid-template-columns:minmax(0,1fr) 17.5rem;align-items:stretch;gap:2.25rem;padding-block:2.25rem 1.75rem}
 .hero-refined .hero-copy{display:flex;flex-direction:column;justify-content:space-between;min-width:0;padding:0}
-.hero-profile{display:grid;grid-template-columns:11.25rem minmax(0,1fr);grid-template-areas:"portrait identity" "portrait summary";gap:1.25rem 1.75rem;align-items:start}
+.hero-profile{display:grid;grid-template-columns:11.25rem minmax(0,1fr);grid-template-areas:"portrait bio";gap:1.25rem 1.75rem;align-items:center}
+.hero-bio{grid-area:bio;display:flex;flex-direction:column;gap:1.25rem;min-width:0}
 .hero-portrait{grid-area:portrait;margin:0;overflow:hidden;border-radius:12px;background:#edf3f8;box-shadow:0 8px 24px -12px #17344f40}
 .hero-portrait img{width:100%;height:auto;aspect-ratio:134/180;object-fit:contain}
 .hero-identity{grid-area:identity;min-width:0;padding-top:0}
@@ -238,8 +239,8 @@ body{background:var(--paper)}
 .hero-refined .open-label .status-dot{background:var(--teal)}
 .hero-refined .recruit-body h2{margin-top:.75rem;font-size:1.375rem;line-height:1.35;font-weight:600;letter-spacing:-.3px}
 .hero-refined .recruit-body p{font-size:.875rem;line-height:1.65;margin-top:.625rem;color:var(--text)}
-.hero-refined .position-list{gap:.375rem .75rem;margin-top:1rem;margin-bottom:1.125rem;font-size:.75rem;line-height:1.5}
-.hero-refined .position-list span{padding:.25rem .5rem;background:#fbfdff;border:1px solid #dce8f1;border-radius:4px}
+.hero-refined .position-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin-top:1rem;margin-bottom:1.125rem;font-size:.875rem;line-height:1.5}
+.hero-refined .position-list span{display:flex;align-items:center;justify-content:center;min-width:0;min-height:2.5rem;padding:.5rem .625rem;text-align:center;background:#fbfdff;border:1px solid #dce8f1;border-radius:4px}
 .hero-refined .position-list span+span:before{content:none}
 .hero-refined .recruit-body .button{margin-top:auto;padding:.625rem .75rem;font-size:.875rem;line-height:1.5;gap:.5rem}
 .hero-refined .recruit-email{margin-top:.625rem;font-size:.8125rem;line-height:1.5;overflow-wrap:anywhere}
@@ -249,4 +250,7 @@ body{background:var(--paper)}
 @media(max-width:360px){.hero-profile{grid-template-columns:5.4rem minmax(0,1fr);column-gap:1rem}.hero-refined .hero-identity h1{font-size:1.875rem}.hero-refined .experience-copy{grid-template-columns:minmax(0,1fr)}.hero-refined .experience-copy small{grid-row:2;grid-column:1;text-align:left}.hero-refined .experience-copy em{grid-row:3}}
 
 .hero-refined .position-list .internship-highlight,.join-positions>span.internship-highlight{background:var(--sjtu-blue);border-color:var(--sjtu-blue);color:#fff;font-size:.875rem;font-weight:600;line-height:1.5;padding:.5rem .625rem}
-.hero-refined .position-list .internship-highlight{flex-basis:100%}
+.hero-refined .position-list .internship-highlight,.join-positions>span.internship-highlight{grid-column:1/-1}
+.join-positions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;max-width:25rem}
+.join-positions>span{display:flex;align-items:center;justify-content:center;min-width:0;min-height:2.5rem;padding:.5rem .625rem;text-align:center;font-size:.875rem;line-height:1.5}
+@media(max-width:680px){.hero-bio{display:contents}}

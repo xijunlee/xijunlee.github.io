@@ -431,7 +431,7 @@ def archive_recruitment(lang):
     heading='招生与研究机会' if zh else 'Open Positions & Research Opportunities'
     intern_title='科研实习生 · 长期招收' if zh else 'Research Interns · Year-round Recruitment'
     intern_copy='实验室具备充足的具身智能、GPU、NPU 与 CPU 等研究资源，并长期开放科研实习岗位。' if zh else 'Our lab provides abundant resources for embodied intelligence, GPU, NPU, and CPU research, with research internship applications welcome year-round.'
-    student_title='博士生、硕士生与本科生' if zh else 'Ph.D., Master, and Undergraduate Students'
+    student_title='博士生与硕士生' if zh else 'Ph.D. and Master Students'
     student_copy='欢迎对 Learning to Optimize 以及大语言模型优化与推理感兴趣、有内驱力的同学联系。请将个人简历发送至邮箱预约交流。' if zh else 'We welcome self-driven students interested in Learning to Optimize and large language models for optimization and reasoning. Email your CV to arrange a discussion.'
     apply_label='查看申请细则 ↗' if zh else 'Application details (Chinese) ↗'
     email_label='发送个人简历 ↗' if zh else 'Email your CV ↗'
