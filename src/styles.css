@@ -276,4 +276,7 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 body[data-lang="zh"] .hero-refined .experience-copy small{font-size:.875rem}
 body[data-lang="zh"] .hero-refined .experience-copy strong{font-size:1rem}
 body[data-lang="zh"] .hero-refined .experience-copy em{font-size:.875rem}
-@media(min-width:1101px){body[data-lang="zh"] .hero-refined .experience-strip{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1280px){
+  body[data-lang="zh"] .hero-refined .experience-strip{grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr) minmax(0,1fr) minmax(0,1.08fr)}
+  body[data-lang="zh"] .hero-refined .experience-item:nth-child(2) .experience-copy strong{white-space:nowrap}
+}
