@@ -131,6 +131,7 @@ npm run preview
 - `portrait.png`：个人照片，建议保持当前纵横比；
 - `sjtu-banner-blue.png`：页眉上海交通大学完整校徽；
 - `sjtu-logo.png`：经历栏上海交通大学校徽；
+- `most-emblem.png`：经历栏中华人民共和国科学技术部使用的国徽；
 - `ustc-logo.jpg`：中国科学技术大学校徽；
 - `huawei-logo.png`：华为标志；
 - `favicon.svg`：浏览器标签页图标。

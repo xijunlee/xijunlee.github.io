@@ -219,7 +219,7 @@ body{background:var(--paper)}
 .hero-refined .hero-description{font-size:1rem;line-height:1.7;margin-top:.625rem;color:var(--text)}
 .hero-refined .hero-links{display:flex;flex-wrap:wrap;gap:.5rem 1.125rem;margin-top:.875rem;font-size:.875rem;font-weight:550}
 .hero-refined .hero-links a:last-child{display:inline}
-.hero-refined .experience-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1.375rem;padding-top:1rem;border-top:1px solid var(--line)}
+.hero-refined .experience-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1.5rem;margin-top:1.375rem;padding-top:1rem;border-top:1px solid var(--line)}
 .hero-refined .experience-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.625rem;padding:.375rem 0;background:transparent;border:0;border-radius:0;align-items:center}
 .hero-refined .experience-logo{width:2.5rem;height:2.5rem;background:transparent;border-radius:0}
 .hero-refined .experience-logo img{width:2.25rem;height:2.25rem}
