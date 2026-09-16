@@ -223,10 +223,10 @@ body{background:var(--paper)}
 .hero-refined .experience-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.625rem;padding:.375rem 0;background:transparent;border:0;border-radius:0;align-items:center}
 .hero-refined .experience-logo{width:2.5rem;height:2.5rem;background:transparent;border-radius:0}
 .hero-refined .experience-logo img{width:2.25rem;height:2.25rem}
-.hero-refined .experience-copy{line-height:1.4}
-.hero-refined .experience-copy small{font:500 .75rem/1.45 var(--sans);letter-spacing:0;margin-bottom:.125rem}
-.hero-refined .experience-copy strong{font-size:.875rem;line-height:1.4;font-weight:550}
-.hero-refined .experience-copy em{font-size:.75rem;line-height:1.45;margin-top:.125rem}
+.hero-refined .experience-copy{line-height:1.45;gap:.125rem}
+.hero-refined .experience-copy small{font:650 .8125rem/1.4 var(--sans);letter-spacing:.015em;color:var(--sjtu-blue);margin-bottom:0}
+.hero-refined .experience-copy strong{font-size:.9375rem;line-height:1.4;font-weight:650}
+.hero-refined .experience-copy em{font-size:.8125rem;line-height:1.45;margin-top:0}
 .hero-refined .recruit-card{display:flex;align-self:stretch;border-radius:12px;background:#f0f6fb;border:1px solid #dce8f1;box-shadow:none}
 .hero-refined .recruit-body{display:flex;flex-direction:column;width:100%;padding:1.375rem}
 .hero-refined .open-label{font-size:.75rem;line-height:1.5;letter-spacing:.6px}
