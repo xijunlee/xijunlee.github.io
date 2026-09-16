@@ -259,10 +259,10 @@ body{background:var(--paper)}
 .filter{display:inline-grid;place-items:center;text-align:center;line-height:1.5}
 .filter.active{background:var(--sjtu-blue);color:#fff}
 
-/* Keep compact news items on one row on phones; truncate only when space is genuinely exhausted. */
+/* Start mobile news metadata and copy on one row, then wrap the copy only when it truly runs out of space. */
 @media(max-width:680px){
   .news-row{grid-template-columns:max-content max-content minmax(0,1fr) max-content;gap:.5rem;align-items:center}
   .news-row time,.news-category{white-space:nowrap}
-  .news-row p{grid-column:auto;grid-row:auto;min-width:0;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .news-row p{grid-column:auto;grid-row:auto;min-width:0;margin-top:0}
   .news-row>span:last-child{grid-column:auto;grid-row:auto;align-self:auto;justify-self:auto}
 }
