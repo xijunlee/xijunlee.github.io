@@ -259,9 +259,6 @@ html[lang="en"] .hero-refined .position-list{margin-bottom:1.125rem}
 .join-positions>span.internship-highlight{flex:0 1 auto;white-space:normal}
 @media(max-width:680px){.join-positions{gap:.375rem}.join-positions>span,.join-positions>span.internship-highlight{font-size:.8125rem;padding:.375rem .5rem}}
 @media(max-width:680px){.hero-bio{display:contents}}
-.application-links{display:grid;gap:.5rem;margin-top:.6875rem}
-.application-links .application-detail{margin-top:0}
-
 /* Use the same two-axis centering for other compact text boxes. */
 .tag-row>span,.research-tags>span,.research-diagram>span,.news-category,.ccf-badge,.spotlight{display:inline-grid;place-items:center;text-align:center;line-height:1.5}
 .tag-row>span,.research-tags>span,.news-category{min-height:1.5rem}
