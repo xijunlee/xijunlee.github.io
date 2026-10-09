@@ -148,7 +148,7 @@ test('shared official embed is parser-loaded after the statistics bridge', () =>
   for (const page of ['index.html', 'en.html']) {
     const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
     assert.match(source, /src="visitors\.js\?v=4" defer/);
-    assert.match(source, /href="styles\.css\?v=4"/);
+    assert.match(source, /href="styles\.css\?v=5"/);
   }
 });
 
@@ -291,12 +291,21 @@ test('both footers show native pageviews, not derived geography or unwanted intr
   assert.doesNotMatch(childCode, /svg_points|circle\[title\]|locations\.add|visits \+=/);
 });
 
-test('compact footer keeps text and globe side by side and vertically centered, including mobile', () => {
+test('visitor rail spreads all three text groups horizontally with the globe centered beside them', () => {
   const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  const rules = [...css.matchAll(/\.visitor-section\{([^}]+)\}/g)].map(match => match[1]);
-  assert.match(rules[0], /display:flex;align-items:center;justify-content:center;gap:1\.75rem/);
-  assert.match(rules[0], /padding-block:\.5rem/);
-  assert.ok(rules.every(rule => !/grid-template-columns|flex-direction:column/.test(rule)));
-  assert.match(css, /\.visitor-visual\{[^}]*flex:0 0 8rem;[^}]*height:9rem/);
+  assert.match(css, /\.visitor-section\{[^}]*padding-block:\.5rem/);
+  assert.match(css, /\.visitor-bar\{display:grid;grid-template-columns:minmax\(0,1fr\) 8rem;align-items:center;[^}]*width:min\(100%,52rem\)/);
+  assert.match(css, /\.visitor-copy\{display:flex;align-items:center;justify-content:space-between/);
+  assert.doesNotMatch(css, /\.visitor-copy\{[^}]*max-width:24rem/);
+  assert.match(css, /@media\(max-width:680px\)\{\.visitor-bar\{grid-template-columns:minmax\(0,1fr\) 7rem/);
+  assert.match(css, /\.visitor-copy\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.visitor-visual\{[^}]*height:9rem/);
   assert.match(css, /\.visitor-frame\{[^}]*height:9rem/);
+  for (const page of ['index.html', 'en.html']) {
+    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
+    assert.match(source, /class="visitor-bar"/);
+    assert.match(source, /class="visitor-heading"/);
+    assert.match(source, /class="visitor-meta"/);
+    assert.equal((source.match(/data-visitor-total/g) || []).length, 1);
+  }
 });
