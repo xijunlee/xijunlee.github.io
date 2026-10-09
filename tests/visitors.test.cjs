@@ -148,7 +148,7 @@ test('shared official embed is parser-loaded after the statistics bridge', () =>
   for (const page of ['index.html', 'en.html']) {
     const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
     assert.match(source, /src="visitors\.js\?v=4" defer/);
-    assert.match(source, /href="styles\.css\?v=5"/);
+    assert.match(source, /href="styles\.css\?v=6"/);
   }
 });
 
@@ -291,14 +291,19 @@ test('both footers show native pageviews, not derived geography or unwanted intr
   assert.doesNotMatch(childCode, /svg_points|circle\[title\]|locations\.add|visits \+=/);
 });
 
-test('visitor rail spreads all three text groups horizontally with the globe centered beside them', () => {
+test('visitor section stacks all text at the left edge and places the globe at the right edge', () => {
   const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
   assert.match(css, /\.visitor-section\{[^}]*padding-block:\.5rem/);
-  assert.match(css, /\.visitor-bar\{display:grid;grid-template-columns:minmax\(0,1fr\) 8rem;align-items:center;[^}]*width:min\(100%,52rem\)/);
-  assert.match(css, /\.visitor-copy\{display:flex;align-items:center;justify-content:space-between/);
-  assert.doesNotMatch(css, /\.visitor-copy\{[^}]*max-width:24rem/);
-  assert.match(css, /@media\(max-width:680px\)\{\.visitor-bar\{grid-template-columns:minmax\(0,1fr\) 7rem/);
-  assert.match(css, /\.visitor-copy\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.visitor-bar\{display:flex;justify-content:space-between;align-items:center;[^}]*width:100%/);
+  assert.match(css, /\.visitor-copy\{display:flex;[^}]*flex-direction:column;align-items:flex-start;[^}]*text-align:left/);
+  assert.match(css, /\.visitor-meta\{display:flex;flex-direction:column;align-items:flex-start/);
+  // Responsive rules must never scatter the text into columns again or put the
+  // globe below it: narrow screens keep the same two-end layout.
+  for (const rules of css.matchAll(/\.(visitor-bar|visitor-copy|visitor-meta)\{([^}]+)\}/g)) {
+    assert.doesNotMatch(rules[2], /display:grid|grid-template-columns/);
+    if (rules[1] === 'visitor-bar') assert.doesNotMatch(rules[2], /flex-direction:column/);
+  }
+  assert.match(css, /@media\(max-width:680px\)\{\.visitor-bar\{gap:1rem/);
   assert.match(css, /\.visitor-visual\{[^}]*height:9rem/);
   assert.match(css, /\.visitor-frame\{[^}]*height:9rem/);
   for (const page of ['index.html', 'en.html']) {
@@ -307,5 +312,11 @@ test('visitor rail spreads all three text groups horizontally with the globe cen
     assert.match(source, /class="visitor-heading"/);
     assert.match(source, /class="visitor-meta"/);
     assert.equal((source.match(/data-visitor-total/g) || []).length, 1);
+    const copy = source.match(/<div class="visitor-copy">([^]*?)<div class="visitor-visual"/)[1];
+    assert.match(copy, /id="visitor-title"/);
+    assert.match(copy, /data-visitor-total/);
+    assert.match(copy, /class="visitor-legend"/);
+    assert.match(copy, /<p class="visitor-note">MapMyVisitors · <a class="visitor-details"/);
+    assert.match(copy, /data-visitor-details/);
   }
 });
