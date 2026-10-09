@@ -142,6 +142,14 @@ npm run preview
 
 编辑 [src/styles.css](src/styles.css)。全站主色定义在文件开头的 CSS 变量中；桌面、平板和手机布局的媒体查询也在同一文件内。
 
+### 访客来源地球仪
+
+中英文主页底部使用同一个 MapMyVisitors 编号，配置在 [src/visitors.js](src/visitors.js) 的 `widgetId` 中。访客统计只在 `xijunlee.github.io` 上启用，本地预览不计入访问。
+
+地球仪和数字来自服务返回的实际地图标记：“地图访问记录”是当前地图中标记的访问次数之和（包含位置未知的记录），不是独立访客数；“来源地点”对地图坐标去重并排除未知位置。中英文页面共享统计，浏览不同语言仍可能增加访问次数。IP 定位为近似位置，无法还原启用前未记录的访问。
+
+统计组件隔离在 iframe 中；若第三方服务或网络无法访问，页面显示加载失败说明。点击“查看访问统计”可打开 MapMyVisitors 的详细记录页面。
+
 ## 首次发布到 GitHub Pages
 
 个人主页仓库应命名为 `xijunlee.github.io`，发布地址为 `https://xijunlee.github.io/`。
