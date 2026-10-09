@@ -354,6 +354,7 @@ for page in ('index.html','en.html','archive.html','archive-zh.html'):
         if re.match(r'^(?:https?:|mailto:)', href):
             continue
         target_name, _, fragment = href.partition('#')
+        target_name = target_name.partition('?')[0]
         target = OUT / (target_name or page)
         assert target.is_file(), f'Missing local target in {page}: {href}'
         if fragment:
