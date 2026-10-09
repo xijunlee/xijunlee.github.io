@@ -16,8 +16,6 @@ function homepage(lang = 'zh', hostname = 'xijunlee.github.io') {
     ['[data-visitor-visual]', { dataset: {}, frames: [], append(frame) { this.frames.push(frame); } }],
     ['[data-visitor-status]', { hidden: true, textContent: 'Loading' }],
     ['[data-visitor-details]', { hidden: false, href: statsURL }],
-    ['[data-visitor-visits]', { textContent: '—' }],
-    ['[data-visitor-locations]', { textContent: '—' }],
   ]);
   const section = { querySelector: selector => nodes.get(selector) };
   const frame = { contentWindow: {}, attributes: {}, setAttribute(name, value) { this.attributes[name] = value; } };
@@ -42,7 +40,6 @@ function homepage(lang = 'zh', hostname = 'xijunlee.github.io') {
 
 function globe(lang = 'zh-CN', reducedMotion = false) {
   let link = null;
-  let points = [];
   let observer;
   const messages = [];
   const microtasks = [];
@@ -52,10 +49,9 @@ function globe(lang = 'zh-CN', reducedMotion = false) {
     head: { append: style => styles.push(style) },
     createElement: tag => { assert.equal(tag, 'style'); return {}; },
     querySelector: selector => {
-      if (selector === '#mmvst_a') return link;
-      // Returning only the first group prevents counting mirrored SVG points.
-      assert.equal(selector, '.svg_points');
-      return { querySelectorAll: selector => { assert.equal(selector, 'circle[title]'); return points; } };
+      // Fail if the bridge ever resumes reading markers to derive statistics.
+      assert.equal(selector, '#mmvst_a');
+      return link;
     },
   };
   vm.runInNewContext(childCode, {
@@ -72,9 +68,8 @@ function globe(lang = 'zh-CN', reducedMotion = false) {
   });
   return {
     document, messages, styles, microtasks,
-    setMarkers(rows, href = statsURL) {
+    setSourceLink(href = statsURL) {
       link = { href, attributes: {}, setAttribute(name, value) { this.attributes[name] = value; } };
-      points = rows.map(([title, cx, cy]) => ({ getAttribute: name => ({ title, cx, cy })[name] }));
       return link;
     },
     mutate() { observer(); },
@@ -89,17 +84,16 @@ for (const lang of ['zh', 'en']) {
     assert.equal(frameURL.protocol, 'https:');
     assert.equal(frameURL.pathname, '/visitor-globe.html');
     assert.equal(frameURL.searchParams.get('lang'), lang === 'en' ? 'en' : 'zh-CN');
-    assert.equal(frameURL.searchParams.get('v'), '2');
+    assert.equal(frameURL.searchParams.get('v'), '3');
     assert.equal('srcdoc' in page.frame, false);
     assert.equal(page.frame.attributes.sandbox, 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
     assert.equal(page.nodes.get('[data-visitor-visual]').frames.length, 1);
   });
 
-  test(`${lang}: actual iframe messages reveal the globe and populate statistics`, () => {
+  test(`${lang}: official widget readiness reveals the globe without copying counters`, () => {
     const page = homepage(lang);
-    page.message({ type: 'homepage-visitor-globe', visits: 1234, locations: 5, statsURL });
-    assert.equal(page.nodes.get('[data-visitor-visits]').textContent, '1,234');
-    assert.equal(page.nodes.get('[data-visitor-locations]').textContent, '5');
+    page.message({ type: 'homepage-visitor-globe', statsURL });
+    assert.equal(page.nodes.get('[data-visitor-details]').href, statsURL);
     assert.equal(page.nodes.get('[data-visitor-status]').hidden, true);
     assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, 'ready');
     assert.equal(page.timers.size, 0);
@@ -120,10 +114,11 @@ test('shared official embed is parser-loaded after the statistics bridge', () =>
   assert.equal(url.origin, 'https://mapmyvisitors.com');
   assert.equal(url.pathname, '/globe.js');
   assert.equal(url.searchParams.get('d'), 'SacDpCibu7P_YwKchCIJVW6hz5sEw_uXBXHV2r2ttcc');
-  assert.equal(url.searchParams.get('w'), '224');
-  assert.ok(childHTML.indexOf('src="visitor-globe.js?v=2"') < childHTML.indexOf('id="mmvst_globe"'));
+  assert.equal(url.searchParams.get('w'), '160');
+  assert.match(childHTML, /body\{width:160px/);
+  assert.ok(childHTML.indexOf('src="visitor-globe.js?v=3"') < childHTML.indexOf('id="mmvst_globe"'));
   for (const page of ['index.html', 'en.html']) {
-    assert.match(fs.readFileSync(path.join(root, 'src', page), 'utf8'), /src="visitors\.js\?v=2" defer/);
+    assert.match(fs.readFileSync(path.join(root, 'src', page), 'utf8'), /src="visitors\.js\?v=3" defer/);
   }
 });
 
@@ -139,20 +134,14 @@ test('regression: legacy jQuery data URL normalization now keeps HTTPS', () => {
   }
 });
 
-test('offscreen globe publishes via microtasks, deduplicates locations, and includes unknown visits', () => {
+test('offscreen bridge reports only official readiness and never calculates marker totals', () => {
   const child = globe();
   assert.equal(child.messages.length, 0);
-  const link = child.setMarkers([
-    ['3 visits from Shanghai, China', '100', '200'],
-    ['2 recent visits from Shanghai, China', '100', '200'],
-    ['1 visit from Unknown Location', '50', '50'],
-    ['4 visits from London, United Kingdom', '300', '400'],
-    ['Unrecognized title', '0', '0'],
-  ]);
+  const link = child.setSourceLink();
   child.mutate(); child.mutate();
   assert.equal(child.microtasks.length, 1);
   child.flush();
-  assert.deepEqual(child.messages, [{ type: 'homepage-visitor-globe', visits: 10, locations: 2, statsURL, origin: 'https://xijunlee.github.io' }]);
+  assert.deepEqual(child.messages, [{ type: 'homepage-visitor-globe', statsURL, origin: 'https://xijunlee.github.io' }]);
   assert.equal(link.target, '_blank');
   assert.equal(link.rel, 'noopener noreferrer');
   assert.equal(child.document.documentElement.lang, 'zh-CN');
@@ -163,20 +152,20 @@ test('English bridge and reduced-motion preferences are preserved', () => {
   assert.equal(child.document.documentElement.lang, 'en');
   assert.equal(child.document.title, 'Homepage visitor globe');
   assert.match(child.styles[0].textContent, /transform:none!important/);
-  const link = child.setMarkers([]);
+  const link = child.setSourceLink();
   child.mutate(); child.flush();
   assert.equal(link.attributes['aria-label'], 'MapMyVisitors statistics');
-  assert.equal(child.messages[0].visits, 0);
+  assert.equal('visits' in child.messages[0], false);
+  assert.equal('locations' in child.messages[0], false);
 });
 
-test('parent rejects spoofed, malformed, or untrusted statistics messages', () => {
+test('parent rejects spoofed, malformed, or untrusted widget messages', () => {
   const page = homepage();
-  const data = { type: 'homepage-visitor-globe', visits: 3, locations: 1, statsURL };
+  const data = { type: 'homepage-visitor-globe', statsURL };
   page.message(data, {});
-  for (const bad of [{ visits: -1 }, { visits: '3' }, { locations: 1.5 }, { statsURL: 'https://example.com/web/1c8rq' }, { type: 'untrusted' }]) {
+  for (const bad of [{ statsURL: null }, { statsURL: 'http://mapmyvisitors.com/web/1c8rq' }, { statsURL: 'https://example.com/web/1c8rq' }, { type: 'untrusted' }]) {
     page.message({ ...data, ...bad });
   }
-  assert.equal(page.nodes.get('[data-visitor-visits]').textContent, '—');
   assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, undefined);
   assert.equal(page.timers.size, 1);
 });
@@ -185,7 +174,18 @@ test('late valid statistics recover after the network timeout', () => {
   const page = homepage();
   page.timers.get(1)();
   assert.match(page.nodes.get('[data-visitor-status]').textContent, /暂时无法加载/);
-  page.message({ type: 'homepage-visitor-globe', visits: 1, locations: 0, statsURL });
+  page.message({ type: 'homepage-visitor-globe', statsURL });
   assert.equal(page.nodes.get('[data-visitor-status]').hidden, true);
   assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, 'ready');
+});
+
+test('both homepage footers remove derived counters and the unwanted introductions', () => {
+  for (const page of ['index.html', 'en.html']) {
+    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
+    const section = source.match(/<section class="visitor-section[^]*?<\/section>/)[0];
+    assert.doesNotMatch(section, /data-visitor-visits|data-visitor-locations|visitor-metrics/);
+    assert.doesNotMatch(section, /谢谢你，从世界各地来访|地球仪上的光点，记录着|Thank you for visiting, wherever you are|Every point on the globe marks/);
+    assert.match(section, /href="https:\/\/mapmyvisitors.com\/web\/1c8rq"/);
+  }
+  assert.doesNotMatch(childCode, /svg_points|circle\[title\]|locations\.add|visits \+=/);
 });

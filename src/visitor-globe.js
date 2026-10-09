@@ -4,8 +4,8 @@
   document.documentElement.lang = english ? 'en' : 'zh-CN';
   document.title = english ? 'Homepage visitor globe' : '主页访客地球仪';
 
-  // Read the provider's displayed aggregates, not mirrored SVG copies.
-  // Unknown locations count as visits but not as geographic sources.
+  // The official globe owns all visitor data and rendering. Notify the parent
+  // only that it has loaded; never infer totals or locations from map markers.
   let scheduled = false;
   const publish = () => {
     scheduled = false;
@@ -14,19 +14,8 @@
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.setAttribute('aria-label', english ? 'MapMyVisitors statistics' : 'MapMyVisitors 访问统计');
-    let visits = 0;
-    const locations = new Set();
-    const points = document.querySelector('.svg_points');
-    points?.querySelectorAll('circle[title]').forEach(point => {
-      const match = point.getAttribute('title').match(/^(\d+)(?: recent)? visits? from (.+)$/);
-      if (!match) return;
-      visits += Number(match[1]);
-      if (match[2] !== 'Unknown Location') {
-        locations.add(`${point.getAttribute('cx')},${point.getAttribute('cy')}`);
-      }
-    });
     parent.postMessage({
-      type: 'homepage-visitor-globe', visits, locations: locations.size,
+      type: 'homepage-visitor-globe',
       statsURL: link.href,
     }, 'https://xijunlee.github.io');
   };
@@ -34,12 +23,12 @@
     if (!scheduled) {
       scheduled = true;
       // requestAnimationFrame may be suspended in a transparent/offscreen iframe.
-      // Statistics must reach the parent even before visitors scroll to the footer.
+      // Readiness must reach the parent before visitors scroll to the footer.
       queueMicrotask(publish);
     }
   }).observe(document.body, {
     childList: true, subtree: true, attributes: true,
-    attributeFilter: ['title', 'href'],
+    attributeFilter: ['href'],
   });
   publish();
 

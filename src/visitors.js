@@ -32,13 +32,9 @@
   const fallbackTimer = setTimeout(() => { status.textContent = copy.unavailable; }, 20000);
   window.addEventListener('message', event => {
     if (event.source !== frame.contentWindow || event.data?.type !== 'homepage-visitor-globe') return;
-    const { visits, locations, statsURL } = event.data;
-    if (!Number.isSafeInteger(visits) || visits < 0 || !Number.isSafeInteger(locations) || locations < 0) return;
+    const { statsURL } = event.data;
     if (typeof statsURL !== 'string' || !/^https:\/\/mapmyvisitors\.com\/web\/[a-z0-9]+\/?$/i.test(statsURL)) return;
     clearTimeout(fallbackTimer);
-    const format = new Intl.NumberFormat(english ? 'en' : 'zh-CN');
-    section.querySelector('[data-visitor-visits]').textContent = format.format(visits);
-    section.querySelector('[data-visitor-locations]').textContent = format.format(locations);
     details.href = statsURL;
     details.hidden = false;
     status.hidden = true;
@@ -48,7 +44,7 @@
   // A real HTTPS document is required: srcdoc/blob documents produce about:/blob:
   // data requests even if a <base> element points at the published homepage.
   const frameURL = new URL('visitor-globe.html', document.baseURI);
-  frameURL.search = new URLSearchParams({ lang: english ? 'en' : 'zh-CN', v: '2' }).toString();
+  frameURL.search = new URLSearchParams({ lang: english ? 'en' : 'zh-CN', v: '3' }).toString();
   frame.src = frameURL.href;
   visual.append(frame);
 })();
