@@ -53,7 +53,7 @@ npm run check
 2. 自动统计论文、CCF 分类、预印本、专利、项目和动态数量；
 3. 检查中英文档案章节、条目及链接是否对齐；
 4. 检查所有站内页面、锚点和图片文件；
-5. 检查 JavaScript 语法。
+5. 检查 JavaScript 语法及访客地球仪的回归测试。
 
 任何一步失败都会停止构建，并给出需要修正的位置。
 
@@ -144,11 +144,11 @@ npm run preview
 
 ### 访客来源地球仪
 
-中英文主页底部使用同一个 MapMyVisitors 编号，配置在 [src/visitors.js](src/visitors.js) 的 `widgetId` 中。访客统计只在 `xijunlee.github.io` 上启用，本地预览不计入访问。
+中英文主页底部使用同一个 MapMyVisitors 编号，配置在 [src/visitor-globe.html](src/visitor-globe.html) 的官方嵌入代码中。主页访客统计只在 `xijunlee.github.io` 上启用，本地主页预览不计入访问。
 
 地球仪和数字来自服务返回的实际地图标记：“地图访问记录”是当前地图中标记的访问次数之和（包含位置未知的记录），不是独立访客数；“来源地点”对地图坐标去重并排除未知位置。中英文页面共享统计，浏览不同语言仍可能增加访问次数。IP 定位为近似位置，无法还原启用前未记录的访问。
 
-统计组件隔离在 iframe 中；若第三方服务或网络无法访问，页面显示加载失败说明。点击“查看访问统计”可打开 MapMyVisitors 的详细记录页面。
+统计组件隔离在 iframe 中，以独立的 HTTPS 页面 `visitor-globe.html` 加载；不要改回 `srcdoc` 或 Blob 页面，否则旧版统计脚本会把数据接口解析为错误的 `about:` 或 `blob:` 地址。`visitor-globe.js` 通过微任务通知主页，不依赖可能在首屏外暂停的动画帧。若第三方服务或网络无法访问，页面显示加载失败说明。点击“查看访问统计”可打开 MapMyVisitors 的详细记录页面。
 
 ## 首次发布到 GitHub Pages
 

@@ -23,6 +23,8 @@ echo "[1/4] 构建并检查网站"
 python3 build.py
 node --check src/app.js
 node --check src/visitors.js
+node --check src/visitor-globe.js
+node --test tests/visitors.test.cjs
 
 if [[ "$dry_run" == true ]]; then
   echo "[完成] 预演通过：未提交，也未推送。"

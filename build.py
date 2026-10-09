@@ -359,7 +359,7 @@ for page in ('index.html','en.html','archive.html','archive-zh.html'):
         if fragment:
             target_html = target.read_text(encoding='utf-8')
             assert f'id="{fragment}"' in target_html, f'Missing anchor in {page}: {href}'
-for asset in ('assets/portrait.png','assets/favicon.svg','assets/sjtu-logo.png','assets/sjtu-banner-blue.png','assets/ustc-logo.jpg','assets/huawei-logo.png','styles.css','app.js','data.js','.nojekyll'):
+for asset in ('assets/portrait.png','assets/favicon.svg','assets/sjtu-logo.png','assets/sjtu-banner-blue.png','assets/ustc-logo.jpg','assets/huawei-logo.png','styles.css','app.js','data.js','visitors.js','visitor-globe.html','visitor-globe.js','.nojekyll'):
     assert (OUT/asset).is_file(), asset
 for page in ('index.html','en.html','archive.html','archive-zh.html'):
     assert 'PanGu' not in (OUT/page).read_text(encoding='utf-8'), page
