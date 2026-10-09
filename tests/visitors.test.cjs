@@ -148,7 +148,7 @@ test('shared official embed is parser-loaded after the statistics bridge', () =>
   for (const page of ['index.html', 'en.html']) {
     const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
     assert.match(source, /src="visitors\.js\?v=4" defer/);
-    assert.match(source, /href="styles\.css\?v=6"/);
+    assert.match(source, /href="styles\.css\?v=7"/);
   }
 });
 
@@ -291,20 +291,18 @@ test('both footers show native pageviews, not derived geography or unwanted intr
   assert.doesNotMatch(childCode, /svg_points|circle\[title\]|locations\.add|visits \+=/);
 });
 
-test('visitor section stacks all text at the left edge and places the globe at the right edge', () => {
+test('visitor text remains one left-hand stack with the globe centered in the right column', () => {
   const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
   assert.match(css, /\.visitor-section\{[^}]*padding-block:\.5rem/);
-  assert.match(css, /\.visitor-bar\{display:flex;justify-content:space-between;align-items:center;[^}]*width:100%/);
+  assert.match(css, /\.visitor-bar\{align-items:center;width:100%/);
   assert.match(css, /\.visitor-copy\{display:flex;[^}]*flex-direction:column;align-items:flex-start;[^}]*text-align:left/);
   assert.match(css, /\.visitor-meta\{display:flex;flex-direction:column;align-items:flex-start/);
-  // Responsive rules must never scatter the text into columns again or put the
-  // globe below it: narrow screens keep the same two-end layout.
-  for (const rules of css.matchAll(/\.(visitor-bar|visitor-copy|visitor-meta)\{([^}]+)\}/g)) {
+  // Never scatter the text itself into columns. When the application card is
+  // full-width on mobile, its corresponding globe column is full-width too.
+  for (const rules of css.matchAll(/\.(visitor-copy|visitor-meta)\{([^}]+)\}/g)) {
     assert.doesNotMatch(rules[2], /display:grid|grid-template-columns/);
-    if (rules[1] === 'visitor-bar') assert.doesNotMatch(rules[2], /flex-direction:column/);
   }
-  assert.match(css, /@media\(max-width:680px\)\{\.visitor-bar\{gap:1rem/);
-  assert.match(css, /\.visitor-visual\{[^}]*height:9rem/);
+  assert.match(css, /\.visitor-visual\{[^}]*justify-self:center;[^}]*height:9rem/);
   assert.match(css, /\.visitor-frame\{[^}]*height:9rem/);
   for (const page of ['index.html', 'en.html']) {
     const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
@@ -319,4 +317,32 @@ test('visitor section stacks all text at the left edge and places the globe at t
     assert.match(copy, /<p class="visitor-note">MapMyVisitors · <a class="visitor-details"/);
     assert.match(copy, /data-visitor-details/);
   }
+});
+
+test('join copy stretches and distributes its text to align with the application-card height', () => {
+  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
+  assert.match(css, /\.join-layout\{align-items:stretch\}/);
+  assert.match(css, /\.join-copy\{display:flex;flex-direction:column;justify-content:space-between;gap:1rem;min-width:0\}/);
+  assert.match(css, /\.join-copy>h2,\.join-copy>p,\.join-copy>\.join-positions,\.join-copy>\.resource-line\{margin-top:0\}/);
+  assert.match(css, /@media\(max-width:680px\)\{[^\n]*\.join-copy\{justify-content:flex-start\}/);
+});
+
+test('application card and visitor globe share responsive columns rather than independent offsets', () => {
+  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
+  const shared = css.match(/\.join-layout,\.visitor-bar\{--application-column:400px;--application-gap:100px;([^}]+)\}/);
+  assert.ok(shared);
+  assert.match(shared[1], /display:grid;grid-template-columns:minmax\(0,1fr\) var\(--application-column\);column-gap:var\(--application-gap\)/);
+  assert.match(css, /@media\(max-width:1150px\)\{\.join-layout,\.visitor-bar\{--application-column:370px;--application-gap:50px\}/);
+  assert.match(css, /@media\(max-width:900px\)\{\.join-layout,\.visitor-bar\{--application-column:320px;--application-gap:30px\}/);
+  assert.match(css, /@media\(max-width:680px\)\{\.join-layout,\.visitor-bar\{grid-template-columns:minmax\(0,1fr\)\}/);
+  // The two grids must use the same page container in both languages. Centering
+  // the globe in their shared right-hand track fixes its x-position at all sizes.
+  for (const page of ['index.html', 'en.html']) {
+    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
+    assert.match(source, /class="container join-layout"/);
+    assert.match(source, /class="visitor-section container"/);
+    assert.match(source, /class="application-card"/);
+    assert.match(source, /class="visitor-bar"/);
+  }
+  assert.doesNotMatch(css, /\.visitor-bar\{[^}]*justify-content:space-between|\.visitor-visual\{[^}]*margin-right:/);
 });
