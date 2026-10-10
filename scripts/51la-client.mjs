@@ -63,6 +63,11 @@ export function createClient({ accessKey = process.env.LA_ACCESS_KEY, secretKey 
 }
 
 async function probe() {
+  if (!process.env.LA_ACCESS_KEY?.trim() || !process.env.LA_SECRET_KEY?.trim()) {
+    // Only boolean configuration metadata is logged. Never read alternative
+    // credential values or send an unrelated key to the analytics service.
+    if (process.env.LA_CONFIG_NAMES) console.log(`51LA credential-name presence (no values): ${process.env.LA_CONFIG_NAMES}`);
+  }
   const request = createClient();
   const overview = await request('/open/overview/get');
   const { totalPv, totalUv } = overview.bean || {};
