@@ -4,345 +4,117 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
-
 const root = path.resolve(__dirname, '..');
-const parentCode = fs.readFileSync(path.join(root, 'src/visitors.js'), 'utf8');
-const childCode = fs.readFileSync(path.join(root, 'src/visitor-globe.js'), 'utf8');
-const childHTML = fs.readFileSync(path.join(root, 'src/visitor-globe.html'), 'utf8');
-const statsURL = 'https://mapmyvisitors.com/web/1c8rq';
-
-function homepage(lang = 'zh', hostname = 'xijunlee.github.io') {
-  const nodes = new Map([
-    ['[data-visitor-visual]', { dataset: {}, frames: [], append(frame) { this.frames.push(frame); } }],
-    ['[data-visitor-status]', { hidden: true, textContent: 'Loading' }],
-    ['[data-visitor-details]', { hidden: false, href: statsURL }],
-    ['[data-visitor-total]', { textContent: '—', attributes: {}, setAttribute(name, value) { this.attributes[name] = value; }, removeAttribute(name) { delete this.attributes[name]; if (name === 'title') delete this.title; } }],
-  ]);
-  const section = { querySelector: selector => nodes.get(selector) };
-  const frame = { contentWindow: {}, attributes: {}, setAttribute(name, value) { this.attributes[name] = value; } };
-  const timers = new Map();
-  let listener;
-  vm.runInNewContext(parentCode, {
-    URL, URLSearchParams, Intl,
-    location: { hostname },
-    document: {
-      baseURI: `https://${hostname}/${lang === 'en' ? 'en.html' : 'index.html'}`,
-      body: { dataset: { lang } },
-      querySelector: selector => selector === '.visitor-section' ? section : null,
-      createElement: tag => { assert.equal(tag, 'iframe'); return frame; },
-    },
-    window: { addEventListener: (name, callback) => { assert.equal(name, 'message'); listener = callback; } },
-    setTimeout: callback => { timers.set(1, callback); return 1; },
-    clearTimeout: id => timers.delete(id),
+const code = fs.readFileSync(path.join(root, 'src/visitors.js'), 'utf8');
+const globeCode = fs.readFileSync(path.join(root, 'src/visitor-globe.js'), 'utf8');
+const topology = JSON.parse(fs.readFileSync(path.join(root, 'src/assets/geo/land-110m.json')));
+const data = {
+  schema: 1, source: '51LA', updatedAt: '2026-10-10T02:17:00Z',
+  overview: { pv: 12345, uv: 6789 }, days: [{ day: '2026-10-09' }],
+  geography: { from: '2026-10-09', to: '2026-10-09', complete: true, unknown: 0, regions: [{ id: 'CN-8', zh: '上海', en: 'Shanghai', lat: 31, lon: 121, sessions: 5 }] },
+};
+async function homepage(lang, snapshot = data, rendererFails = false) {
+  const nodes = Object.fromEntries(['status', 'visual', 'total', 'unique', 'updated', 'regions', 'range'].map(name => [name, { textContent: '—', hidden: false, removeAttribute() {} }]));
+  let rendered;
+  const document = { body: { dataset: { lang } }, querySelector: () => ({ querySelector: selector => nodes[selector.match(/data-visitor-(.*)\]/)[1]] }) };
+  vm.runInNewContext(code, {
+    document, Intl, Date, Number, AbortSignal,
+    fetch: async url => { assert.equal(url, 'visitor-data.json'); return { ok: true, json: async () => snapshot }; },
+    window: { HomepageGlobe: async options => { if (rendererFails) throw new Error('unavailable'); rendered = options; } },
   });
-  const message = (data, source = frame.contentWindow) => listener({ data, source, origin: 'null' });
-  return { nodes, frame, timers, message };
-}
-
-function globe(lang = 'zh-CN', reducedMotion = false) {
-  let link = null;
-  let observer;
-  const messages = [];
-  const microtasks = [];
-  const styles = [];
-  const scripts = [];
-  const timers = new Map();
-  const intervals = [];
-  const listeners = new Map();
-  const window = {};
-  const embedURL = childHTML.match(/id="mmvst_globe" src="([^"]+)"/)[1].replaceAll('&amp;', '&');
-  let timerID = 0;
-  const document = {
-    documentElement: {}, body: {}, hidden: false,
-    head: { append: node => (node.tag === 'style' ? styles : scripts).push(node) },
-    createElement: tag => { assert.ok(['style', 'script'].includes(tag)); return { tag, remove() { this.removed = true; } }; },
-    getElementById: id => { assert.equal(id, 'mmvst_globe'); return { src: embedURL }; },
-    addEventListener: (name, callback) => listeners.set(name, callback),
-    querySelector: selector => {
-      // Fail if the bridge ever resumes reading markers to derive statistics.
-      assert.equal(selector, '#mmvst_a');
-      return link;
-    },
-  };
-  vm.runInNewContext(childCode, {
-    URL, URLSearchParams, document, window,
-    setTimeout: callback => { const id = ++timerID; timers.set(id, callback); return id; },
-    clearTimeout: id => timers.delete(id),
-    setInterval: (callback, delay) => intervals.push({ callback, delay }),
-    location: { search: `?lang=${lang}` },
-    parent: { postMessage: (data, origin) => messages.push({ ...data, origin }) },
-    MutationObserver: class {
-      constructor(callback) { observer = callback; }
-      observe(target, options) { assert.equal(target, document.body); assert.equal(options.subtree, true); }
-    },
-    queueMicrotask: callback => microtasks.push(callback),
-    requestAnimationFrame: () => { throw new Error('Offscreen animation frames must not gate statistics'); },
-    matchMedia: () => ({ matches: reducedMotion }),
-  });
-  return {
-    document, messages, styles, scripts, timers, intervals, listeners, microtasks,
-    replyCounter(payload, index = scripts.length - 1) {
-      const callback = new URL(scripts[index].src).searchParams.get('callback');
-      assert.equal(typeof window[callback], 'function');
-      window[callback](payload);
-    },
-    setSourceLink(href = statsURL) {
-      link = { href, attributes: {}, setAttribute(name, value) { this.attributes[name] = value; } };
-      return link;
-    },
-    mutate() { observer(); },
-    flush() { while (microtasks.length) microtasks.shift()(); },
-  };
+  await new Promise(resolve => setImmediate(resolve));
+  return { nodes, rendered };
 }
 
 for (const lang of ['zh', 'en']) {
-  test(`${lang}: uses a real HTTPS iframe, preserving the sandbox`, () => {
-    const page = homepage(lang);
-    const frameURL = new URL(page.frame.src);
-    assert.equal(frameURL.protocol, 'https:');
-    assert.equal(frameURL.pathname, '/visitor-globe.html');
-    assert.equal(frameURL.searchParams.get('lang'), lang === 'en' ? 'en' : 'zh-CN');
-    assert.equal(frameURL.searchParams.get('v'), '4');
-    assert.equal('srcdoc' in page.frame, false);
-    assert.equal(page.frame.attributes.sandbox, 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
-    assert.equal(page.nodes.get('[data-visitor-visual]').frames.length, 1);
+  test(`${lang}: displays source PV / UV independently of map session counts`, async () => {
+    const { nodes, rendered } = await homepage(lang);
+    assert.equal(nodes.total.textContent, '12,345');
+    assert.equal(nodes.unique.textContent, '6,789');
+    assert.match(nodes.regions.textContent, /^1 /);
+    assert.equal(nodes.status.hidden, true);
+    assert.equal(rendered.english, lang === 'en');
+    assert.match(nodes.range.textContent, /2026-10-09/);
+    assert.match(nodes.updated.textContent, /UTC\+8/);
   });
-
-  test(`${lang}: official widget readiness reveals the globe independently of the counter`, () => {
-    const page = homepage(lang);
-    page.message({ type: 'homepage-visitor-globe', statsURL });
-    assert.equal(page.nodes.get('[data-visitor-details]').href, statsURL);
-    assert.equal(page.nodes.get('[data-visitor-status]').hidden, true);
-    assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, 'ready');
-    assert.equal(page.timers.size, 0);
+  test(`${lang}: real zero counts are shown but no fake points are added`, async () => {
+    const { nodes, rendered } = await homepage(lang, { ...data, overview: { pv: 0, uv: 0 }, geography: { ...data.geography, regions: [] } });
+    assert.equal(nodes.total.textContent, '0');
+    assert.equal(nodes.unique.textContent, '0');
+    assert.equal(rendered.regions.length, 0);
+    assert.match(nodes.range.textContent, lang === 'en' ? /No visitor locations/ : /暂无访客来源/);
   });
-
-  test(`${lang}: shows the exact native Total Pageviews value, with localized formatting`, () => {
-    const page = homepage(lang);
-    page.message({ type: 'homepage-visitor-counter', totalPageviews: 12345 });
-    assert.equal(page.nodes.get('[data-visitor-total]').textContent, '12,345');
-    assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, undefined);
-    page.message({ type: 'homepage-visitor-counter-unavailable' });
-    assert.equal(page.nodes.get('[data-visitor-total]').textContent, '12,345');
-    assert.match(page.nodes.get('[data-visitor-total]').title, lang === 'en' ? /source counter/ : /源站计数/);
+  test(`${lang}: unavailable data stays unavailable, not invented zero`, async () => {
+    const { nodes, rendered } = await homepage(lang, { ...data, overview: null, updatedAt: null });
+    assert.equal(nodes.total.textContent, '—');
+    assert.equal(rendered, undefined);
+    assert.equal(nodes.status.hidden, false);
   });
-
-  test(`${lang}: local homepage previews never create the live counter`, () => {
-    const page = homepage(lang, 'localhost');
-    assert.equal(page.nodes.get('[data-visitor-visual]').frames.length, 0);
-    assert.equal(page.timers.size, 0);
-    assert.match(page.nodes.get('[data-visitor-status]').textContent, lang === 'en' ? /published homepage/ : /正式上线/);
+  test(`${lang}: map failure preserves the API totals`, async () => {
+    const { nodes } = await homepage(lang, data, true);
+    assert.equal(nodes.total.textContent, '12,345');
+    assert.equal(nodes.status.hidden, false);
+  });
+  test(`${lang}: partial geographic data is explicitly disclosed`, async () => {
+    const { nodes } = await homepage(lang, { ...data, geography: { ...data.geography, complete: false, unknown: 3 } });
+    assert.match(nodes.range.textContent, lang === 'en' ? /Partial/ : /不完整/);
+    assert.match(nodes.range.textContent, /3 /);
   });
 }
 
-test('shared official embed is parser-loaded after the statistics bridge', () => {
-  const embed = childHTML.match(/<script id="mmvst_globe" src="([^"]+)"><\/script>/);
-  assert.ok(embed);
-  const url = new URL(embed[1].replaceAll('&amp;', '&'));
-  assert.equal(url.origin, 'https://mapmyvisitors.com');
-  assert.equal(url.pathname, '/globe.js');
-  assert.equal(url.searchParams.get('d'), 'SacDpCibu7P_YwKchCIJVW6hz5sEw_uXBXHV2r2ttcc');
-  assert.equal(url.searchParams.get('w'), '128');
-  assert.match(childHTML, /body\{width:128px/);
-  assert.ok(childHTML.indexOf('src="visitor-globe.js?v=4"') < childHTML.indexOf('id="mmvst_globe"'));
-  for (const page of ['index.html', 'en.html']) {
-    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
-    assert.match(source, /src="visitors\.js\?v=4" defer/);
-    assert.match(source, /href="styles\.css\?v=7"/);
+function svgNode(tag) {
+  return { tag, attributes: {}, children: [], listeners: {},
+    setAttribute(name, value) { this.attributes[name] = String(value); },
+    append(...nodes) { this.children.push(...nodes); },
+    addEventListener(name, fn) { this.listeners[name] = fn; },
+  };
+}
+async function globe(regions = data.geography.regions) {
+  const context = vm.createContext({ console, Math, Number, Array, Set, Map });
+  // Run the actual locally vendored drawing libraries, not projection mocks.
+  for (const file of ['d3-array.min.js', 'd3-geo.min.js', 'topojson-client.min.js']) {
+    vm.runInContext(fs.readFileSync(path.join(root, 'src/assets/vendor', file), 'utf8'), context);
   }
+  const visual = svgNode('div'); visual.dataset = {};
+  Object.assign(context, {
+    window: context, AbortSignal,
+    document: { createElementNS: (_, tag) => svgNode(tag), addEventListener() {}, hidden: false },
+    fetch: async url => { assert.equal(url, 'assets/geo/land-110m.json'); return { ok: true, json: async () => topology }; },
+    matchMedia: () => ({ matches: true, addEventListener() {} }),
+    IntersectionObserver: class { observe() {} },
+    requestAnimationFrame: () => { throw new Error('offscreen rendering must not wait for frames'); },
+  });
+  vm.runInContext(globeCode, context);
+  await context.HomepageGlobe({ root: visual, regions, english: false });
+  return visual;
+}
+test('globe renders real local geometry before animation and clips rear points', async () => {
+  const visual = await globe([...data.geography.regions, { zh: '另一面', en: 'Rear', lat: -31, lon: -59, sessions: 2 }]);
+  const svg = visual.children[0];
+  assert.equal(svg.tag, 'svg');
+  assert.match(svg.children.find(row => row.tag === 'path').attributes.d, /^M/);
+  const dots = svg.children.find(row => row.tag === 'g').children;
+  assert.equal(dots.length, 2);
+  assert.equal(dots[0].attributes.display, 'inline');
+  assert.equal(dots[1].attributes.display, 'none');
+  assert.equal(visual.dataset.state, 'ready');
 });
-
-test('regression: legacy jQuery data URL normalization now keeps HTTPS', () => {
-  // These are the location-dependent URL expressions in jQuery 1.12.4,
-  // the dependency loaded by the official globe script.
-  const rurl = /^([\w.+-]+:)(?:\/\/(?:[^\/?#]*@|)([^\/?#:]*)(?::(\d+)|)|)/;
-  const normalize = (locationHref, url) => url.replace(/^\/\//, rurl.exec(locationHref.toLowerCase())[1] + '//');
-  const page = homepage();
-  for (const endpoint of ['//mapmyvisitors.com/globe_call_home.js', '//mapmyvisitors.com/ajax/globe']) {
-    assert.equal(normalize('about:srcdoc', endpoint), 'about:' + endpoint);
-    assert.equal(normalize(page.frame.src, endpoint), 'https:' + endpoint);
+test('empty globe has no artificial location markers', async () => {
+  const visual = await globe([]);
+  assert.equal(visual.children[0].children.find(row => row.tag === 'g').children.length, 0);
+});
+test('both homepages use 51LA labels and only local globe dependencies', () => {
+  for (const filename of ['index.html', 'en.html']) {
+    const html = fs.readFileSync(path.join(root, 'src', filename), 'utf8');
+    assert.ok(html.includes('51LA'));
+    assert.ok(html.includes('data-visitor-unique'));
+    assert.ok(html.includes('data-visitor-updated'));
+    assert.ok(html.includes('visitor-globe.js?v=5'));
+    assert.equal(html.includes('mapmyvisitors.com'), false);
   }
+  assert.equal(globeCode.includes('https://'), false);
+  const compatibility = fs.readFileSync(path.join(root, 'src/visitor-globe.html'), 'utf8');
+  assert.equal(compatibility.includes('<script'), false);
 });
 
-test('offscreen bridge reports official readiness without calculating marker totals', () => {
-  const child = globe();
-  assert.equal(child.messages.length, 0);
-  const link = child.setSourceLink();
-  child.mutate(); child.mutate();
-  assert.equal(child.microtasks.length, 1);
-  child.flush();
-  assert.deepEqual(child.messages, [{ type: 'homepage-visitor-globe', statsURL, origin: 'https://xijunlee.github.io' }]);
-  assert.equal(link.target, '_blank');
-  assert.equal(link.rel, 'noopener noreferrer');
-  assert.equal(child.document.documentElement.lang, 'zh-CN');
-  assert.equal(child.scripts.length, 1);
-});
-
-const nativeCounter = count => `_map.container.parent().find('.mapmyvisitors-visitors').html('${count} Total Pageviews');`;
-
-test('counter uses the official read-only endpoint, same account, cache buster and native total label', () => {
-  const child = globe();
-  child.setSourceLink(); child.mutate(); child.flush();
-  const endpoint = new URL(child.scripts[0].src);
-  const embed = new URL(childHTML.match(/id="mmvst_globe" src="([^"]+)"/)[1].replaceAll('&amp;', '&'));
-  assert.equal(endpoint.origin, 'https://mapmyvisitors.com');
-  assert.equal(endpoint.pathname, '/widget_call_home.js');
-  assert.equal(endpoint.searchParams.get('d'), embed.searchParams.get('d'));
-  assert.equal(endpoint.searchParams.get('t'), 'tt');
-  assert.match(endpoint.searchParams.get('_'), /^\d+$/);
-  child.replyCounter(nativeCounter('12,345'));
-  assert.deepEqual(child.messages[1], { type: 'homepage-visitor-counter', totalPageviews: 12345, origin: 'https://xijunlee.github.io' });
-  assert.equal(child.scripts[0].removed, true);
-  assert.equal(child.timers.size, 0);
-});
-
-test('counter payload is not evaluated and geographic markers are not used as totals', () => {
-  const child = globe();
-  child.setSourceLink(); child.mutate(); child.flush();
-  child.replyCounter(`throw new Error('Do not execute this widget program');${nativeCounter('31')}`);
-  assert.equal(child.messages.at(-1).totalPageviews, 31);
-  assert.doesNotMatch(childCode, /\beval\s*\(|\bFunction\s*\(/);
-});
-
-test('unreadable or invalid source counters report failure without inventing zero', () => {
-  for (const payload of [null, {}, '3 Unknown Location visits', nativeCounter(','), nativeCounter('1,,5'), nativeCounter('9007199254740992')]) {
-    const child = globe();
-    child.setSourceLink(); child.mutate(); child.flush();
-    child.replyCounter(payload);
-    assert.equal(child.messages.at(-1).type, 'homepage-visitor-counter-unavailable');
-    assert.equal(child.messages.some(message => message.type === 'homepage-visitor-counter'), false);
-  }
-});
-
-test('source counter refreshes every minute only when visible, without concurrent requests', () => {
-  const child = globe();
-  child.setSourceLink(); child.mutate(); child.flush();
-  assert.equal(child.intervals[0].delay, 60000);
-  child.intervals[0].callback();
-  assert.equal(child.scripts.length, 1);
-  child.replyCounter(nativeCounter('31'));
-  child.document.hidden = true;
-  child.intervals[0].callback();
-  assert.equal(child.scripts.length, 1);
-  child.document.hidden = false;
-  child.listeners.get('visibilitychange')();
-  assert.equal(child.scripts.length, 2);
-  child.replyCounter(nativeCounter('32'));
-  assert.equal(child.messages.at(-1).totalPageviews, 32);
-});
-
-test('failed counter requests recover on the next scheduled refresh', () => {
-  const child = globe();
-  child.setSourceLink(); child.mutate(); child.flush();
-  child.timers.values().next().value();
-  assert.equal(child.messages.at(-1).type, 'homepage-visitor-counter-unavailable');
-  child.intervals[0].callback();
-  child.replyCounter(nativeCounter('31'));
-  assert.equal(child.messages.at(-1).totalPageviews, 31);
-});
-
-test('English bridge and reduced-motion preferences are preserved', () => {
-  const child = globe('en', true);
-  assert.equal(child.document.documentElement.lang, 'en');
-  assert.equal(child.document.title, 'Homepage visitor globe');
-  assert.match(child.styles[0].textContent, /transform:none!important/);
-  const link = child.setSourceLink();
-  child.mutate(); child.flush();
-  assert.equal(link.attributes['aria-label'], 'MapMyVisitors statistics');
-  assert.equal('visits' in child.messages[0], false);
-  assert.equal('locations' in child.messages[0], false);
-});
-
-test('parent rejects spoofed, malformed, or untrusted widget messages', () => {
-  const page = homepage();
-  const data = { type: 'homepage-visitor-globe', statsURL };
-  page.message(data, {});
-  for (const bad of [{ statsURL: null }, { statsURL: 'http://mapmyvisitors.com/web/1c8rq' }, { statsURL: 'https://example.com/web/1c8rq' }, { type: 'untrusted' }]) {
-    page.message({ ...data, ...bad });
-  }
-  assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, undefined);
-  assert.equal(page.timers.size, 1);
-  page.message({ type: 'homepage-visitor-counter', totalPageviews: 31 }, {});
-  for (const totalPageviews of ['31', -1, NaN, Infinity, 1.5, Number.MAX_SAFE_INTEGER + 1]) {
-    page.message({ type: 'homepage-visitor-counter', totalPageviews });
-  }
-  assert.equal(page.nodes.get('[data-visitor-total]').textContent, '—');
-});
-
-test('late valid statistics recover after the network timeout', () => {
-  const page = homepage();
-  page.timers.get(1)();
-  assert.match(page.nodes.get('[data-visitor-status]').textContent, /暂时无法加载/);
-  page.message({ type: 'homepage-visitor-globe', statsURL });
-  assert.equal(page.nodes.get('[data-visitor-status]').hidden, true);
-  assert.equal(page.nodes.get('[data-visitor-visual]').dataset.state, 'ready');
-});
-
-test('both footers show native pageviews, not derived geography or unwanted introductions', () => {
-  for (const page of ['index.html', 'en.html']) {
-    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
-    const section = source.match(/<section class="visitor-section[^]*?<\/section>/)[0];
-    assert.doesNotMatch(section, /data-visitor-visits|data-visitor-locations/);
-    assert.match(section, /data-visitor-total/);
-    assert.match(section, page === 'en.html' ? /Total pageviews/ : /累计浏览量/);
-    assert.doesNotMatch(section, /谢谢你，从世界各地来访|地球仪上的光点，记录着|Thank you for visiting, wherever you are|Every point on the globe marks/);
-    assert.match(section, /href="https:\/\/mapmyvisitors.com\/web\/1c8rq"/);
-  }
-  assert.doesNotMatch(childCode, /svg_points|circle\[title\]|locations\.add|visits \+=/);
-});
-
-test('visitor text remains one left-hand stack with the globe centered in the right column', () => {
-  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  assert.match(css, /\.visitor-section\{[^}]*padding-block:\.5rem/);
-  assert.match(css, /\.visitor-bar\{align-items:center;width:100%/);
-  assert.match(css, /\.visitor-copy\{display:flex;[^}]*flex-direction:column;align-items:flex-start;[^}]*text-align:left/);
-  assert.match(css, /\.visitor-meta\{display:flex;flex-direction:column;align-items:flex-start/);
-  // Never scatter the text itself into columns. When the application card is
-  // full-width on mobile, its corresponding globe column is full-width too.
-  for (const rules of css.matchAll(/\.(visitor-copy|visitor-meta)\{([^}]+)\}/g)) {
-    assert.doesNotMatch(rules[2], /display:grid|grid-template-columns/);
-  }
-  assert.match(css, /\.visitor-visual\{[^}]*justify-self:center;[^}]*height:9rem/);
-  assert.match(css, /\.visitor-frame\{[^}]*height:9rem/);
-  for (const page of ['index.html', 'en.html']) {
-    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
-    assert.match(source, /class="visitor-bar"/);
-    assert.match(source, /class="visitor-heading"/);
-    assert.match(source, /class="visitor-meta"/);
-    assert.equal((source.match(/data-visitor-total/g) || []).length, 1);
-    const copy = source.match(/<div class="visitor-copy">([^]*?)<div class="visitor-visual"/)[1];
-    assert.match(copy, /id="visitor-title"/);
-    assert.match(copy, /data-visitor-total/);
-    assert.match(copy, /class="visitor-legend"/);
-    assert.match(copy, /<p class="visitor-note">MapMyVisitors · <a class="visitor-details"/);
-    assert.match(copy, /data-visitor-details/);
-  }
-});
-
-test('join copy stretches and distributes its text to align with the application-card height', () => {
-  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  assert.match(css, /\.join-layout\{align-items:stretch\}/);
-  assert.match(css, /\.join-copy\{display:flex;flex-direction:column;justify-content:space-between;gap:1rem;min-width:0\}/);
-  assert.match(css, /\.join-copy>h2,\.join-copy>p,\.join-copy>\.join-positions,\.join-copy>\.resource-line\{margin-top:0\}/);
-  assert.match(css, /@media\(max-width:680px\)\{[^\n]*\.join-copy\{justify-content:flex-start\}/);
-});
-
-test('application card and visitor globe share responsive columns rather than independent offsets', () => {
-  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  const shared = css.match(/\.join-layout,\.visitor-bar\{--application-column:400px;--application-gap:100px;([^}]+)\}/);
-  assert.ok(shared);
-  assert.match(shared[1], /display:grid;grid-template-columns:minmax\(0,1fr\) var\(--application-column\);column-gap:var\(--application-gap\)/);
-  assert.match(css, /@media\(max-width:1150px\)\{\.join-layout,\.visitor-bar\{--application-column:370px;--application-gap:50px\}/);
-  assert.match(css, /@media\(max-width:900px\)\{\.join-layout,\.visitor-bar\{--application-column:320px;--application-gap:30px\}/);
-  assert.match(css, /@media\(max-width:680px\)\{\.join-layout,\.visitor-bar\{grid-template-columns:minmax\(0,1fr\)\}/);
-  // The two grids must use the same page container in both languages. Centering
-  // the globe in their shared right-hand track fixes its x-position at all sizes.
-  for (const page of ['index.html', 'en.html']) {
-    const source = fs.readFileSync(path.join(root, 'src', page), 'utf8');
-    assert.match(source, /class="container join-layout"/);
-    assert.match(source, /class="visitor-section container"/);
-    assert.match(source, /class="application-card"/);
-    assert.match(source, /class="visitor-bar"/);
-  }
-  assert.doesNotMatch(css, /\.visitor-bar\{[^}]*justify-content:space-between|\.visitor-visual\{[^}]*margin-right:/);
-});
+module.exports = { globe };

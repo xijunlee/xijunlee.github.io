@@ -2,66 +2,67 @@
 (() => {
   const section = document.querySelector('.visitor-section');
   if (!section) return;
-
   const english = document.body.dataset.lang === 'en';
-  const visual = section.querySelector('[data-visitor-visual]');
-  const status = section.querySelector('[data-visitor-status]');
-  const details = section.querySelector('[data-visitor-details]');
-  const total = section.querySelector('[data-visitor-total]');
-  status.hidden = false;
+  const find = name => section.querySelector(`[data-visitor-${name}]`);
+  const status = find('status');
+  const format = new Intl.NumberFormat(english ? 'en-US' : 'zh-CN');
   const copy = english ? {
-    title: 'Rotating globe showing homepage visitor locations',
-    unavailable: 'Visitor statistics are temporarily unavailable. Please try again later.',
-    preview: 'Live visitor statistics are enabled on the published homepage.',
-    counterUnavailable: 'The source counter is temporarily unavailable.',
+    unavailable: 'Statistics are temporarily unavailable.',
+    mapUnavailable: 'The globe could not be loaded.',
+    empty: 'No visitor locations yet',
+    points: 'source regions', unknown: 'sessions without a mapped region',
+    partial: 'Partial location data', gaps: 'Recorded days only',
+    date: 'Locations', stale: 'Last successful sync', updated: 'Updated',
   } : {
-    title: '显示主页访客来源地点的旋转地球仪',
-    unavailable: '访客统计暂时无法加载，请稍后再试。',
-    preview: '访客统计在正式上线的主页中启用。',
-    counterUnavailable: '源站计数暂时无法读取。',
+    unavailable: '访客统计暂时无法读取。', mapUnavailable: '地球仪暂时无法加载。',
+    empty: '暂无访客来源记录', points: '个来源地区', unknown: '次会话地域待识别',
+    partial: '地域记录不完整', gaps: '仅含已同步日期',
+    date: '地域范围', stale: '上次成功同步', updated: '更新于',
   };
-
-  // Do not pollute the live counter with local previews or copied deployments.
-  if (location.hostname !== 'xijunlee.github.io') {
-    status.textContent = copy.preview;
-    return;
+  const setNumber = (name, value) => {
+    const node = find(name);
+    node.textContent = format.format(value);
+    node.removeAttribute('aria-label');
+  };
+  async function load() {
+    try {
+      const response = await fetch('visitor-data.json', { cache: 'no-cache', signal: AbortSignal.timeout(15000) });
+      if (!response.ok) throw new Error('snapshot unavailable');
+      const data = await response.json();
+      const validNumber = value => Number.isSafeInteger(value) && value >= 0;
+      if (data.schema !== 1 || data.source !== '51LA' || !validNumber(data.overview?.pv) || !validNumber(data.overview?.uv) || !Number.isFinite(Date.parse(data.updatedAt))) throw new Error('invalid snapshot');
+      setNumber('total', data.overview.pv);
+      setNumber('unique', data.overview.uv);
+      const updated = find('updated');
+      const date = new Date(data.updatedAt);
+      updated.dateTime = date.toISOString();
+      const stale = Date.now() - date.getTime() > 172800000;
+      updated.textContent = `${stale ? copy.stale : copy.updated} ${new Intl.DateTimeFormat(english ? 'en-GB' : 'zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(date)} UTC+8`;
+      const geo = data.geography;
+      if (!Array.isArray(geo?.regions)) throw new Error('invalid geography');
+      const regions = geo.regions.filter(row => typeof row.zh === 'string' && typeof row.en === 'string' && Number.isFinite(row.lat) && Math.abs(row.lat) <= 90 && Number.isFinite(row.lon) && Math.abs(row.lon) <= 180 && validNumber(row.sessions) && row.sessions > 0);
+      find('regions').textContent = `${format.format(regions.length)} ${copy.points}`;
+      const range = find('range');
+      const notes = [];
+      if (geo.from && geo.to) notes.push(`${copy.date} ${geo.from}–${geo.to}`);
+      if (!geo.complete) notes.push(copy.partial);
+      if (geo.from && geo.to && (new Date(geo.to) - new Date(geo.from)) / 86400000 + 1 !== data.days?.length) notes.push(copy.gaps);
+      if (validNumber(geo.unknown) && geo.unknown > 0) notes.push(`${format.format(geo.unknown)} ${copy.unknown}`);
+      if (!regions.length) notes.push(copy.empty);
+      range.textContent = notes.join(' · ');
+      range.hidden = false;
+      status.hidden = true;
+      // Rendering failure cannot erase successfully fetched source totals.
+      try {
+        await window.HomepageGlobe({ root: find('visual'), regions, english });
+      } catch {
+        status.textContent = copy.mapUnavailable;
+        status.hidden = false;
+      }
+    } catch {
+      status.textContent = copy.unavailable;
+      status.hidden = false;
+    }
   }
-
-  const frame = document.createElement('iframe');
-  frame.className = 'visitor-frame';
-  frame.title = copy.title;
-  frame.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
-  frame.referrerPolicy = 'strict-origin-when-cross-origin';
-  const fallbackTimer = setTimeout(() => { status.textContent = copy.unavailable; }, 20000);
-  window.addEventListener('message', event => {
-    if (event.source !== frame.contentWindow) return;
-    if (event.data?.type === 'homepage-visitor-counter') {
-      const { totalPageviews } = event.data;
-      if (!Number.isSafeInteger(totalPageviews) || totalPageviews < 0) return;
-      total.textContent = new Intl.NumberFormat(english ? 'en-US' : 'zh-CN').format(totalPageviews);
-      total.removeAttribute('aria-label');
-      total.removeAttribute('title');
-      return;
-    }
-    if (event.data?.type === 'homepage-visitor-counter-unavailable') {
-      total.title = copy.counterUnavailable;
-      if (total.textContent === '—') total.setAttribute('aria-label', copy.counterUnavailable);
-      return;
-    }
-    if (event.data?.type !== 'homepage-visitor-globe') return;
-    const { statsURL } = event.data;
-    if (typeof statsURL !== 'string' || !/^https:\/\/mapmyvisitors\.com\/web\/[a-z0-9]+\/?$/i.test(statsURL)) return;
-    clearTimeout(fallbackTimer);
-    details.href = statsURL;
-    details.hidden = false;
-    status.hidden = true;
-    visual.dataset.state = 'ready';
-  });
-  // The legacy provider resolves protocol-relative AJAX URLs using location.href.
-  // A real HTTPS document is required: srcdoc/blob documents produce about:/blob:
-  // data requests even if a <base> element points at the published homepage.
-  const frameURL = new URL('visitor-globe.html', document.baseURI);
-  frameURL.search = new URLSearchParams({ lang: english ? 'en' : 'zh-CN', v: '4' }).toString();
-  frame.src = frameURL.href;
-  visual.append(frame);
+  load();
 })();

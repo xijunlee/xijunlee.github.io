@@ -1,11 +1,6 @@
 name: Verify 51LA data access
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/verify-51la.yml'
-      - 'scripts/51la-client.mjs'
   workflow_dispatch:
 
 permissions:
@@ -24,5 +19,5 @@ jobs:
           LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
           LA_CONFIG_NAMES: >-
             {"LA_ACCESS_KEY":${{ secrets.LA_ACCESS_KEY != '' }},"LA_SECRET_KEY":${{ secrets.LA_SECRET_KEY != '' }}}
-        # The overview request was already verified; avoid spending another call.
-        run: node scripts/51la-client.mjs --regions-only
+        # Manual diagnostic only: normal deployments reuse the daily snapshot.
+        run: node scripts/51la-client.mjs

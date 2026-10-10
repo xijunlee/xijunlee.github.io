@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # 10:17 China time, away from the busy start of the UTC hour.
+    - cron: '17 2 * * *'
 
 permissions:
   contents: read
@@ -30,6 +33,31 @@ jobs:
           node --check src/visitors.js
           node --check src/visitor-globe.js
           node --test tests/*.test.cjs
+
+      - name: Determine 51LA reporting day
+        id: analytics-day
+        run: node --input-type=module -e "import { chinaDay } from './scripts/51la-client.mjs'; console.log('day=' + chinaDay())" >> "$GITHUB_OUTPUT"
+
+      - name: Restore public statistics cache
+        id: analytics-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/51la/visitor-data.json
+          key: 51la-public-v1-${{ steps.analytics-day.outputs.day }}
+          restore-keys: 51la-public-v1-
+
+      - name: Synchronize public 51LA aggregates
+        env:
+          LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
+          LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
+        run: node scripts/sync-51la.mjs
+
+      - name: Cache public statistics for this day
+        if: steps.analytics-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/51la/visitor-data.json
+          key: 51la-public-v1-${{ steps.analytics-day.outputs.day }}
 
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4

@@ -7,10 +7,14 @@
   <meta name="theme-color" content="#f3f8fc">
   <title>上海交通大学 · 李希君</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
   <script src="analytics.js?v=1" defer></script>
   <script src="app.js" defer></script>
-  <script src="visitors.js?v=4" defer></script>
+  <script src="assets/vendor/d3-array.min.js" defer></script>
+  <script src="assets/vendor/d3-geo.min.js" defer></script>
+  <script src="assets/vendor/topojson-client.min.js" defer></script>
+  <script src="visitor-globe.js?v=5" defer></script>
+  <script src="visitors.js?v=5" defer></script>
 </head>
 <body data-lang="zh">
   <a class="skip-link" href="#main">跳至主要内容</a>
@@ -106,10 +110,15 @@
       <div class="visitor-bar">
         <div class="visitor-copy">
           <div class="visitor-heading"><h2 class="eyebrow" id="visitor-title">访客足迹</h2></div>
-          <p class="visitor-total"><strong data-visitor-total aria-live="polite" aria-label="正在读取累计浏览量">—</strong><span>累计浏览量</span></p>
+          <div class="visitor-metrics">
+            <p class="visitor-total"><strong data-visitor-total aria-live="polite" aria-label="正在读取累计浏览量">—</strong><span>累计浏览量 PV</span></p>
+            <p class="visitor-total"><strong data-visitor-unique aria-live="polite" aria-label="正在读取累计访客数">—</strong><span>累计访客数 UV</span></p>
+          </div>
           <div class="visitor-meta">
-            <div class="visitor-legend"><span><i class="visitor-dot" aria-hidden="true"></i>累计来源</span><span><i class="visitor-dot visitor-dot-recent" aria-hidden="true"></i>近期来访</span></div>
-            <p class="visitor-note">MapMyVisitors · <a class="visitor-details" data-visitor-details href="https://mapmyvisitors.com/web/1c8rq" target="_blank" rel="noopener noreferrer">访问详情 ↗</a></p>
+            <div class="visitor-legend"><span><i class="visitor-dot visitor-dot-recent" aria-hidden="true"></i><span data-visitor-regions>来源地区</span></span><span>每日同步</span></div>
+            <p class="visitor-note visitor-range" data-visitor-range hidden></p>
+            <p class="visitor-note"><time data-visitor-updated></time></p>
+            <p class="visitor-note">51LA · <a class="visitor-details" href="https://v6.51.la/" target="_blank" rel="noopener noreferrer">统计后台 ↗</a> · <a href="assets/geo/ATTRIBUTION.md" class="visitor-credits">地图数据</a></p>
           </div>
         </div>
         <div class="visitor-visual" data-visitor-visual>
