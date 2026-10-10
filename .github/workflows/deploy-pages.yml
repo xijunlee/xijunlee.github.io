@@ -15,21 +15,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: github-pages
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
-      - name: Verify 51LA data access
-        env:
-          LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
-          LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
-          LA_CONFIG_NAMES: >-
-            {"LA_ACCESS_KEY":${{ secrets.LA_ACCESS_KEY != '' }},"LA_SECRET_KEY":${{ secrets.LA_SECRET_KEY != '' }},"ACCESSKEY":${{ secrets.ACCESSKEY != '' }},"SECRETKEY":${{ secrets.SECRETKEY != '' }},"ACCESS_KEY":${{ secrets.ACCESS_KEY != '' }},"SECRET_KEY":${{ secrets.SECRET_KEY != '' }},"variables":{"LA_ACCESS_KEY":${{ vars.LA_ACCESS_KEY != '' }},"LA_SECRET_KEY":${{ vars.LA_SECRET_KEY != '' }}}}
-        run: node scripts/51la-client.mjs
 
       - name: Build and validate
         run: |
