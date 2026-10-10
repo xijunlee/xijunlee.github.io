@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Refresh 51LA data even if already attempted today (up to 3 API calls)'
+        type: boolean
+        required: false
+        default: false
   schedule:
     # 10:17 China time, away from the busy start of the UTC hour.
     - cron: '17 2 * * *'
@@ -50,6 +56,9 @@ jobs:
         env:
           LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
           LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
+          # An explicit manual request only; schedules and ordinary pushes
+          # continue to reuse today's snapshot without spending more quota.
+          LA_FORCE_SYNC: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_sync) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[force-51la-sync]')) }}
         run: node scripts/sync-51la.mjs
 
       - name: Cache public statistics for this day

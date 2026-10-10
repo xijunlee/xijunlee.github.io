@@ -43,6 +43,32 @@ test('a second detail page completes 150 sessions within a three-call daily budg
   assert.equal(data.days[0].collected, 150);
   assert.equal(data.geography.complete, true);
 });
+test('explicit manual refresh bypasses the daily guard once and replaces rather than duplicates the day', async () => {
+  const { synchronize } = await modules();
+  const first = await synchronize({ request: mockRequest([{ region: '上海' }]).request, now });
+  const { calls, request } = mockRequest([{ region: '上海' }, { region: '浙江' }]);
+  const refreshedAt = new Date('2026-10-10T06:00:00Z');
+  const refreshed = await synchronize({ previous: first, request, now: refreshedAt, force: true });
+  assert.equal(calls.length, 2);
+  assert.equal(refreshed.updatedAt, refreshedAt.toISOString());
+  assert.equal(refreshed.days.length, 1);
+  assert.equal(refreshed.days[0].collected, 2);
+  assert.equal(refreshed.geography.regions.length, 2);
+  const reused = await synchronize({ previous: refreshed, request, now: refreshedAt });
+  assert.equal(calls.length, 2);
+  assert.deepEqual(reused, refreshed);
+});
+test('newer published manual data beats an immutable same-day cache, with cache fallback for unpublished attempts', async () => {
+  const { synchronize, latestSnapshot } = await modules();
+  const cached = await synchronize({ request: mockRequest().request, now });
+  const published = await synchronize({ previous: cached, request: mockRequest([{ region: '上海' }]).request, now: new Date('2026-10-10T06:00:00Z'), force: true });
+  assert.equal(latestSnapshot(cached, published).updatedAt, published.updatedAt);
+  assert.equal(latestSnapshot(cached, published).days[0].collected, 1);
+  assert.equal(latestSnapshot(undefined, cached).updatedAt, cached.updatedAt);
+  const failedAttempt = { ...published, attemptedDay: '2026-10-11' };
+  assert.equal(latestSnapshot(published, failedAttempt).attemptedDay, '2026-10-11');
+  assert.equal(latestSnapshot({ secret: 'private' }), null);
+});
 test('more than 200 sessions is visibly partial, never silently complete', async () => {
   const { synchronize } = await modules();
   const { calls, request } = mockRequest(Array.from({ length: 201 }, () => ({ region: '上海' })));
@@ -68,6 +94,19 @@ test('API failure retains the last source data and does not retry on every code 
   const next = await synchronize({ previous, request, now });
   assert.deepEqual(next.overview, previous.overview);
   assert.equal(next.updatedAt, previous.updatedAt);
+  assert.deepEqual(next.days, previous.days);
+  await synchronize({ previous: next, request, now });
+  assert.equal(calls, 1);
+});
+test('failed forced refresh retains valid data and does not force later ordinary deployments', async () => {
+  const { synchronize } = await modules();
+  const previous = await synchronize({ request: mockRequest([{ region: '上海' }]).request, now });
+  let calls = 0;
+  const request = async () => { calls++; throw new Error('51LA: API HTTP 401'); };
+  const next = await synchronize({ previous, request, now, force: true });
+  assert.equal(calls, 1);
+  assert.equal(next.updatedAt, previous.updatedAt);
+  assert.deepEqual(next.overview, previous.overview);
   assert.deepEqual(next.days, previous.days);
   await synchronize({ previous: next, request, now });
   assert.equal(calls, 1);

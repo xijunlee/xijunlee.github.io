@@ -44,10 +44,20 @@ export function publicSnapshot(snapshot) {
   };
 }
 
-export async function synchronize({ previous, request, now = new Date() }) {
+export function latestSnapshot(...candidates) {
+  // Actions caches are immutable. Prefer a newer published manual refresh over
+  // an older same-day cache, while retaining a newer cached attempt after a
+  // failed deployment so ordinary pushes do not repeat API requests.
+  return candidates.map(validateSnapshot).filter(Boolean).toSorted((a, b) =>
+    (b.attemptedDay || '').localeCompare(a.attemptedDay || '') ||
+    Date.parse(b.updatedAt || '1970-01-01') - Date.parse(a.updatedAt || '1970-01-01')
+  )[0] || null;
+}
+
+export async function synchronize({ previous, request, now = new Date(), force = false }) {
   const snapshot = validateSnapshot(previous) || { schema: 1, source: '51LA', maskId: MASK_ID, updatedAt: null, attemptedDay: null, overview: null, days: [] };
   const today = chinaDay(now);
-  if (snapshot.attemptedDay === today) return publicSnapshot(snapshot);
+  if (snapshot.attemptedDay === today && !force) return publicSnapshot(snapshot);
   snapshot.attemptedDay = today;
   try {
     const overview = (await request('/open/overview/get')).bean;
@@ -77,16 +87,17 @@ export async function synchronize({ previous, request, now = new Date() }) {
 }
 
 async function main() {
-  let previous;
-  try { previous = validateSnapshot(JSON.parse(await readFile('.cache/51la/visitor-data.json', 'utf8'))); } catch {}
-  if (!previous) {
-    try {
-      const response = await fetch('https://xijunlee.github.io/visitor-data.json', { redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(15000) });
-      if (response.ok) previous = validateSnapshot(await response.json());
-    } catch {}
-  }
+  let cached, published;
+  try { cached = JSON.parse(await readFile('.cache/51la/visitor-data.json', 'utf8')); } catch {}
+  try {
+    const response = await fetch(`https://xijunlee.github.io/visitor-data.json?sync=${Date.now()}`, { redirect: 'error', cache: 'no-store', signal: AbortSignal.timeout(15000) });
+    if (response.ok) published = await response.json();
+  } catch {}
+  const previous = latestSnapshot(published, cached);
+  const force = process.env.LA_FORCE_SYNC === 'true' || process.argv.includes('--force');
+  if (force) console.log('51LA: explicit manual refresh requested; bypassing the daily attempt guard once.');
   let snapshot;
-  try { snapshot = await synchronize({ previous, request: createClient() }); }
+  try { snapshot = await synchronize({ previous, request: createClient(), force }); }
   catch { snapshot = publicSnapshot(previous || { schema: 1, source: '51LA', maskId: MASK_ID, updatedAt: null, attemptedDay: null, overview: null, days: [] }); console.warn('51LA Secrets unavailable; retained data or unavailable state published.'); }
   await mkdir('.cache/51la', { recursive: true });
   const data = JSON.stringify(snapshot);
