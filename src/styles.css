@@ -328,6 +328,9 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 .visitor-dot{width:.4375rem;height:.4375rem;flex:none;border-radius:50%;background:#2d78ad}
 .visitor-dot-recent{background:#dc6256}
 .visitor-note{font-size:.75rem;line-height:1.5;color:var(--muted)}
+.visitor-links{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .875rem}
+.visitor-details{color:var(--sjtu-blue);font-weight:550;white-space:nowrap}
+.visitor-credits{white-space:nowrap;text-decoration:underline;text-underline-offset:2px}
 .visitor-visual{position:relative;display:grid;place-items:center;justify-self:center;width:8rem;min-width:0;height:8rem}
 .visitor-globe{display:block;width:100%;height:auto;filter:drop-shadow(0 3px 5px #17344f14)}
 .visitor-status{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:.375rem;font-size:.75rem;color:var(--muted)}

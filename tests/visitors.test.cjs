@@ -104,15 +104,20 @@ test('empty globe has no artificial location markers', async () => {
   const visual = await globe([]);
   assert.equal(visual.children[0].children.find(row => row.tag === 'g').children.length, 0);
 });
-test('both homepages keep statistics but omit branding and verbose region rows', () => {
+test('both homepages restore statistics and map-credit links without branding or verbose region rows', () => {
   for (const filename of ['index.html', 'en.html']) {
     const html = fs.readFileSync(path.join(root, 'src', filename), 'utf8');
     const visitor = html.match(/<section class="visitor-section[\s\S]*?<\/section>/)[0];
-    assert.doesNotMatch(visitor, /51LA|data-visitor-range|v6\.51\.la|visitor-details|visitor-credits/);
+    assert.doesNotMatch(visitor, /51LA|data-visitor-range|暂无访客来源记录|No visitor source records/);
+    assert.match(visitor, /class="visitor-details" href="https:\/\/v6\.51\.la\/" target="_blank" rel="noopener noreferrer"/);
+    assert.ok(visitor.includes(filename === 'index.html' ? '统计数据 ↗' : 'Statistics ↗'));
+    assert.match(visitor, /class="visitor-credits" href="assets\/geo\/ATTRIBUTION\.md"[^>]*>Map credits<\/a>/);
+    assert.equal(html.split('href="assets/geo/ATTRIBUTION.md"').length - 1, 1);
     assert.ok(visitor.includes('visitor-metrics'));
     assert.ok(html.includes('data-visitor-unique'));
     assert.ok(html.includes('data-visitor-updated'));
     assert.ok(html.includes('visitor-globe.js?v=6'));
+    assert.ok(html.includes('styles.css?v=10'));
     assert.equal(html.includes('mapmyvisitors.com'), false);
   }
   assert.equal(globeCode.includes('https://'), false);
@@ -125,6 +130,7 @@ test('compact statistics preserve the shared application-column and centered glo
   assert.match(styles, /\.join-layout,\.visitor-bar\{[^}]*grid-template-columns:minmax\(0,1fr\) var\(--application-column\)/);
   assert.match(styles, /\.visitor-bar\{align-items:center/);
   assert.match(styles, /\.visitor-metrics\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(styles, /\.visitor-links\{display:flex;flex-wrap:wrap/);
   assert.match(styles, /\.visitor-visual\{[^}]*justify-self:center;[^}]*width:8rem;[^}]*height:8rem/);
 });
 
