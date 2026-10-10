@@ -32,6 +32,23 @@ export function chinaDay(date = new Date()) {
   return `${parts.year}-${parts.month}-${parts.day}`;
 }
 
+export function sessionPage(response) {
+  const page = response.bean && typeof response.bean === 'object' && !Array.isArray(response.bean)
+    ? response.bean : response;
+  const total = page.total;
+  // Successful empty queries may omit `data`, unlike the populated example.
+  const data = Array.isArray(page.data) ? page.data : total === 0 && page.data == null ? [] : null;
+  if (!data) {
+    const fields = ['bean', 'data', 'total', 'pages', 'curPage', 'pageSize'];
+    const shape = Object.fromEntries(fields.map(key => [key,
+      page[key] === null ? 'null' : Array.isArray(page[key]) ? 'array' : typeof page[key],
+    ]));
+    // Allowlisted field types only: never log visitor rows or API body values.
+    throw new Error(`51LA: unsupported visitor page format (${JSON.stringify(shape)})`);
+  }
+  return { data, total, pages: page.pages };
+}
+
 export function createClient({ accessKey = process.env.LA_ACCESS_KEY, secretKey = process.env.LA_SECRET_KEY, fetchImpl = fetch } = {}) {
   accessKey = accessKey?.trim();
   secretKey = secretKey?.trim();
@@ -69,14 +86,15 @@ async function probe() {
     if (process.env.LA_CONFIG_NAMES) console.log(`51LA credential-name presence (no values): ${process.env.LA_CONFIG_NAMES}`);
   }
   const request = createClient();
-  const overview = await request('/open/overview/get');
-  const { totalPv, totalUv } = overview.bean || {};
-  if (![totalPv, totalUv].every(value => Number.isSafeInteger(value) && value >= 0)) {
-    throw new Error('51LA: API overview is missing valid totalPv / totalUv fields');
+  if (!process.argv.includes('--regions-only')) {
+    const overview = await request('/open/overview/get');
+    const { totalPv, totalUv } = overview.bean || {};
+    if (![totalPv, totalUv].every(value => Number.isSafeInteger(value) && value >= 0)) {
+      throw new Error('51LA: API overview is missing valid totalPv / totalUv fields');
+    }
+    console.log(`51LA Secrets and signed overview request verified: PV=${totalPv}, UV=${totalUv}.`);
   }
-  console.log(`51LA Secrets and signed overview request verified: PV=${totalPv}, UV=${totalUv}.`);
-  const regions = await request('/open/visitor/detail/list', { day: chinaDay(), page: 1, size: 100 });
-  if (!Array.isArray(regions.data)) throw new Error('51LA: API visitor detail response is missing data');
+  const regions = sessionPage(await request('/open/visitor/detail/list', { day: chinaDay(), page: 1, size: 100 }));
   console.log(`51LA geographic detail access verified: ${regions.data.length} session records returned; no private records are logged.`);
 }
 

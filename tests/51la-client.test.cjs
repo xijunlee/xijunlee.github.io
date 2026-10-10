@@ -42,3 +42,15 @@ test('API failure diagnostics never disclose returned credentials or private dat
   }) });
   await assert.rejects(request('/open/overview/get'), { message: '51LA: API error 5009' });
 });
+
+test('visitor pages handle nested and empty successful responses without guessing', async () => {
+  const { sessionPage } = await import('../scripts/51la-client.mjs');
+  assert.deepEqual(sessionPage({ total: 0, pages: 0 }), { data: [], total: 0, pages: 0 });
+  const row = { region: '上海' };
+  assert.deepEqual(sessionPage({ bean: { data: [row], total: 1, pages: 1 } }), { data: [row], total: 1, pages: 1 });
+  assert.throws(() => sessionPage({ total: 8, data: null, secretKey: 'private-example' }), error => {
+    assert.match(error.message, /unsupported visitor page format/);
+    assert.equal(error.message.includes('private-example'), false);
+    return true;
+  });
+});

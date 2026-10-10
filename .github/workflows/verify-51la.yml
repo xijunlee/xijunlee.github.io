@@ -24,4 +24,5 @@ jobs:
           LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
           LA_CONFIG_NAMES: >-
             {"LA_ACCESS_KEY":${{ secrets.LA_ACCESS_KEY != '' }},"LA_SECRET_KEY":${{ secrets.LA_SECRET_KEY != '' }}}
-        run: node scripts/51la-client.mjs
+        # The overview request was already verified; avoid spending another call.
+        run: node scripts/51la-client.mjs --regions-only
