@@ -15,7 +15,7 @@ window.HomepageGlobe = async ({ root, regions, english }) => {
   };
   const svg = element('svg', { viewBox: '0 0 160 160', class: 'visitor-globe', role: 'img', 'aria-label': english ? 'Visitor source regions, at country or province level' : '访客来源地区地球仪，按国家或省级汇总' });
   const title = element('title');
-  title.textContent = english ? '51LA visitor source regions; approximate representative positions' : '51LA 访客来源；光点为地区示意位置，非访客精确定位';
+  title.textContent = english ? 'Visitor source regions; approximate representative positions' : '访客来源；光点为地区示意位置，非访客精确定位';
   svg.append(title);
   const defs = element('defs');
   const ocean = element('radialGradient', { id: 'visitor-ocean', cx: '32%', cy: '25%', r: '80%' });
