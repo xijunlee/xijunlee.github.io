@@ -31,7 +31,7 @@ for (const lang of ['zh', 'en']) {
     const { nodes, rendered } = await homepage(lang);
     assert.equal(nodes.total.textContent, '12,345');
     assert.equal(nodes.unique.textContent, '6,789');
-    assert.match(nodes.regions.textContent, /^1 /);
+    assert.equal(nodes.regions.textContent, '1');
     assert.equal(nodes.status.hidden, true);
     assert.equal(rendered.english, lang === 'en');
     assert.match(nodes.regions.title, /2026-10-09/);
@@ -42,12 +42,13 @@ for (const lang of ['zh', 'en']) {
     assert.equal(nodes.total.textContent, '0');
     assert.equal(nodes.unique.textContent, '0');
     assert.equal(rendered.regions.length, 0);
-    assert.equal(nodes.regions.textContent, lang === 'en' ? '0 source regions' : '0 个来源地区');
+    assert.equal(nodes.regions.textContent, '0');
     assert.equal('range' in nodes, false);
   });
   test(`${lang}: unavailable data stays unavailable, not invented zero`, async () => {
     const { nodes, rendered } = await homepage(lang, { ...data, overview: null, updatedAt: null });
     assert.equal(nodes.total.textContent, '—');
+    assert.equal(nodes.regions.textContent, '—');
     assert.equal(rendered, undefined);
     assert.equal(nodes.status.hidden, false);
   });
@@ -117,7 +118,8 @@ test('both homepages restore statistics and map-credit links without branding or
     assert.ok(html.includes('data-visitor-unique'));
     assert.ok(html.includes('data-visitor-updated'));
     assert.ok(html.includes('visitor-globe.js?v=6'));
-    assert.ok(html.includes('styles.css?v=10'));
+    assert.ok(html.includes('visitors.js?v=7'));
+    assert.ok(html.includes('styles.css?v=11'));
     assert.equal(html.includes('mapmyvisitors.com'), false);
   }
   assert.equal(globeCode.includes('https://'), false);
@@ -125,11 +127,30 @@ test('both homepages restore statistics and map-credit links without branding or
   assert.equal(compatibility.includes('<script'), false);
 });
 
+test('both homepages group all three numbers and put daily sync beside the update time', () => {
+  for (const filename of ['index.html', 'en.html']) {
+    const html = fs.readFileSync(path.join(root, 'src', filename), 'utf8');
+    const metrics = html.match(/<div class="visitor-metrics">([\s\S]*?)<\/div>/)[1];
+    assert.equal((metrics.match(/class="visitor-total"/g) || []).length, 3);
+    for (const name of ['total', 'unique', 'regions']) {
+      assert.match(metrics, new RegExp(`<strong data-visitor-${name}[^>]*>—<\\/strong>`));
+    }
+    assert.match(metrics, new RegExp(`<span>${filename === 'index.html' ? '来源地区' : 'Source regions'}<\\/span>`));
+    const sync = html.match(/<p class="visitor-note visitor-sync">([\s\S]*?)<\/p>/)[1];
+    assert.ok(sync.includes(filename === 'index.html' ? '每日同步' : 'Daily sync'));
+    assert.ok(sync.includes('<time data-visitor-updated>'));
+    assert.doesNotMatch(html, /visitor-legend/);
+  }
+});
+
 test('compact statistics preserve the shared application-column and centered globe geometry', () => {
   const styles = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
   assert.match(styles, /\.join-layout,\.visitor-bar\{[^}]*grid-template-columns:minmax\(0,1fr\) var\(--application-column\)/);
   assert.match(styles, /\.visitor-bar\{align-items:center/);
-  assert.match(styles, /\.visitor-metrics\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(styles, /\.visitor-metrics\{[^}]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+  assert.match(styles, /\.visitor-sync>span\{margin-inline-end:\.375rem;white-space:nowrap/);
+  assert.doesNotMatch(styles, /\.visitor-sync\{[^}]*display:flex/);
+  assert.match(styles, /@media\(max-width:900px\)\{\.visitor-metrics\{column-gap:\.75rem\}/);
   assert.match(styles, /\.visitor-links\{display:flex;flex-wrap:wrap/);
   assert.match(styles, /\.visitor-visual\{[^}]*justify-self:center;[^}]*width:8rem;[^}]*height:8rem/);
 });

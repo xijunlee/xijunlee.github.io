@@ -158,7 +158,7 @@ npm run preview
 
 CI 内收到原始明细后只提取地域并映射到固定目录，输出地区 ID、会话数量和公共示意坐标；**原始 IP、UUID、来路、入口页、访问时间及未识别地域原文均不发布**。请求失败时保留上一份有效快照；超过 48 小时会标明“上次成功同步”。从未取到数据则显示破折号及不可用提示，真实的 0 则正常显示 0。地球仪绘图失败不影响已读取的 PV、UV。
 
-绘图代码、Natural Earth 陆地轮廓、D3 与 TopoJSON 均随网站本地托管，不依赖 MapMyVisitors 或浏览器端海外 CDN。地图资源来源与许可证见 [ATTRIBUTION.md](src/assets/geo/ATTRIBUTION.md)，中英文访客统计区域的更新时间下方保留“统计数据 / Statistics”和“Map credits”链接，分别访问统计后台与地图许可说明。旧 `visitor-globe.html` 只保留无追踪的兼容提示。统计区域不再显示服务品牌及“暂无访客来源记录”说明。左侧两组 PV / UV 数字各自上下堆叠标签，右侧地球仪仍沿用“加入我们”申请卡片的列几何和中心线。
+绘图代码、Natural Earth 陆地轮廓、D3 与 TopoJSON 均随网站本地托管，不依赖 MapMyVisitors 或浏览器端海外 CDN。地图资源来源与许可证见 [ATTRIBUTION.md](src/assets/geo/ATTRIBUTION.md)，中英文访客统计区域的更新时间下方保留“统计数据 / Statistics”和“Map credits”链接，分别访问统计后台与地图许可说明。旧 `visitor-globe.html` 只保留无追踪的兼容提示。统计区域不再显示服务品牌及“暂无访客来源记录”说明。左侧 PV、UV 与来源地区数量并排成三组，数字字体统一，各自上下堆叠标签；“每日同步”与更新时间在同一行，极窄屏幕可自然换行。右侧地球仪仍沿用“加入我们”申请卡片的列几何和中心线。
 
 ## 首次发布到 GitHub Pages
 

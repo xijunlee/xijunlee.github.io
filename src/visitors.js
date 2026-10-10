@@ -9,12 +9,12 @@
   const copy = english ? {
     unavailable: 'Statistics are temporarily unavailable.',
     mapUnavailable: 'The globe could not be loaded.',
-    points: 'source regions', unknown: 'sessions without a mapped region',
+    unknown: 'sessions without a mapped region',
     partial: 'Partial location data', gaps: 'Recorded days only',
     date: 'Recorded dates', stale: 'Last successful sync', updated: 'Updated',
   } : {
     unavailable: '访客统计暂时无法读取。', mapUnavailable: '地球仪暂时无法加载。',
-    points: '个来源地区', unknown: '次会话地域待识别',
+    unknown: '次会话地域待识别',
     partial: '地域记录不完整', gaps: '仅含已同步日期',
     date: '已同步日期', stale: '上次成功同步', updated: '更新于',
   };
@@ -40,8 +40,8 @@
       const geo = data.geography;
       if (!Array.isArray(geo?.regions)) throw new Error('invalid geography');
       const regions = geo.regions.filter(row => typeof row.zh === 'string' && typeof row.en === 'string' && Number.isFinite(row.lat) && Math.abs(row.lat) <= 90 && Number.isFinite(row.lon) && Math.abs(row.lon) <= 180 && validNumber(row.sessions) && row.sessions > 0);
+      setNumber('regions', regions.length);
       const regionCount = find('regions');
-      regionCount.textContent = `${format.format(regions.length)} ${copy.points}`;
       const notes = [];
       if (geo.from && geo.to) notes.push(`${copy.date} ${geo.from}–${geo.to}`);
       if (!geo.complete) notes.push(copy.partial);
