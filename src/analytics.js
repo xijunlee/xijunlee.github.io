@@ -1,5 +1,7 @@
 'use strict';
 (() => {
+  // Compatibility loader for older cached pages only. New published HTML uses
+  // content/51la-snippet.html directly and never includes this script.
   // One 51LA application covers both languages and the full academic archives.
   // Local previews, copied deployments and the legacy globe iframe must not
   // generate pageviews. Start collection independently of the footer widget.

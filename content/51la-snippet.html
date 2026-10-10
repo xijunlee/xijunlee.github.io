@@ -1,0 +1,13 @@
+<!-- Official parser-loaded 51LA installation, shared by all four public pages. -->
+<script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script>
+<script>
+if (location.hostname === "xijunlee.github.io" && typeof window.LA?.init === "function" && !window.__homepage51LAStarted) {
+  window.__homepage51LAStarted = true;
+  try {
+    LA.init({id:"3RSi0ApWyvRKOoCj",ck:"3RSi0ApWyvRKOoCj"});
+    document.getElementById("LA_COLLECT").dataset.state = "initialized";
+  } catch {
+    document.getElementById("LA_COLLECT").dataset.state = "unavailable";
+  }
+}
+</script>

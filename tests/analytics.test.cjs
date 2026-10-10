@@ -7,6 +7,8 @@ const vm = require('node:vm');
 
 const root = path.resolve(__dirname, '..');
 const code = fs.readFileSync(path.join(root, 'src/analytics.js'), 'utf8');
+const snippet = fs.readFileSync(path.join(root, 'content/51la-snippet.html'), 'utf8');
+const initialization = snippet.match(/<script>([\s\S]*?)<\/script>/)[1];
 
 function collector(hostname = 'xijunlee.github.io', existing = null) {
   const scripts = [];
@@ -75,19 +77,52 @@ test('a network failure, missing SDK, or SDK exception does not break the page',
   assert.equal(broken.scripts[0].dataset.state, 'unavailable');
 });
 
-test('both homepages and both built archives load exactly one shared collector in the head', () => {
+test('both homepages and archives expose exactly one official SDK and inline initialization in their HTML', () => {
   for (const file of ['index.html', 'en.html', 'archive.html', 'archive-zh.html']) {
     const html = fs.readFileSync(path.join(root, 'dist', file), 'utf8');
-    assert.equal((html.match(/src="analytics\.js\?v=1" defer/g) || []).length, 1, file);
-    assert.match(html.split('</head>')[0], /src="analytics\.js\?v=1" defer/, file);
-    assert.doesNotMatch(html, /\bLA\.init\s*\(/, file);
+    const head = html.split('</head>')[0];
+    assert.equal((head.match(/id="LA_COLLECT"/g) || []).length, 1, file);
+    assert.equal((head.match(/LA\.init\(/g) || []).length, 1, file);
+    const tag = head.match(/<script charset="UTF-8" id="LA_COLLECT" src="https:\/\/sdk\.51\.la\/js-sdk-pro\.min\.js"><\/script>/);
+    assert.ok(tag, file);
+    assert.ok(head.indexOf('LA.init(') > tag.index, file);
+    assert.doesNotMatch(html, /src="analytics\.js/, file);
   }
   const iframe = fs.readFileSync(path.join(root, 'src/visitor-globe.html'), 'utf8');
   assert.doesNotMatch(iframe, /analytics\.js|LA_COLLECT|3RSi0ApWyvRKOoCj/);
   assert.equal(fs.readFileSync(path.join(root, 'dist/analytics.js'), 'utf8'), code);
 });
 
+test('standard inline installation initializes the supplied application exactly once', () => {
+  const calls = [];
+  const LA = { init: options => calls.push({ ...options }) };
+  const tag = { dataset: {} };
+  const context = vm.createContext({ location: { hostname: 'xijunlee.github.io' }, window: { LA }, LA, document: { getElementById: () => tag } });
+  vm.runInContext(initialization, context);
+  vm.runInContext(initialization, context);
+  assert.deepEqual(calls, [{ id: '3RSi0ApWyvRKOoCj', ck: '3RSi0ApWyvRKOoCj' }]);
+  assert.equal(tag.dataset.state, 'initialized');
+});
+
+test('standard installation never initializes on local previews or copied deployments', () => {
+  for (const hostname of ['localhost', '127.0.0.1', '', 'example.com', 'xijunlee.github.io.example.com']) {
+    const LA = { init() { throw new Error('must never be called'); } };
+    const window = { LA };
+    vm.runInNewContext(initialization, { location: { hostname }, window, LA });
+    assert.equal(window.__homepage51LAStarted, undefined);
+  }
+});
+
+test('missing or failing SDK cannot break subsequent page scripts', () => {
+  assert.doesNotThrow(() => vm.runInNewContext(initialization, { location: { hostname: 'xijunlee.github.io' }, window: {} }));
+  const LA = { init() { throw new Error('SDK error'); } };
+  const tag = { dataset: {} };
+  assert.doesNotThrow(() => vm.runInNewContext(initialization, { location: { hostname: 'xijunlee.github.io' }, window: { LA }, LA, document: { getElementById: () => tag } }));
+  assert.equal(tag.dataset.state, 'unavailable');
+});
+
 test('collection is separate from public statistics and does not contain data API credentials', () => {
   assert.doesNotMatch(code, /accessKey|secretKey|v6-open|\bfetch\(|visitor-total/);
   assert.doesNotMatch(code, /IntersectionObserver|requestAnimationFrame|scroll|DOMContentLoaded/);
+  assert.doesNotMatch(snippet, /accessKey|secretKey|v6-open|\bfetch\(|visitor-total/);
 });

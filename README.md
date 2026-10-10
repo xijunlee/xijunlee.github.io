@@ -144,7 +144,7 @@ npm run preview
 
 ### 51LA 访问采集与真实来源地球仪
 
-中英文主页与完整档案均通过 [src/analytics.js](src/analytics.js) 接入同一个 51LA 应用：`3RSi0ApWyvRKOoCj`。使用官方 HTTPS SDK，在主文档中异步加载、加载完成后调用一次 `LA.init`；不依赖用户滚动到页尾。本地预览、其他域名与地球仪 iframe 不加载这个采集脚本，SDK 加载或初始化失败也不会阻塞主页。
+中英文主页与完整档案均通过 [content/51la-snippet.html](content/51la-snippet.html) 接入同一个 51LA 应用：`3RSi0ApWyvRKOoCj`。构建时将官方两段安装代码直接写入四个 HTML 的 `<head>`，先按普通同步标签加载 HTTPS SDK，再调用一次 `LA.init`，让安装检测能直接看到采集标签和应用编号，而不是依赖外部 JS 动态插入。仅在 `xijunlee.github.io` 上初始化；本地预览和其他域名即使加载 SDK 也不调用 `LA.init`，地球仪本身不加载采集代码。SDK 加载失败时初始化跳过，不影响后续页面脚本；同步外部标签可能让加载过程等候 SDK。旧 `src/analytics.js` 只用于兼容缓存页面，新页面不再引用它。
 
 页尾已经切换为 51LA；中英文页面读取同一份 `visitor-data.json`。累计浏览量 PV 和累计访客数 UV 分别取自官方概况接口 `totalPv`、`totalUv`，不从地球仪光点或会话条数推算，也不与旧 MapMyVisitors 数字合计。51LA 的历史起点为新应用开始采集的时间，旧平台历史记录不会自动迁入。
 

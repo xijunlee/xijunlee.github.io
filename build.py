@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent
 SRC = ROOT / 'src'
 CONTENT = ROOT / 'content'
 OUT = ROOT / 'dist'
+ANALYTICS = (CONTENT / '51la-snippet.html').read_text(encoding='utf-8')
 
 class Text(HTMLParser):
     def __init__(self):
@@ -239,6 +240,7 @@ template_values = {
 }
 
 def apply_values(markup):
+    markup = markup.replace('{{ANALYTICS}}', ANALYTICS)
     for key, value in template_values.items():
         markup = markup.replace('{{' + key + '}}', str(value))
     return markup
@@ -320,8 +322,8 @@ def archive_page(lang):
     design_credit = '© 2026 · 由李希君和 Codex 共同设计' if zh else '© 2026 · Co-designed by Xijun Li and Codex'
     return f'''<!doctype html><html lang="{'zh-CN' if zh else 'en'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{page_title}</title><meta name="description" content="{description}"><meta name="theme-color" content="#f3f8fc"><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"></head><body data-lang="{lang}"><a class="skip-link" href="#archive-main">{'跳至主要内容' if zh else 'Skip to main content'}</a><header class="site-header"><div class="container header-inner"><a class="wordmark" href="{home}" aria-label="{'李希君主页' if zh else 'Xijun Li homepage'}"><img class="site-logo" src="assets/sjtu-banner-blue.png" alt="{'上海交通大学 Shanghai Jiao Tong University' if zh else 'Shanghai Jiao Tong University 上海交通大学'}"></a><div class="lang-switch archive-language">{switch}</div><a class="nav-join" href="{home}#join">{'招生与实习' if zh else 'Join Us'} ↗</a></div></header><div class="container archive-hero"><a class="archive-back" href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a><h1>{title}</h1><p>{subtitle}</p></div><div class="container archive-layout"><nav class="archive-nav" aria-label="{'档案目录' if zh else 'Archive sections'}">{nav}</nav><main id="archive-main" class="legacy-content">{body}</main></div><footer class="site-footer container"><a href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a><a href="{counterpart}" lang="{'en' if zh else 'zh-CN'}">{'English profile' if zh else '中文档案'} ↗</a><span>{design_credit}</span></footer></body></html>'''
 
-archive=archive_page('en').replace('</head>', '<script src="analytics.js?v=1" defer></script></head>')
-archive_zh=archive_page('zh').replace('</head>', '<script src="analytics.js?v=1" defer></script></head>')
+archive=archive_page('en').replace('</head>', ANALYTICS + '</head>')
+archive_zh=archive_page('zh').replace('</head>', ANALYTICS + '</head>')
 (OUT/'archive.html').write_text(archive, encoding='utf-8')
 (OUT/'archive-zh.html').write_text(archive_zh, encoding='utf-8')
 
@@ -347,6 +349,9 @@ assert '{{' not in index and '}}' not in index
 assert '{{' not in english and '}}' not in english
 for page in ('index.html','en.html','archive.html','archive-zh.html'):
     html=(OUT/page).read_text(encoding='utf-8')
+    assert html.count('id="LA_COLLECT"') == 1, f'Duplicate or missing 51LA collector: {page}'
+    assert html.count('LA.init({id:"3RSi0ApWyvRKOoCj",ck:"3RSi0ApWyvRKOoCj"})') == 1, f'Duplicate or missing 51LA initialization: {page}'
+    assert 'analytics.js?v=1' not in html, f'Obsolete dynamic 51LA loader: {page}'
     ids=re.findall(r'\bid="([^"]+)"',html)
     assert len(ids)==len(set(ids)), f'Duplicate ids: {page}'
     for href in re.findall(r'href="([^"]+)"',html):
