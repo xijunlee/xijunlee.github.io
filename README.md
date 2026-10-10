@@ -142,7 +142,15 @@ npm run preview
 
 编辑 [src/styles.css](src/styles.css)。全站主色定义在文件开头的 CSS 变量中；桌面、平板和手机布局的媒体查询也在同一文件内。
 
-### 访客来源地球仪
+### 51LA 访问采集与迁移状态
+
+中英文主页与完整档案均通过 [src/analytics.js](src/analytics.js) 接入同一个 51LA 应用：`3RSi0ApWyvRKOoCj`。使用官方 HTTPS SDK，在主文档中异步加载、加载完成后调用一次 `LA.init`；不依赖用户滚动到页尾。本地预览、其他域名与地球仪 iframe 不加载这个采集脚本，SDK 加载或初始化失败也不会阻塞主页。
+
+**迁移尚未完成：**目前新增 51LA 采集，页尾现有地球仪及数字仍是明确标注的 MapMyVisitors 数据，没有改标为 51LA，也不会合计两个平台的浏览量或访客数。真实的 51LA 数字与来源点需要配置数据读取权限后再替换。
+
+官方采集编号不是 OpenAPI 凭据。[官方数据 API 调用说明](https://v6.51.la/doc/index.html#/调用说明/README)要求独立的 AccessKey、SecretKey 和签名；不得把密钥写进 `src/`、`dist/` 或公开仓库。后续应由受保护的服务端/CI 读取数据并只发布地域汇总，不能发布原始 IP、访客 UUID 或访问明细。基础 API 配额与付费条件须按账号实际套餐确认，当前没有开通付费服务，也没有启动定时 API 请求。未执行关闭 VPN 或切换网络的测试。
+
+### 现有访客来源地球仪（待迁移）
 
 中英文主页底部使用同一个 MapMyVisitors 编号，配置在 [src/visitor-globe.html](src/visitor-globe.html) 的官方嵌入代码中。主页访客统计只在 `xijunlee.github.io` 上启用，本地主页预览不计入访问。
 
