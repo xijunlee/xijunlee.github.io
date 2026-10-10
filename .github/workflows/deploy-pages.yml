@@ -10,6 +10,11 @@ on:
         type: boolean
         required: false
         default: false
+      diagnose_stats:
+        description: 'Compare homepage app identity and today/yesterday/total counters (2 read-only API calls)'
+        type: boolean
+        required: false
+        default: false
   schedule:
     # 10:17 China time, away from the busy start of the UTC hour.
     - cron: '17 2 * * *'
@@ -43,6 +48,13 @@ jobs:
       - name: Determine 51LA reporting day
         id: analytics-day
         run: node --input-type=module -e "import { chinaDay } from './scripts/51la-client.mjs'; console.log('day=' + chinaDay())" >> "$GITHUB_OUTPUT"
+
+      - name: Compare 51LA application and aggregate counters
+        if: (github.event_name == 'workflow_dispatch' && inputs.diagnose_stats) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[diagnose-51la]'))
+        env:
+          LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
+          LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
+        run: node scripts/51la-client.mjs --compare-statistics
 
       - name: Restore public statistics cache
         id: analytics-cache

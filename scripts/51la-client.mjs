@@ -2,7 +2,7 @@ import { createHash, createDecipheriv, randomBytes } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 
 export const MASK_ID = '3RSi0ApWyvRKOoCj';
-const ENDPOINTS = new Set(['/open/overview/get', '/open/visitor/detail/list']);
+const ENDPOINTS = new Set(['/open/overview/get', '/open/visitor/detail/list', '/open/site/list']);
 const RESPONSE_CODES = new Set(['0000', '5005', '5006', '5007', '5008', '5009', '7001', '9001']);
 const safeResponseCode = payload => RESPONSE_CODES.has(String(payload?.code)) ? String(payload.code) : 'unknown';
 
@@ -59,7 +59,7 @@ export function createClient({ accessKey = process.env.LA_ACCESS_KEY, secretKey 
     if (!ENDPOINTS.has(path)) throw new Error('51LA: unsupported API endpoint');
     const nonce = randomBytes(2).toString('hex');
     const timestamp = String(Date.now());
-    const body = { ...params, maskId: MASK_ID, accessKey, nonce, timestamp, sign: signature(accessKey, secretKey, nonce, timestamp) };
+    const body = { ...params, ...(path === '/open/site/list' ? {} : { maskId: MASK_ID }), accessKey, nonce, timestamp, sign: signature(accessKey, secretKey, nonce, timestamp) };
     let response;
     try {
       response = await fetchImpl(`https://v6-open.51.la${path}`, {
@@ -85,6 +85,33 @@ export function createClient({ accessKey = process.env.LA_ACCESS_KEY, secretKey 
   };
 }
 
+export function overviewSummary(response) {
+  const value = response?.bean;
+  const count = name => Number.isSafeInteger(value?.[name]) && value[name] >= 0 ? value[name] : null;
+  return Object.fromEntries([['today', 'cur'], ['yesterday', 'before'], ['cumulative', 'total']].map(([period, prefix]) =>
+    [period, { pv: count(`${prefix}Pv`), uv: count(`${prefix}Uv`), ip: count(`${prefix}Ip`) }]
+  ));
+}
+
+export function homepageSiteSummary(response) {
+  if (!Array.isArray(response?.data)) throw new Error('51LA: unsupported application list format');
+  const matchesDomain = value => typeof value === 'string' && value.split(/[,\s]+/).some(domain => {
+    try { return new URL(domain.includes('://') ? domain : `https://${domain}`).hostname === 'xijunlee.github.io'; }
+    catch { return false; }
+  });
+  const matchesId = row => row?.maskId === MASK_ID;
+  return {
+    configuredAppVisible: response.data.some(matchesId),
+    applications: response.data.filter(row => row && (matchesId(row) || matchesDomain(row.domain))).map(row => ({
+      maskId: typeof row.maskId === 'string' && /^[A-Za-z0-9]{8,64}$/.test(row.maskId) ? row.maskId : null,
+      configuredApp: matchesId(row), homepageDomain: matchesDomain(row.domain),
+      ...Object.fromEntries(['todayPv', 'todayUv', 'todayIp', 'yesterdayPv', 'yesterdayUv', 'yesterdayIp'].map(name =>
+        [name, Number.isSafeInteger(row[name]) && row[name] >= 0 ? row[name] : null]
+      )),
+    })),
+  };
+}
+
 async function probe() {
   if (!process.env.LA_ACCESS_KEY?.trim() || !process.env.LA_SECRET_KEY?.trim()) {
     // Only boolean configuration metadata is logged. Never read alternative
@@ -92,6 +119,18 @@ async function probe() {
     if (process.env.LA_CONFIG_NAMES) console.log(`51LA credential-name presence (no values): ${process.env.LA_CONFIG_NAMES}`);
   }
   const request = createClient();
+  if (process.argv.includes('--compare-statistics')) {
+    // Two read-only requests. Only project app IDs, match flags and numeric
+    // aggregate counters are logged; no unrelated apps or raw fields.
+    for (const [label, endpoint, summarize] of [
+      ['application comparison', '/open/site/list', homepageSiteSummary],
+      ['counter comparison', '/open/overview/get', overviewSummary],
+    ]) {
+      try { console.log(`51LA ${label}: ${JSON.stringify(summarize(await request(endpoint)))}`); }
+      catch (error) { console.warn(`51LA ${label}: ${error.message.startsWith('51LA:') ? error.message : '51LA: unexpected diagnostic failure'}`); }
+    }
+    return;
+  }
   if (!process.argv.includes('--regions-only')) {
     const overview = await request('/open/overview/get');
     const { totalPv, totalUv } = overview.bean || {};

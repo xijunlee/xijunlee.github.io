@@ -89,3 +89,47 @@ test('visitor pages handle nested and empty successful responses without guessin
     return true;
   });
 });
+
+test('read-only application diagnostics use only the approved account-list endpoint without a site mask', async () => {
+  const { createClient } = await import('../scripts/51la-client.mjs');
+  const request = createClient({ accessKey: 'test-access', secretKey: 'test-secret', fetchImpl: async (url, options) => {
+    assert.equal(url, 'https://v6-open.51.la/open/site/list');
+    const body = JSON.parse(options.body);
+    assert.equal('maskId' in body, false);
+    assert.equal('secretKey' in body, false);
+    return { ok: true, json: async () => ({ success: true, code: '0000', data: [] }) };
+  } });
+  assert.deepEqual((await request('/open/site/list')).data, []);
+});
+
+test('diagnostics compare separate counter periods without guessing or logging extra fields', async () => {
+  const { overviewSummary } = await import('../scripts/51la-client.mjs');
+  assert.deepEqual(overviewSummary({ bean: {
+    curPv: 23, curUv: 8, curIp: 7, beforePv: 10, beforeUv: 5, beforeIp: 4,
+    totalPv: 40, totalUv: 12, totalIp: 10, accessKey: 'private', sign: 'private',
+  } }), {
+    today: { pv: 23, uv: 8, ip: 7 }, yesterday: { pv: 10, uv: 5, ip: 4 }, cumulative: { pv: 40, uv: 12, ip: 10 },
+  });
+  assert.deepEqual(overviewSummary({ bean: { totalPv: 0, totalUv: 0, curPv: 'private', curUv: -1 } }), {
+    today: { pv: null, uv: null, ip: null }, yesterday: { pv: null, uv: null, ip: null }, cumulative: { pv: 0, uv: 0, ip: null },
+  });
+});
+
+test('application diagnostics exclude unrelated apps and private fields while checking exact homepage ownership', async () => {
+  const { homepageSiteSummary, MASK_ID } = await import('../scripts/51la-client.mjs');
+  const report = homepageSiteSummary({ data: [
+    { maskId: MASK_ID, domain: 'https://xijunlee.github.io/', todayPv: 23, todayUv: 8, todayIp: 7, secretKey: 'private', siteName: 'private' },
+    { maskId: 'HomepageApp12345', domain: 'example.org,xijunlee.github.io', todayPv: 2 },
+    { maskId: 'UnrelatedApp1234', domain: 'xijunlee.github.io.attacker.example', siteName: 'private' },
+    { maskId: 'AnotherApp12345', domain: 'https://xijunlee.github.io@attacker.example/' },
+    null,
+  ] });
+  assert.equal(report.configuredAppVisible, true);
+  assert.equal(report.applications.length, 2);
+  assert.equal(report.applications[0].homepageDomain, true);
+  assert.equal(report.applications[0].todayPv, 23);
+  assert.equal(report.applications[1].configuredApp, false);
+  assert.equal(JSON.stringify(report).includes('private'), false);
+  assert.equal(JSON.stringify(report).includes('UnrelatedApp'), false);
+  assert.throws(() => homepageSiteSummary({ data: null }), /unsupported application list/);
+});
