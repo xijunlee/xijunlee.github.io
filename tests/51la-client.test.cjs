@@ -43,6 +43,41 @@ test('API failure diagnostics never disclose returned credentials or private dat
   await assert.rejects(request('/open/overview/get'), { message: '51LA: API error 5009' });
 });
 
+test('HTTP 401 preserves only documented provider codes, not response messages or private fields', async () => {
+  const { createClient } = await import('../scripts/51la-client.mjs');
+  for (const code of ['5005', '5006', '5007', '5008', '5009']) {
+    let bodyReads = 0;
+    const request = createClient({ accessKey: 'test-access', secretKey: 'test-secret', fetchImpl: async () => ({
+      ok: false, status: 401, json: async () => {
+        bodyReads++;
+        return { success: false, code, message: 'test-secret and private visitor data', accessKey: 'test-access', sign: 'private-signature', data: [{ ip: 'private-ip' }] };
+      },
+    }) });
+    await assert.rejects(request('/open/overview/get'), { message: `51LA: API HTTP 401; API error ${code}` });
+    assert.equal(bodyReads, 1);
+  }
+});
+
+test('HTTP failures with unknown or non-JSON responses stay safe and cannot become successful data', async () => {
+  const { createClient } = await import('../scripts/51la-client.mjs');
+  const cases = [
+    { payload: { code: 'test-secret', message: 'private-data' }, expected: 'unknown' },
+    { payload: { code: '1234', message: 'private-data' }, expected: 'unknown' },
+    { payload: null, expected: 'unknown' },
+    { payload: { success: true, code: '0000', bean: { totalPv: 999 } }, expected: '0000' },
+  ];
+  for (const { payload, expected } of cases) {
+    const request = createClient({ accessKey: 'test-access', secretKey: 'test-secret', fetchImpl: async () => ({
+      ok: false, status: 401, json: async () => payload,
+    }) });
+    await assert.rejects(request('/open/overview/get'), { message: `51LA: API HTTP 401; API error ${expected}` });
+  }
+  const request = createClient({ accessKey: 'test-access', secretKey: 'test-secret', fetchImpl: async () => ({
+    ok: false, status: 401, json: async () => { throw new Error('private response body'); },
+  }) });
+  await assert.rejects(request('/open/overview/get'), { message: '51LA: API HTTP 401; API error unknown (non-JSON response)' });
+});
+
 test('visitor pages handle nested and empty successful responses without guessing', async () => {
   const { sessionPage } = await import('../scripts/51la-client.mjs');
   assert.deepEqual(sessionPage({ total: 0, pages: 0 }), { data: [], total: 0, pages: 0 });

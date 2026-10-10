@@ -3,6 +3,8 @@ import { pathToFileURL } from 'node:url';
 
 export const MASK_ID = '3RSi0ApWyvRKOoCj';
 const ENDPOINTS = new Set(['/open/overview/get', '/open/visitor/detail/list']);
+const RESPONSE_CODES = new Set(['0000', '5005', '5006', '5007', '5008', '5009', '7001', '9001']);
+const safeResponseCode = payload => RESPONSE_CODES.has(String(payload?.code)) ? String(payload.code) : 'unknown';
 
 export function signature(accessKey, secretKey, nonce, timestamp) {
   const input = Object.entries({ accessKey, nonce, secretKey, timestamp })
@@ -67,12 +69,16 @@ export function createClient({ accessKey = process.env.LA_ACCESS_KEY, secretKey 
     } catch {
       throw new Error('51LA: API network request failed');
     }
-    if (!response.ok) throw new Error(`51LA: API HTTP ${response.status}`);
     let payload;
-    try { payload = await response.json(); } catch { throw new Error('51LA: API returned invalid JSON'); }
-    if (payload.success !== true || String(payload.code) !== '0000') {
-      // Never print response bodies, credentials, signatures or visitor records.
-      const code = /^\d{4}$/.test(String(payload.code)) ? payload.code : 'unknown';
+    try { payload = await response.json(); } catch {
+      if (!response.ok) throw new Error(`51LA: API HTTP ${response.status}; API error unknown (non-JSON response)`);
+      throw new Error('51LA: API returned invalid JSON');
+    }
+    const code = safeResponseCode(payload);
+    // Error responses may contain a useful provider code even on HTTP 401.
+    // Log only documented codes, never raw messages, bodies, keys or signatures.
+    if (!response.ok) throw new Error(`51LA: API HTTP ${response.status}; API error ${code}`);
+    if (payload?.success !== true || code !== '0000') {
       throw new Error(`51LA: API error ${code}`);
     }
     return decodeResponse(payload, secretKey);
