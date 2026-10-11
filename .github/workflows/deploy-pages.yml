@@ -16,8 +16,8 @@ on:
         required: false
         default: false
   schedule:
-    # 10:17 China time, away from the busy start of the UTC hour.
-    - cron: '17 2 * * *'
+    # 07:00 Asia/Shanghai (UTC+8), or 23:00 UTC on the preceding day.
+    - cron: '0 23 * * *'
 
 permissions:
   contents: read

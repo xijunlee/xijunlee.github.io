@@ -152,7 +152,7 @@ npm run preview
 
 ### 数据同步、范围和配额
 
-`.github/workflows/deploy-pages.yml` 每天北京时间 **10:17** 更新并发布（GitHub 定时任务可能延迟），同一天的普通代码发布通过 Actions cache 重用已同步的快照，避免重复消耗 API 配额。[scripts/sync-51la.mjs](scripts/sync-51la.mjs) 每日最多请求一次概况、两页地域明细（每页 100 条），即正常最多 93 次/月；手动运行 `Verify 51LA data access` 另占两次调用。未购买或开通付费额度，不执行关闭 VPN／切换网络的测试。
+`.github/workflows/deploy-pages.yml` 每天北京时间 **07:00** 更新并发布（cron 为 `0 23 * * *`，即前一天 UTC 23:00；GitHub 定时任务可能延迟），同一天的普通代码发布通过 Actions cache 重用已同步的快照，避免重复消耗 API 配额。[scripts/sync-51la.mjs](scripts/sync-51la.mjs) 每日最多请求一次概况、两页地域明细（每页 100 条），即正常最多 93 次/月；手动运行 `Verify 51LA data access` 另占两次调用。未购买或开通付费额度，不执行关闭 VPN／切换网络的测试。
 
 需要立即同步并发布时，在 `Deploy academic website` 的手动运行表单中勾选 `force_sync`；只有 SSH 推送权限时，也可在本次推送的最后一个提交信息中显式加入 `[force-51la-sync]`。该次运行会忽略当日已尝试标记，额外消耗最多三次 API 调用，不改变普通推送和定时任务的每日一次规则。强制同步替换同一天的地域数据，不重复累加。脚本同时比较线上快照与不可变的 Actions 缓存，优先保留较新的数据，避免后续普通发布覆盖手动更新结果；失败时保留已有有效数据。
 
