@@ -16,8 +16,10 @@ on:
         required: false
         default: false
   schedule:
-    # 07:00 Asia/Shanghai (UTC+8), or 23:00 UTC on the preceding day.
+    # Primary: 07:00 Asia/Shanghai (UTC+8), or 23:00 UTC on the preceding day.
     - cron: '0 23 * * *'
+    # Backup: 07:30 Asia/Shanghai; reuse today's snapshot if already attempted.
+    - cron: '30 23 * * *'
 
 permissions:
   contents: read
