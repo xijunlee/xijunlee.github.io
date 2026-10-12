@@ -111,6 +111,62 @@ test('failed forced refresh retains valid data and does not force later ordinary
   await synchronize({ previous: next, request, now });
   assert.equal(calls, 1);
 });
+test('scheduled backups retry failed attempts but never re-fetch after daily success', async () => {
+  const { synchronize, syncCompletedForDay } = await modules();
+  const previous = await synchronize({ request: mockRequest().request, now: new Date('2026-10-09T19:00:00Z') });
+  // The primary below is on the next China-time reporting day.
+  const primaryAt = new Date('2026-10-10T19:00:00Z');
+  const failed = await synchronize({ previous, now: primaryAt, request: async () => { throw new Error('51LA: API error 5005'); } });
+  assert.equal(syncCompletedForDay(failed, primaryAt), false);
+  const { calls, request } = mockRequest();
+  const backupAt = new Date('2026-10-10T20:00:00Z');
+  const recovered = await synchronize({ previous: failed, request, now: backupAt, retry: true });
+  assert.equal(calls.length, 2);
+  assert.equal(syncCompletedForDay(recovered, backupAt), true);
+  for (const hour of ['21', '22']) {
+    const reused = await synchronize({ previous: recovered, request, now: new Date(`2026-10-10T${hour}:00:00Z`), retry: true });
+    assert.deepEqual(reused, recovered);
+  }
+  assert.equal(calls.length, 2);
+});
+test('overview success without yesterday geography is incomplete and permits a scheduled retry', async () => {
+  const { synchronize, syncCompletedForDay } = await modules();
+  const previous = await synchronize({ request: mockRequest().request, now: new Date('2026-10-09T19:00:00Z') });
+  const primaryAt = new Date('2026-10-10T19:00:00Z');
+  const partial = await synchronize({ previous, now: primaryAt, request: async endpoint => {
+    if (endpoint.includes('overview')) return { bean: { totalPv: 120, totalUv: 25 } };
+    throw new Error('51LA: API error 5005');
+  } });
+  assert.equal(partial.updatedAt, primaryAt.toISOString());
+  assert.equal(syncCompletedForDay(partial, primaryAt), false);
+  const { calls, request } = mockRequest([{ region: '上海' }]);
+  const recovered = await synchronize({ previous: partial, request, now: new Date('2026-10-10T20:00:00Z'), retry: true });
+  assert.equal(calls.length, 2);
+  assert.equal(syncCompletedForDay(recovered, primaryAt), true);
+});
+test('same-day completed data beats a newer overview-only failure when restoring snapshots', async () => {
+  const { synchronize, latestSnapshot } = await modules();
+  const previous = await synchronize({ request: mockRequest().request, now: new Date('2026-10-09T19:00:00Z') });
+  const completed = await synchronize({ previous, request: mockRequest([{ region: '上海' }]).request, now: new Date('2026-10-10T19:00:00Z') });
+  const incomplete = await synchronize({ previous, now: new Date('2026-10-10T20:00:00Z'), request: async endpoint => {
+    if (endpoint.includes('overview')) return { bean: { totalPv: 120, totalUv: 25 } };
+    throw new Error('51LA: API error 5005');
+  } });
+  assert.equal(latestSnapshot(incomplete, completed).updatedAt, completed.updatedAt);
+  const { calls, request } = mockRequest();
+  const reused = await synchronize({ previous: completed, request, now: new Date('2026-10-10T21:00:00Z'), retry: true });
+  assert.equal(calls.length, 0);
+  assert.deepEqual(reused, completed);
+});
+test('valid capped geographic records count as successful sync rather than repeated failure retries', async () => {
+  const { synchronize, syncCompletedForDay } = await modules();
+  const { calls, request } = mockRequest(Array.from({ length: 201 }, () => ({ region: '上海' })));
+  const completed = await synchronize({ request, now });
+  assert.equal(completed.geography.complete, false);
+  assert.equal(syncCompletedForDay(completed, now), true);
+  await synchronize({ previous: completed, request, now, retry: true });
+  assert.equal(calls.length, 3);
+});
 test('snapshot validation strips unexpected fields and rejects impossible aggregates', async () => {
   const { synchronize, validateSnapshot } = await modules();
   const data = await synchronize({ request: mockRequest([{ region: '上海' }]).request, now });

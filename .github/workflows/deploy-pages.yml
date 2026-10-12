@@ -16,20 +16,40 @@ on:
         required: false
         default: false
   schedule:
-    # Primary: 07:00 Asia/Shanghai (UTC+8), or 23:00 UTC on the preceding day.
-    - cron: '0 23 * * *'
-    # Backup: 07:30 Asia/Shanghai; reuse today's snapshot if already attempted.
-    - cron: '30 23 * * *'
+    # Asia/Shanghai (UTC+8): 03:00 primary, then 04:00 / 05:00 / 06:00 backups.
+    # Each UTC trigger falls on the preceding calendar day.
+    - cron: '0 19 * * *'
+    - cron: '0 20 * * *'
+    - cron: '0 21 * * *'
+    - cron: '0 22 * * *'
 
 permissions:
   contents: read
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # A delayed backup must wait for, not cancel, an active sync/deployment.
+  cancel-in-progress: ${{ github.event_name != 'schedule' }}
 
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      should_run: ${{ steps.plan.outputs.should_run }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Check whether today's data is already published
+        id: plan
+        env:
+          LA_SCHEDULED: ${{ github.event_name == 'schedule' }}
+        run: node scripts/check-51la-sync.mjs
+
   build:
+    needs: plan
+    if: needs.plan.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -63,16 +83,20 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .cache/51la/visitor-data.json
-          key: 51la-public-v1-${{ steps.analytics-day.outputs.day }}
-          restore-keys: 51la-public-v1-
+          key: 51la-public-v2-${{ steps.analytics-day.outputs.day }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            51la-public-v2-${{ steps.analytics-day.outputs.day }}-
+            51la-public-v2-
+            51la-public-v1-
 
       - name: Synchronize public 51LA aggregates
         env:
           LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
           LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
-          # An explicit manual request only; schedules and ordinary pushes
-          # continue to reuse today's snapshot without spending more quota.
+          # A manual refresh may override success. Scheduled retries may only
+          # bypass a failed attempt; successful data is always reused.
           LA_FORCE_SYNC: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_sync) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[force-51la-sync]')) }}
+          LA_RETRY_SYNC: ${{ github.event_name == 'schedule' }}
         run: node scripts/sync-51la.mjs
 
       - name: Cache public statistics for this day

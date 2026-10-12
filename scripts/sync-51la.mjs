@@ -44,20 +44,35 @@ export function publicSnapshot(snapshot) {
   };
 }
 
+function successfulSyncDay(snapshot) {
+  if (!snapshot?.updatedAt) return null;
+  const updated = new Date(snapshot.updatedAt);
+  const yesterday = chinaDay(new Date(updated.getTime() - 86400000));
+  // A fresh overview alone is not enough: yesterday's geographic request
+  // must also have succeeded. Valid empty/capped records still count as synced.
+  return snapshot.days.some(day => day.day === yesterday) ? chinaDay(updated) : null;
+}
+
+export function syncCompletedForDay(value, now = new Date()) {
+  return successfulSyncDay(validateSnapshot(value)) === chinaDay(now);
+}
+
 export function latestSnapshot(...candidates) {
   // Actions caches are immutable. Prefer a newer published manual refresh over
   // an older same-day cache, while retaining a newer cached attempt after a
-  // failed deployment so ordinary pushes do not repeat API requests.
+  // failed deployment so ordinary pushes do not repeat API requests. Within
+  // one attempted day, completed data beats a newer overview-only failure.
   return candidates.map(validateSnapshot).filter(Boolean).toSorted((a, b) =>
     (b.attemptedDay || '').localeCompare(a.attemptedDay || '') ||
+    Number(b.attemptedDay !== null && successfulSyncDay(b) === b.attemptedDay) - Number(a.attemptedDay !== null && successfulSyncDay(a) === a.attemptedDay) ||
     Date.parse(b.updatedAt || '1970-01-01') - Date.parse(a.updatedAt || '1970-01-01')
   )[0] || null;
 }
 
-export async function synchronize({ previous, request, now = new Date(), force = false }) {
+export async function synchronize({ previous, request, now = new Date(), force = false, retry = false }) {
   const snapshot = validateSnapshot(previous) || { schema: 1, source: '51LA', maskId: MASK_ID, updatedAt: null, attemptedDay: null, overview: null, days: [] };
   const today = chinaDay(now);
-  if (snapshot.attemptedDay === today && !force) return publicSnapshot(snapshot);
+  if (!force && (syncCompletedForDay(snapshot, now) || (snapshot.attemptedDay === today && !retry))) return publicSnapshot(snapshot);
   snapshot.attemptedDay = today;
   try {
     const overview = (await request('/open/overview/get')).bean;
@@ -95,9 +110,12 @@ async function main() {
   } catch {}
   const previous = latestSnapshot(published, cached);
   const force = process.env.LA_FORCE_SYNC === 'true' || process.argv.includes('--force');
+  const retry = process.env.LA_RETRY_SYNC === 'true';
   if (force) console.log('51LA: explicit manual refresh requested; bypassing the daily attempt guard once.');
+  else if (syncCompletedForDay(previous)) console.log('51LA: today\'s successful snapshot reused; no source API requests.');
+  else if (retry && previous?.attemptedDay === chinaDay()) console.log('51LA: scheduled backup retrying an unsuccessful daily sync.');
   let snapshot;
-  try { snapshot = await synchronize({ previous, request: createClient(), force }); }
+  try { snapshot = await synchronize({ previous, request: createClient(), force, retry }); }
   catch { snapshot = publicSnapshot(previous || { schema: 1, source: '51LA', maskId: MASK_ID, updatedAt: null, attemptedDay: null, overview: null, days: [] }); console.warn('51LA Secrets unavailable; retained data or unavailable state published.'); }
   await mkdir('.cache/51la', { recursive: true });
   const data = JSON.stringify(snapshot);
