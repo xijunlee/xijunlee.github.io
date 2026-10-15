@@ -28,7 +28,7 @@ test('new papers preserve exact titles, author order, confirmed CCF ranks and pr
   assert.equal(eurosys[0].year, 2027);
   assert.equal(eurosys[0].cycle, 'Spring');
   assert.equal(eurosys[0].corresponding, false);
-  assert.equal(plain(eurosys[0].authors_html), 'Bernhard Linn Hilmarsson, Vamanan Arulchelvan, Arash Tavakkol, Li Liu, Weihong Xu, Xiangyu Zhu, Li Xijun, Shai Bergman, Ji Zhang');
+  assert.equal(plain(eurosys[0].authors_html), 'Bernhard Linn Hilmarsson, Vamanan Arulchelvan, Arash Tavakkol, Li Liu, Weihong Xu, Xiangyu Zhu, Xijun Li, Shai Bergman, Ji Zhang');
   assert.equal(eurosys[0].links.length, 0);
   assert.equal(dai[0].links[0].label, 'accepted');
   assert.equal(dai[0].links[0].href, 'https://www.adai.ai/dai/2026/accepted-papers.html');
@@ -47,7 +47,7 @@ test('publication totals and both homepage counters update while preprints remai
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
     assert.ok(html.includes(page === 'index.html' ? '全部 21 条动态' : 'All 21 updates'));
-    assert.ok(html.includes('data.js?v=2'));
+    assert.ok(html.includes('data.js?v=3'));
     assert.ok(html.includes('app.js?v=2'));
   }
 });

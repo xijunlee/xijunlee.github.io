@@ -267,9 +267,9 @@ english=english.replace('{{GRANT_PREVIEW_EN}}',grants_en).replace('{{PATENT_PREV
 (OUT/'en.html').write_text(english, encoding='utf-8')
 client_data = {'papers': [{key: value for key, value in paper.items() if key != 'type'} for paper in papers]}
 (OUT/'data.js').write_text('window.ACADEMIC_DATA = '+json.dumps(client_data,ensure_ascii=False,separators=(',', ':')).replace('</','<\\/')+';\n', encoding='utf-8')
-index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=2" defer></script>\n  <script src="app.js?v=2" defer></script>')
+index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=3" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'index.html').write_text(index, encoding='utf-8')
-english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=2" defer></script>\n  <script src="app.js?v=2" defer></script>')
+english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=3" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'en.html').write_text(english, encoding='utf-8')
 
 # Archive content lives in content/archive-en.html and content/archive-zh.html.
