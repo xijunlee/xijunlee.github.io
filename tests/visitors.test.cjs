@@ -119,7 +119,7 @@ test('both homepages restore statistics and map-credit links without branding or
     assert.ok(html.includes('data-visitor-updated'));
     assert.ok(html.includes('visitor-globe.js?v=6'));
     assert.ok(html.includes('visitors.js?v=7'));
-    assert.ok(html.includes('styles.css?v=11'));
+    assert.ok(html.includes('styles.css?v=12'));
     assert.equal(html.includes('mapmyvisitors.com'), false);
   }
   assert.equal(globeCode.includes('https://'), false);

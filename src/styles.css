@@ -335,3 +335,12 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 @media(max-width:900px){.visitor-metrics{column-gap:.75rem}.visitor-total strong{font-size:1.5rem}}
 @media(max-width:680px){.visitor-bar{row-gap:.625rem}.visitor-copy h2{font-size:.75rem;letter-spacing:.5px}.visitor-total strong{font-size:1.625rem}.visitor-total>span,.visitor-note{font-size:.6875rem}.visitor-visual{width:7rem;height:7rem}}
 @media print{.visitor-section{display:none}}
+
+/* Make the destination language unmistakable, including outside the mobile menu. */
+.language-switch{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-width:7rem;min-height:2.75rem;padding:.5rem .75rem;border:1px solid var(--sjtu-blue);border-radius:.5rem;background:var(--sjtu-blue);color:#fff;font:650 .9375rem/1.25 var(--sans);white-space:nowrap}
+.language-switch svg{display:block;flex:0 0 auto;width:1.125rem;height:1.125rem}
+.language-switch:hover{background:#003b77;border-color:#003b77;color:#fff}
+@media(max-width:1100px){.homepage-header{gap:.75rem}}
+@media(max-width:900px){.homepage-header .language-switch{margin-left:auto}}
+@media(max-width:680px){.language-switch{gap:.375rem;min-width:6.125rem;min-height:2.5rem;padding:.5rem .625rem;font-size:.875rem}.homepage-header .menu-toggle{margin-left:0}}
+@media(max-width:360px){.homepage-header{gap:.625rem}.homepage-header .site-logo{width:128px}}
