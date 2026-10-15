@@ -75,10 +75,13 @@ def entries(name, lang='en'):
     return [x for x in re.findall(r'<li>\s*<p>(.*?)</p>\s*</li>', source[name], re.S) if not text(x).startswith('where ')]
 
 venue_ranks = {
+    # CCF 2026 official directory (2026-04-09 corrected edition):
+    # https://www.ccf.org.cn/Academic_Evaluation/By_category/2026-03-31/870181.shtml
+    # EuroSys: p. 5, A; DAI: pp. 59-60, C.
     'TPAMI': 'A', 'NeurIPS': 'A', 'ICML': 'A', 'ICLR': 'A',
-    'KDD': 'A', 'ICDE': 'A', 'DAC': 'A',
+    'KDD': 'A', 'ICDE': 'A', 'DAC': 'A', 'EuroSys': 'A',
     'MSST': 'B', 'CIKM': 'B', 'ICDCS': 'B', 'IEEE Transactions on Cybernetics': 'B',
-    'CSCWD': 'C', 'MDM': 'C', 'IJCNN': 'C', 'Neurocomputing': 'C',
+    'CSCWD': 'C', 'MDM': 'C', 'IJCNN': 'C', 'Neurocomputing': 'C', 'DAI': 'C',
 }
 venue_names = list(venue_ranks) + ['SIGMOD', 'Machine Intelligence Research', 'TAES', 'Complex & Intelligent Systems', 'AAAI']
 descriptions = {
@@ -145,6 +148,9 @@ for i, markup in enumerate(entries('Publication'), 1):
     papers.append({'id': i, 'title': title, 'authors_html': authors_html, 'venue': venue,
                    'year': year, 'rank': rank, 'note': note, 'links': links,
                    'spotlight': 'Spotlight' in plain,
+                   'oral': bool(re.search(r'\(<b>Oral</b>\)', markup)),
+                   'corresponding': bool(re.search(r'(?:Xijun Li|Li Xijun|李希君)</b>\s*<sup\b[^>]*>#</sup>', authors_html)),
+                   'cycle': 'Spring' if venue == 'EuroSys' and re.search(r'\bSpring\b', tv) else '',
                    'description': descriptions.get(title, ''), 'description_en': descriptions_en.get(title, ''),
                    'search': plain, 'type': 'publication'})
 
@@ -173,9 +179,14 @@ def paper_html(p, lang='zh'):
     links = ''.join(f'<a href="{escape(x["href"], quote=True)}" target="_blank" rel="noopener noreferrer">{escape(x["label"])} ↗</a>' for x in p['links'])
     spotlight_label = '✧ 亮点论文' if lang == 'zh' else '✧ Spotlight'
     spotlight = f'<span class="spotlight">{spotlight_label}</span>' if p['spotlight'] else ''
+    oral = '<span class="spotlight">Oral</span>' if p['oral'] else ''
+    corresponding_label = '# 通讯作者' if lang == 'zh' else '# Corresponding author'
+    corresponding = f'<span class="spotlight">{corresponding_label}</span>' if p['corresponding'] else ''
+    cycle_label = '春季轮' if lang == 'zh' and p['cycle'] == 'Spring' else p['cycle']
+    year_label = str(p['year'] or '—') + (' · ' + cycle_label if cycle_label else '')
     description = p['description_en'] if lang == 'en' else p['description']
     aria = 'Read' if lang == 'en' else '阅读'
-    return f'''<article class="paper"><div class="paper-meta"><div class="paper-venue">{escape(p['venue'])}</div><div class="paper-year">{p['year'] or '—'}</div><span class="ccf-badge">{escape(badge)}</span></div><div><h3><a href="{href}" target="_blank" rel="noopener noreferrer">{escape(p['title'])}</a></h3>{('<p class="paper-description">'+escape(description)+'</p>') if description else ''}<p class="paper-authors">{p['authors_html']}</p><div class="paper-resources">{spotlight}{links}</div></div><a class="paper-arrow" href="{href}" target="_blank" rel="noopener noreferrer" aria-label="{aria} {escape(p['title'], quote=True)}">↗</a></article>'''
+    return f'''<article class="paper"><div class="paper-meta"><div class="paper-venue">{escape(p['venue'])}</div><div class="paper-year">{escape(year_label)}</div><span class="ccf-badge">{escape(badge)}</span></div><div><h3><a href="{href}" target="_blank" rel="noopener noreferrer">{escape(p['title'])}</a></h3>{('<p class="paper-description">'+escape(description)+'</p>') if description else ''}<p class="paper-authors">{p['authors_html']}</p><div class="paper-resources">{spotlight}{oral}{corresponding}{links}</div></div><a class="paper-arrow" href="{href}" target="_blank" rel="noopener noreferrer" aria-label="{aria} {escape(p['title'], quote=True)}">↗</a></article>'''
 
 stats = {r: sum(p['rank'] == r for p in papers if p['type'] == 'publication') for r in ('A','B','C','other')}
 publication_count = len(entries('Publication'))
@@ -256,9 +267,9 @@ english=english.replace('{{GRANT_PREVIEW_EN}}',grants_en).replace('{{PATENT_PREV
 (OUT/'en.html').write_text(english, encoding='utf-8')
 client_data = {'papers': [{key: value for key, value in paper.items() if key != 'type'} for paper in papers]}
 (OUT/'data.js').write_text('window.ACADEMIC_DATA = '+json.dumps(client_data,ensure_ascii=False,separators=(',', ':')).replace('</','<\\/')+';\n', encoding='utf-8')
-index=index.replace('<script src="app.js" defer></script>', '<script src="data.js" defer></script>\n  <script src="app.js" defer></script>')
+index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=2" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'index.html').write_text(index, encoding='utf-8')
-english=english.replace('<script src="app.js" defer></script>', '<script src="data.js" defer></script>\n  <script src="app.js" defer></script>')
+english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=2" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'en.html').write_text(english, encoding='utf-8')
 
 # Archive content lives in content/archive-en.html and content/archive-zh.html.

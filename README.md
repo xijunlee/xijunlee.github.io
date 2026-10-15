@@ -111,6 +111,8 @@ npm run preview
 3. 如果会议尚未出现在 [build.py](build.py) 的 `venue_ranks` 中，请在该表加入会议缩写和 CCF 类别。
 4. 运行 `npm run check`。首页的论文总数及 CCF A/B/C 数量会自动更新。
 
+论文统计包括已发表和正式录用的论文，预印本仍单独计数。通讯作者可写为 `<b>Xijun Li</b><sup title="通讯作者 / Corresponding author">#</sup>`，中英文档案均保留符号说明；首页筛选结果会显示对应语言的通讯作者标签。会议后的 `(<b>Oral</b>)` 会生成 Oral 标签，`EuroSys 2027 (Spring)` 会保留春季轮信息。暂无全文或代码链接时不要编造链接，可先只收录书目信息。EuroSys A 类、DAI C 类已按 [CCF 2026 正式目录](https://www.ccf.org.cn/Academic_Evaluation/By_category/2026-03-31/870181.shtml) 核对。
+
 ### 新增动态、项目、专利或学生
 
 在两份档案对应章节中各添加一条，并保持位置和链接一致：
