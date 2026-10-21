@@ -46,19 +46,18 @@ test('publication totals and both homepage counters update while preprints remai
     assert.match(html, /<strong>40<span>/);
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
-    assert.ok(html.includes(page === 'index.html' ? '全部 21 条动态' : 'All 21 updates'));
+    assert.ok(html.includes(page === 'index.html' ? '全部 22 条动态' : 'All 22 updates'));
     assert.ok(html.includes('data.js?v=3'));
     assert.ok(html.includes('app.js?v=2'));
   }
 });
 
-test('both homepages use confirmed acceptance dates and retain four chronologically ordered news items', () => {
+test('both homepages retain four latest news items and archives preserve confirmed acceptance dates', () => {
   for (const page of ['index.html', 'en.html']) {
     const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
     const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
-    assert.deepEqual([...news.matchAll(/datetime="([^"]+)"/g)].map(match => match[1]), ['2026-10-10', '2026-09-17', '2026-08-23', '2026-08-21']);
+    assert.deepEqual([...news.matchAll(/datetime="([^"]+)"/g)].map(match => match[1]), ['2026-10-21', '2026-10-10', '2026-09-17', '2026-08-23']);
     assert.ok(news.includes('PhyWorld'));
-    assert.ok(news.includes('EuroSys 2027'));
   }
   for (const page of ['archive-zh.html', 'archive.html']) {
     const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
@@ -68,6 +67,28 @@ test('both homepages use confirmed acceptance dates and retain four chronologica
     assert.ok(html.includes(cpuPower));
     assert.ok(html.includes('ICLR</b> 2027') || html.includes('ICLR 2027'));
     assert.ok(html.includes(page === 'archive-zh.html' ? '表示通讯作者' : 'denotes the corresponding author'));
+  }
+});
+
+test('ICML 2027 invitation is published consistently without claiming acceptance or exposing email details', () => {
+  for (const [homepage, archive, message, category] of [
+    ['index.html', 'archive-zh.html', '受邀担任 ICML 2027 领域主席（Area Chair）。', '学术服务'],
+    ['en.html', 'archive.html', 'Invited to serve as an Area Chair for ICML 2027.', 'SERVICE'],
+  ]) {
+    const html = fs.readFileSync(path.join(root, 'dist', homepage), 'utf8');
+    const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
+    const firstRow = news.match(/<a class="news-row"[^>]*>[\s\S]*?<\/a>/)[0];
+    assert.ok(firstRow.includes(`href="${archive}#news"`));
+    assert.ok(firstRow.includes('<time datetime="2026-10-21">2026.10.21</time>'));
+    assert.ok(firstRow.includes(`<span class="news-category">${category}</span>`));
+    assert.equal(plain(firstRow.match(/<p>([\s\S]*?)<\/p>/)[1]), message);
+    const archiveHtml = fs.readFileSync(path.join(root, 'dist', archive), 'utf8');
+    const archiveNews = archiveHtml.match(/<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/)[0];
+    const items = [...archiveNews.matchAll(/<li><p>([\s\S]*?)<\/p>\s*<\/li>/g)];
+    assert.equal(items.length, 22);
+    assert.equal(plain(items[0][1]), `[10-21-2026] ${message}`);
+    assert.equal((plain(archiveNews).match(/ICML 2027/g) || []).length, 1);
+    assert.doesNotMatch(plain(firstRow + archiveNews), /Dear Xijun|formatting and anonymity|AI tools|We invite you/);
   }
 });
 
