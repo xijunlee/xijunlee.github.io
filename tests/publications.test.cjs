@@ -92,6 +92,28 @@ test('ICML 2027 invitation is published consistently without claiming acceptance
   }
 });
 
+test('Chinese news consistently pairs Area Chair titles with their full English equivalents', () => {
+  for (const [page, expectedCount] of [['index.html', 2], ['archive-zh.html', 5]]) {
+    const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
+    const section = html.match(page.startsWith('archive')
+      ? /<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/
+      : /<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
+    const titles = [...plain(section).matchAll(/(优秀)?领域主席(（[^）]+）)?/g)];
+    assert.equal(titles.length, expectedCount);
+    for (const title of titles) {
+      assert.equal(title[2], title[1] ? '（Top Area Chair）' : '（Area Chair）');
+    }
+  }
+  for (const page of ['en.html', 'archive.html']) {
+    const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
+    const section = html.match(page.startsWith('archive')
+      ? /<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/
+      : /<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
+    assert.ok(plain(section).includes('NeurIPS 2026 Top Area Chair'));
+    assert.doesNotMatch(section, /领域主席|Top AC/);
+  }
+});
+
 function renderHomepage(language) {
   const list = { innerHTML: '' };
   const search = { value: '', addEventListener() {} };
