@@ -1,0 +1,196 @@
+{
+  "checkedOn": "2026-10-28",
+  "scholarSource": "https://scholar.google.com/citations?hl=en&user=QXU_QbMAAAAJ&view_op=list_works&sortby=pubdate",
+  "scholarRows": 60,
+  "scholarPagination": "Articles 1–60; Show more disabled",
+  "preprintCandidates": 16,
+  "added": [
+    {
+      "title": "Certainty Is Not Just Correctness: Rethinking Token-Level Certainty in LLM Reasoning",
+      "authors": [
+        "Yunfan Zhou",
+        "Ye Zhu",
+        "Zhihai Wang",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2610.00296",
+      "citationId": "HoB7MX3m0LUC",
+      "url": "https://arxiv.org/abs/2610.00296",
+      "label": "arxiv"
+    },
+    {
+      "title": "FSAN: Flow State Attention Network for Aerodynamic Prediction",
+      "authors": [
+        "Wenxuan Jin",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2609.06660",
+      "citationId": "g5m5HwL7SMYC",
+      "url": "https://arxiv.org/abs/2609.06660",
+      "label": "arxiv"
+    },
+    {
+      "title": "InSituMeasure: Probing Situated Measurement Grounding in Industrial Scenes with Multimodal Large Language Models",
+      "authors": [
+        "Chao Shen",
+        "Xinyuan Li",
+        "Yunfan Zhou",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Zhihai Wang",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2609.04014",
+      "citationId": "M05iB0D1s5AC",
+      "url": "https://arxiv.org/abs/2609.04014",
+      "label": "arxiv"
+    },
+    {
+      "title": "To Think or Not to Think: Allocating Reasoning Where It Helps",
+      "authors": [
+        "Zhengdong He",
+        "Yunfan Zhou",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2609.29664",
+      "citationId": "pqnbT2bcN3wC",
+      "url": "https://arxiv.org/abs/2609.29664",
+      "label": "arxiv"
+    },
+    {
+      "title": "FPGAgent: An LLM-Assisted Framework for Autonomous HLS Code Generation and Verification in FPGA Environments",
+      "authors": [
+        "Tianyu Wang",
+        "Wenjie Wang",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2608.23630",
+      "citationId": "ldfaerwXgEUC",
+      "url": "https://arxiv.org/abs/2608.23630",
+      "label": "arxiv"
+    },
+    {
+      "title": "HIERA: Workload-Aware Planning Across Implementation Spaces for GPU Kernel Optimization",
+      "authors": [
+        "Jinghao Wang",
+        "Qiqi Gu",
+        "Chenpeng Wu",
+        "Jianguo Yao",
+        "Haibing Guan",
+        "Xijun Li"
+      ],
+      "year": 2026,
+      "id": "2608.21157",
+      "citationId": "2P1L_qKh6hAC",
+      "url": "https://arxiv.org/abs/2608.21157",
+      "label": "arxiv"
+    },
+    {
+      "title": "Advancing Symbolic Discovery on Unsupervised Data: A Pre-training Framework for Non-degenerate Implicit Equation Discovery",
+      "authors": [
+        "Yufei Kuang",
+        "Jie Wang",
+        "Haotong Huang",
+        "Mingxuan Ye",
+        "Fangzhou Zhu",
+        "Xijun Li",
+        "Jianye Hao",
+        "Feng Wu"
+      ],
+      "year": 2025,
+      "id": "2505.03130",
+      "citationId": "NMxIlDl6LWMC",
+      "url": "https://arxiv.org/abs/2505.03130",
+      "label": "arxiv"
+    },
+    {
+      "title": "Machine Learning Insides OptVerse AI Solver: Design Principles and Applications",
+      "authors": [
+        "Xijun Li",
+        "Fangzhou Zhu",
+        "Hui-Ling Zhen",
+        "Weilin Luo",
+        "Meng Lu",
+        "Yimin Huang",
+        "Zhenan Fan",
+        "Zirui Zhou",
+        "Yufei Kuang",
+        "Zhihai Wang",
+        "Zijie Geng",
+        "Yang Li",
+        "Haoyang Liu",
+        "Zhiwu An",
+        "Muming Yang",
+        "Jianshu Li",
+        "Jie Wang",
+        "Junchi Yan",
+        "Defeng Sun",
+        "Tao Zhong",
+        "Yong Zhang",
+        "Jia Zeng",
+        "Mingxuan Yuan",
+        "Jianye Hao",
+        "Jun Yao",
+        "Kun Mao"
+      ],
+      "year": 2024,
+      "id": "2401.05960",
+      "citationId": "TQgYirikUcIC",
+      "url": "https://arxiv.org/abs/2401.05960",
+      "label": "arxiv"
+    },
+    {
+      "title": "LLM4Solver: Large Language Model for Efficient Algorithm Design of Combinatorial Optimization Solver",
+      "authors": [
+        "Yuyan Zhou",
+        "Jie Wang",
+        "Yufei Kuang",
+        "Xijun Li",
+        "Weilin Luo",
+        "Jianye Hao",
+        "Feng Wu"
+      ],
+      "year": 2024,
+      "url": "https://openreview.net/forum?id=XTxdDEFR6D",
+      "citationId": "maZDTaKrznsC",
+      "label": "OpenReview"
+    }
+  ],
+  "alreadyPresent": [
+    "G2MILP: Learning to Generate Mixed-Integer Linear Programming Instances for MILP Solvers",
+    "Promoting Generalization for Exact Solvers via Adversarial Instance Augmentation",
+    "PASCAL: A Learning-aided Cooperative Bandwidth Control Policy for Hierarchical Storage Systems",
+    "Offline Reinforcement Learning with Adaptive Behavior Regularization",
+    "Introduction to The Dynamic Pickup and Delivery Problem Benchmark–ICAPS 2021 Competition",
+    "An Improved Reinforcement Learning Algorithm for Learning to Branch"
+  ],
+  "alreadyAccepted": [
+    {
+      "title": "Characterizing Vision-Language-Action Models across XPUs: Constraints and Acceleration for On-Robot Deployment",
+      "url": "https://arxiv.org/abs/2604.24447",
+      "homepageVenue": "ICML 2026",
+      "action": "Keep the existing publication; do not add a duplicate preprint."
+    }
+  ],
+  "notes": [
+    "Eight missing arXiv records verified against official arXiv citation metadata. LLM4Solver title, complete author order, year 2024 and OpenReview URL verified against its Google Scholar citation detail, not inferred from a conference name.",
+    "OpenReview's document page currently requests browser verification. No accepted venue or CCF rank is assigned to LLM4Solver; it is catalogued only as a public manuscript.",
+    "The arXiv record for 2505.03130 uses surname-first author names (for example Kuang Yufei and Li Xijun). Names are normalized to the homepage's given-name family-name convention without changing author order, including Li Xijun → Xijun Li. HAO Jianye in the LLM4Solver Scholar record is normalized to Jianye Hao.",
+    "The OptVerse report existed under Software but not in the publication/preprint list; keep the Software link and add its bibliographic record.",
+    "Preserve all 11 existing preprints/technical reports; no deletions or retrospective reclassification. Do not import same-name authors found in broad search results.",
+    "No news changes. Published/accepted count remains 40; preprints/technical reports increase from 11 to 20."
+  ]
+}

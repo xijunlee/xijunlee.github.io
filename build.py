@@ -157,13 +157,16 @@ for i, markup in enumerate(entries('Publication'), 1):
 for i, markup in enumerate(entries('Preprint'), 101):
     plain = text(markup)
     head = re.split(r'\s*\[<a', markup)[0].strip()
+    year_marker = re.search(r'<span class="preprint-year">(20\d{2})</span>', head)
+    year = int(year_marker.group(1)) if year_marker else None
+    head = re.sub(r'\s*<span class="preprint-year">20\d{2}</span>', '', head).strip()
     if ': ' in head:
         authors_html, title_html = head.split(': ', 1)
     else:
         authors_html, title_html = '', head
     links = [{'href': unescape(h), 'label': text(l)} for h, l in re.findall(r'<a\s+href="([^"]+)"[^>]*>(.*?)</a>', markup, re.S)]
     papers.append({'id': i, 'title': text(title_html).rstrip(' .'), 'authors_html': authors_html,
-                   'venue': 'Preprint', 'year': None, 'rank': 'other', 'note': '预印本 / 技术报告',
+                   'venue': 'Preprint', 'year': year, 'rank': 'other', 'note': '预印本 / 技术报告',
                    'links': links, 'spotlight': False, 'description': '',
                    'description_en': '',
                    'search': plain, 'type': 'preprint'})
@@ -267,9 +270,9 @@ english=english.replace('{{GRANT_PREVIEW_EN}}',grants_en).replace('{{PATENT_PREV
 (OUT/'en.html').write_text(english, encoding='utf-8')
 client_data = {'papers': [{key: value for key, value in paper.items() if key != 'type'} for paper in papers]}
 (OUT/'data.js').write_text('window.ACADEMIC_DATA = '+json.dumps(client_data,ensure_ascii=False,separators=(',', ':')).replace('</','<\\/')+';\n', encoding='utf-8')
-index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=3" defer></script>\n  <script src="app.js?v=2" defer></script>')
+index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=4" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'index.html').write_text(index, encoding='utf-8')
-english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=3" defer></script>\n  <script src="app.js?v=2" defer></script>')
+english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=4" defer></script>\n  <script src="app.js?v=2" defer></script>')
 (OUT/'en.html').write_text(english, encoding='utf-8')
 
 # Archive content lives in content/archive-en.html and content/archive-zh.html.

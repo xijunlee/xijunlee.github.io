@@ -37,7 +37,7 @@ test('new papers preserve exact titles, author order, confirmed CCF ranks and pr
 test('publication totals and both homepage counters update while preprints remain separate', () => {
   const publications = papers.filter(paper => paper.venue !== 'Preprint');
   assert.equal(publications.length, 40);
-  assert.equal(papers.filter(paper => paper.venue === 'Preprint').length, 11);
+  assert.equal(papers.filter(paper => paper.venue === 'Preprint').length, 20);
   for (const [rank, count] of [['A', 24], ['B', 4], ['C', 5], ['other', 7]]) {
     assert.equal(publications.filter(paper => paper.rank === rank).length, count);
   }
@@ -47,7 +47,7 @@ test('publication totals and both homepage counters update while preprints remai
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
     assert.ok(html.includes(page === 'index.html' ? '全部 22 条动态' : 'All 22 updates'));
-    assert.ok(html.includes('data.js?v=3'));
+    assert.ok(html.includes('data.js?v=4'));
     assert.ok(html.includes('app.js?v=2'));
   }
 });
@@ -146,7 +146,7 @@ for (const language of ['zh', 'en']) {
     assert.ok(list.innerHTML.includes(language === 'zh' ? '# 通讯作者' : '# Corresponding author'));
     assert.match(status.textContent, /5/);
     buttons.find(button => button.dataset.filter === 'all').click();
-    assert.match(status.textContent, /51/);
+    assert.match(status.textContent, /60/);
     assert.ok(list.innerHTML.includes(phyworld));
     assert.ok(list.innerHTML.includes(cpuPower));
   });

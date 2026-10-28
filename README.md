@@ -113,6 +113,17 @@ npm run preview
 
 论文统计包括已发表和正式录用的论文，预印本仍单独计数。通讯作者可写为 `<b>Xijun Li</b><sup title="通讯作者 / Corresponding author">#</sup>`，中英文档案均保留符号说明；首页筛选结果会显示对应语言的通讯作者标签。会议后的 `(<b>Oral</b>)` 会生成 Oral 标签，`EuroSys 2027 (Spring)` 会保留春季轮信息。暂无全文或代码链接时不要编造链接，可先只收录书目信息。EuroSys A 类、DAI C 类已按 [CCF 2026 正式目录](https://www.ccf.org.cn/Academic_Evaluation/By_category/2026-03-31/870181.shtml) 核对。
 
+### 新增预印本或公开技术报告
+
+在中英文档案的 `Preprint` 章节同时添加书目，保留完整作者顺序及原文链接。年份可用以下标记填写，构建程序会将其显示在首页筛选结果中，不会把年份拼进论文标题：
+
+```html
+<li><p>Author A, <b>Xijun Li</b>: Paper Title. <span class="preprint-year">2026</span> [<a href="原文链接" target="_blank" rel="noopener noreferrer">arxiv</a>]
+</p></li>
+```
+
+预印本仍归入“其他成果 / Other”，不计入已发表/录用论文或 CCF A/B/C 数量。先与 `Publication` 和已有预印本交叉核对，不重复添加已录用版本；不要从投稿页面推断会议录用。补充预印本不需要新增 news。2026-10-28 的 Scholar 核对结果与来源见 [预印本补全记录](docs/preprint-audit-2026-10-28.md)。
+
 ### 新增动态、项目、专利或学生
 
 在两份档案对应章节中各添加一条，并保持位置和链接一致：
