@@ -113,6 +113,8 @@ npm run preview
 
 论文统计包括已发表和正式录用的论文，预印本仍单独计数。通讯作者可写为 `<b>Xijun Li</b><sup title="通讯作者 / Corresponding author">#</sup>`，中英文档案均保留符号说明；首页筛选结果会显示对应语言的通讯作者标签。会议后的 `(<b>Oral</b>)` 会生成 Oral 标签，`EuroSys 2027 (Spring)` 会保留春季轮信息。暂无全文或代码链接时不要编造链接，可先只收录书目信息。EuroSys A 类、DAI C 类已按 [CCF 2026 正式目录](https://www.ccf.org.cn/Academic_Evaluation/By_category/2026-03-31/870181.shtml) 核对。
 
+期刊在线优先发表的条目在年份后保留 `(Early Access)`；构建器与首页筛选结果会对应显示“在线优先发表 / Early Access”。尚未分配的卷号、期号和页码不补猜，原文页面及 DOI 可同时作为资源链接保留。
+
 ### 新增预印本或公开技术报告
 
 在中英文档案的 `Preprint` 章节同时添加书目，保留完整作者顺序及原文链接。年份可用以下标记填写，构建程序会将其显示在首页筛选结果中，不会把年份拼进论文标题：

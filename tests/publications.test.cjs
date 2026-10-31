@@ -7,6 +7,7 @@ const vm = require('node:vm');
 const root = path.join(__dirname, '..');
 const phyworld = 'PhyWorld: Unified Semantic and Physical Reasoning for Physics-Native 3D Scene Generation';
 const cpuPower = 'Cutting CPU Power Without Missing Tails for Polling-Based I/O Frameworks';
+const spacecraft = 'Evidence-Constrained Agentic Workflow for Fault-Pair Localization in Controlled Spacecraft Simulations';
 const dataContext = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'dist/data.js'), 'utf8'), dataContext);
 const papers = dataContext.window.ACADEMIC_DATA.papers;
@@ -36,19 +37,19 @@ test('new papers preserve exact titles, author order, confirmed CCF ranks and pr
 
 test('publication totals and both homepage counters update while preprints remain separate', () => {
   const publications = papers.filter(paper => paper.venue !== 'Preprint');
-  assert.equal(publications.length, 40);
+  assert.equal(publications.length, 41);
   assert.equal(papers.filter(paper => paper.venue === 'Preprint').length, 20);
-  for (const [rank, count] of [['A', 24], ['B', 4], ['C', 5], ['other', 7]]) {
+  for (const [rank, count] of [['A', 24], ['B', 4], ['C', 5], ['other', 8]]) {
     assert.equal(publications.filter(paper => paper.rank === rank).length, count);
   }
   for (const page of ['index.html', 'en.html']) {
     const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
-    assert.match(html, /<strong>40<span>/);
+    assert.match(html, /<strong>41<span>/);
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
     assert.ok(html.includes(page === 'index.html' ? '全部 22 条动态' : 'All 22 updates'));
-    assert.ok(html.includes('data.js?v=4'));
-    assert.ok(html.includes('app.js?v=2'));
+    assert.ok(html.includes('data.js?v=5'));
+    assert.ok(html.includes('app.js?v=3'));
   }
 });
 
@@ -131,6 +132,51 @@ function renderHomepage(language) {
   return { list, buttons, status };
 }
 
+test('IEEE Access article preserves publication metadata and the confirmed corresponding-author role', () => {
+  const matches = papers.filter(paper => paper.title === spacecraft);
+  assert.equal(matches.length, 1);
+  const paper = matches[0];
+  assert.equal(paper.venue, 'IEEE Access');
+  assert.equal(paper.year, 2026);
+  assert.equal(paper.early_access, true);
+  assert.equal(paper.corresponding, true);
+  assert.equal(paper.rank, 'other');
+  assert.equal(plain(paper.authors_html), 'Renjun He, Mingrui Yu, Qi Liu, Yuanpeng Fang, Jianglei Zhu, Jie Zhang, Huan Chen, Xijun Li#');
+  assert.ok(paper.authors_html.includes('<b>Xijun Li</b><sup title="通讯作者 / Corresponding author">#</sup>'));
+  assert.equal(paper.links.length, 2);
+  assert.equal(paper.links[0].href, 'https://ieeexplore.ieee.org/document/11769461');
+  assert.equal(paper.links[1].href, 'https://doi.org/10.1109/ACCESS.2026.3748460');
+});
+
+for (const [language, archive] of [['zh', 'archive-zh.html'], ['en', 'archive.html']]) {
+  test(`${language}: IEEE Access Early Access and corresponding-author labels survive homepage filtering`, () => {
+    const { list, buttons, status } = renderHomepage(language);
+    assert.match(status.textContent, /24/);
+    for (const filter of ['other', 'all']) {
+      buttons.find(button => button.dataset.filter === filter).click();
+      assert.match(status.textContent, filter === 'other' ? /28/ : /61/);
+      const article = [...list.innerHTML.matchAll(/<article class="paper">[\s\S]*?<\/article>/g)]
+        .map(match => match[0]).find(markup => markup.includes(spacecraft));
+      assert.ok(article);
+      assert.ok(article.includes(language === 'zh' ? '2026 · 在线优先发表' : '2026 · Early Access'));
+      assert.ok(article.includes(language === 'zh' ? '# 通讯作者' : '# Corresponding author'));
+      assert.ok(article.includes(language === 'zh' ? 'CCF 目录外' : 'Outside CCF directory'));
+      assert.ok(article.includes('https://doi.org/10.1109/ACCESS.2026.3748460'));
+      assert.ok(!article.includes('CCF A'));
+    }
+    const html = fs.readFileSync(path.join(root, 'dist', archive), 'utf8');
+    const publications = html.match(/<section[^>]*data-archive-key="Publication"[\s\S]*?<\/section>/)[0];
+    const entry = [...publications.matchAll(/<li><p>[\s\S]*?<\/p>\s*<\/li>/g)]
+      .map(match => match[0]).find(markup => markup.includes(spacecraft));
+    assert.ok(entry.includes('<b>IEEE Access</b> 2026 (Early Access)'));
+    assert.ok(entry.includes('<sup title="通讯作者 / Corresponding author">#</sup>'));
+    assert.ok(entry.includes('https://ieeexplore.ieee.org/document/11769461'));
+    const news = html.match(/<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/)[0];
+    assert.ok(!news.includes(spacecraft));
+    assert.equal((news.match(/<li>/g) || []).length, 22);
+  });
+}
+
 for (const language of ['zh', 'en']) {
   test(`${language}: filtering preserves Oral, corresponding-author and Spring details`, () => {
     const { list, buttons, status } = renderHomepage(language);
@@ -146,7 +192,7 @@ for (const language of ['zh', 'en']) {
     assert.ok(list.innerHTML.includes(language === 'zh' ? '# 通讯作者' : '# Corresponding author'));
     assert.match(status.textContent, /5/);
     buttons.find(button => button.dataset.filter === 'all').click();
-    assert.match(status.textContent, /60/);
+    assert.match(status.textContent, /61/);
     assert.ok(list.innerHTML.includes(phyworld));
     assert.ok(list.innerHTML.includes(cpuPower));
   });

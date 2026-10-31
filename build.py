@@ -83,8 +83,9 @@ venue_ranks = {
     'MSST': 'B', 'CIKM': 'B', 'ICDCS': 'B', 'IEEE Transactions on Cybernetics': 'B',
     'CSCWD': 'C', 'MDM': 'C', 'IJCNN': 'C', 'Neurocomputing': 'C', 'DAI': 'C',
 }
-venue_names = list(venue_ranks) + ['SIGMOD', 'Machine Intelligence Research', 'TAES', 'Complex & Intelligent Systems', 'AAAI']
+venue_names = list(venue_ranks) + ['IEEE Access', 'SIGMOD', 'Machine Intelligence Research', 'TAES', 'Complex & Intelligent Systems', 'AAAI']
 descriptions = {
+    'Evidence-Constrained Agentic Workflow for Fault-Pair Localization in Controlled Spacecraft Simulations': '以证据约束的智能体工作流辅助受控离线航天器仿真中的故障对定位。',
     'STRCMP: Integrating Graph Structural Priors with Language Models for Combinatorial Optimization': '将图结构先验与语言模型结合，用于组合优化问题求解。',
     'Differentiable Integer Linear Programming': '探索可微整数线性规划，将优化问题与学习过程相连接。',
     'A Deep Instance Generative Framework for MILP Solvers Under Limited Data Availability': '在数据有限的条件下，为混合整数线性规划求解器生成问题实例。',
@@ -92,6 +93,7 @@ descriptions = {
     'Characterizing Vision-Language-Action Models across XPUs: Constraints and Acceleration for On-Robot Deployment': '分析视觉—语言—动作模型在异构计算平台上的约束与具身系统部署加速。',
 }
 descriptions_en = {
+    'Evidence-Constrained Agentic Workflow for Fault-Pair Localization in Controlled Spacecraft Simulations': 'Evidence-constrained agentic workflow for fault-pair localization in controlled offline spacecraft simulations.',
     'STRCMP: Integrating Graph Structural Priors with Language Models for Combinatorial Optimization': 'Combines graph structural priors with language models for combinatorial optimization.',
     'Differentiable Integer Linear Programming': 'Connects integer linear programming with learning through differentiable optimization.',
     'A Deep Instance Generative Framework for MILP Solvers Under Limited Data Availability': 'Generates mixed-integer programming instances when solver training data is limited.',
@@ -151,6 +153,7 @@ for i, markup in enumerate(entries('Publication'), 1):
                    'oral': bool(re.search(r'\(<b>Oral</b>\)', markup)),
                    'corresponding': bool(re.search(r'(?:Xijun Li|Li Xijun|李希君)</b>\s*<sup\b[^>]*>#</sup>', authors_html)),
                    'cycle': 'Spring' if venue == 'EuroSys' and re.search(r'\bSpring\b', tv) else '',
+                   'early_access': bool(re.search(r'\bEarly Access\b', tv)),
                    'description': descriptions.get(title, ''), 'description_en': descriptions_en.get(title, ''),
                    'search': plain, 'type': 'publication'})
 
@@ -187,6 +190,8 @@ def paper_html(p, lang='zh'):
     corresponding = f'<span class="spotlight">{corresponding_label}</span>' if p['corresponding'] else ''
     cycle_label = '春季轮' if lang == 'zh' and p['cycle'] == 'Spring' else p['cycle']
     year_label = str(p['year'] or '—') + (' · ' + cycle_label if cycle_label else '')
+    if p.get('early_access'):
+        year_label += ' · ' + ('在线优先发表' if lang == 'zh' else 'Early Access')
     description = p['description_en'] if lang == 'en' else p['description']
     aria = 'Read' if lang == 'en' else '阅读'
     return f'''<article class="paper"><div class="paper-meta"><div class="paper-venue">{escape(p['venue'])}</div><div class="paper-year">{escape(year_label)}</div><span class="ccf-badge">{escape(badge)}</span></div><div><h3><a href="{href}" target="_blank" rel="noopener noreferrer">{escape(p['title'])}</a></h3>{('<p class="paper-description">'+escape(description)+'</p>') if description else ''}<p class="paper-authors">{p['authors_html']}</p><div class="paper-resources">{spotlight}{oral}{corresponding}{links}</div></div><a class="paper-arrow" href="{href}" target="_blank" rel="noopener noreferrer" aria-label="{aria} {escape(p['title'], quote=True)}">↗</a></article>'''
@@ -270,9 +275,9 @@ english=english.replace('{{GRANT_PREVIEW_EN}}',grants_en).replace('{{PATENT_PREV
 (OUT/'en.html').write_text(english, encoding='utf-8')
 client_data = {'papers': [{key: value for key, value in paper.items() if key != 'type'} for paper in papers]}
 (OUT/'data.js').write_text('window.ACADEMIC_DATA = '+json.dumps(client_data,ensure_ascii=False,separators=(',', ':')).replace('</','<\\/')+';\n', encoding='utf-8')
-index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=4" defer></script>\n  <script src="app.js?v=2" defer></script>')
+index=index.replace('<script src="app.js" defer></script>', '<script src="data.js?v=5" defer></script>\n  <script src="app.js?v=3" defer></script>')
 (OUT/'index.html').write_text(index, encoding='utf-8')
-english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=4" defer></script>\n  <script src="app.js?v=2" defer></script>')
+english=english.replace('<script src="app.js" defer></script>', '<script src="data.js?v=5" defer></script>\n  <script src="app.js?v=3" defer></script>')
 (OUT/'en.html').write_text(english, encoding='utf-8')
 
 # Archive content lives in content/archive-en.html and content/archive-zh.html.

@@ -20,7 +20,7 @@ test('Scholar audit covers the complete profile and accounts for every preprint 
   assert.equal(audit.added.length, 9);
   assert.equal(audit.added.filter(p => p.id).length, 8);
   assert.equal(audit.preprintCandidates, audit.added.length + audit.alreadyPresent.length + audit.alreadyAccepted.length);
-  assert.equal(papers.length, 60);
+  assert.equal(papers.length, 61);
   assert.equal(papers.filter(p => p.venue === 'Preprint').length, 20);
   assert.equal(new Set(papers.map(p => p.id)).size, papers.length);
   const vla = papers.filter(p => p.title === audit.alreadyAccepted[0].title);
@@ -88,7 +88,7 @@ for (const language of ['zh', 'en']) {
     const { list, status, buttons } = homepage(language);
     assert.match(status.textContent, /24/);
     buttons.find(b => b.dataset.filter === 'other').click();
-    assert.match(status.textContent, /27/);
+    assert.match(status.textContent, /28/);
     for (const p of audit.added) {
       assert.ok(list.innerHTML.includes(p.title));
       assert.ok(list.innerHTML.includes(`href="${p.url}"`));
@@ -96,10 +96,10 @@ for (const language of ['zh', 'en']) {
     }
     assert.ok(list.innerHTML.includes(language === 'zh' ? '预印本 / 技术报告' : 'Preprint / technical report'));
     buttons.find(b => b.dataset.filter === 'all').click();
-    assert.match(status.textContent, /60/);
+    assert.match(status.textContent, /61/);
     const html = read(language === 'zh' ? 'index.html' : 'en.html');
     assert.ok(html.includes(language === 'zh' ? '另有 20 篇预印本与技术报告' : 'Plus 20 preprints and technical reports'));
-    assert.ok(html.includes('data.js?v=4'));
+    assert.ok(html.includes('data.js?v=5'));
     assert.equal((html.match(/class="news-row"/g) || []).length, 4);
     const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
     for (const p of audit.added) assert.ok(!plain(news).includes(p.title));
