@@ -61,7 +61,7 @@ for (const [page, language] of [['archive-zh.html', 'zh'], ['archive.html', 'en'
       assert.ok(preprints.includes(oldId), oldId);
     }
     const news = section(html, 'News');
-    assert.equal((news.match(/<li>/g) || []).length, 22);
+    assert.equal((news.match(/<li>/g) || []).length, 23);
     for (const paper of audit.added) assert.ok(!plain(news).includes(paper.title));
   });
 }

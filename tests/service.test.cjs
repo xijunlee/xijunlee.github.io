@@ -28,7 +28,7 @@ for (const [archive, homepage, zh] of [['archive-zh.html', 'index.html', true], 
     for (const role of ['ICML 2027', 'ICLR 2027', 'ICLR 2026']) {
       assert.ok(service[roles.indexOf(role)].includes(zh ? '受邀担任' : '(invited)'));
     }
-    assert.equal(items(source.get('News')).length, 22);
+    assert.equal(items(source.get('News')).length, 23);
   });
 
   test(`${archive}: Top Area Chair recognition appears in service, honors and biography`, () => {
@@ -59,6 +59,6 @@ for (const [archive, homepage, zh] of [['archive-zh.html', 'index.html', true], 
     assert.ok(copy.includes(`NeurIPS 2026 ${zh ? '优秀领域主席' : 'Top Area Chair'}`));
     assert.ok(copy.includes(zh ? 'ICML 2027 受邀' : 'ICML 2027 invited'));
     assert.ok(copy.includes(`ICML 2026 ${zh ? '金牌审稿人' : 'Gold Reviewer'}`));
-    assert.ok(html.includes(zh ? '全部 22 条动态' : 'All 22 updates'));
+    assert.ok(html.includes(zh ? '全部 23 条动态' : 'All 23 updates'));
   });
 }

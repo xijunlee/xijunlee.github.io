@@ -18,7 +18,7 @@ for (const [page, title, label] of [
     const talks = items(section(html, 'Invited Talk'));
     const news = items(section(html, 'News'));
     assert.equal(talks.length, 5);
-    assert.equal(news.length, 22);
+    assert.equal(news.length, 23);
     const talk = talks.find(item => item.includes(title));
     const announcement = news.find(item => item.includes('[09-25-2025]'));
     assert.ok(talk);

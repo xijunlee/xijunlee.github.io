@@ -47,7 +47,7 @@ test('publication totals and both homepage counters update while preprints remai
     assert.match(html, /<strong>41<span>/);
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
-    assert.ok(html.includes(page === 'index.html' ? '全部 22 条动态' : 'All 22 updates'));
+    assert.ok(html.includes(page === 'index.html' ? '全部 23 条动态' : 'All 23 updates'));
     assert.ok(html.includes('data.js?v=5'));
     assert.ok(html.includes('app.js?v=3'));
   }
@@ -57,7 +57,7 @@ test('both homepages retain four latest news items and archives preserve confirm
   for (const page of ['index.html', 'en.html']) {
     const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
     const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
-    assert.deepEqual([...news.matchAll(/datetime="([^"]+)"/g)].map(match => match[1]), ['2026-10-21', '2026-10-10', '2026-09-17', '2026-08-23']);
+    assert.deepEqual([...news.matchAll(/datetime="([^"]+)"/g)].map(match => match[1]), ['2026-11-08', '2026-10-21', '2026-10-10', '2026-09-17']);
     assert.ok(news.includes('PhyWorld'));
   }
   for (const page of ['archive-zh.html', 'archive.html']) {
@@ -78,7 +78,7 @@ test('ICML 2027 invitation is published consistently without claiming acceptance
   ]) {
     const html = fs.readFileSync(path.join(root, 'dist', homepage), 'utf8');
     const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
-    const firstRow = news.match(/<a class="news-row"[^>]*>[\s\S]*?<\/a>/)[0];
+    const firstRow = [...news.matchAll(/<a class="news-row"[^>]*>[\s\S]*?<\/a>/g)].map(match => match[0]).find(row => row.includes('datetime="2026-10-21"'));
     assert.ok(firstRow.includes(`href="${archive}#news"`));
     assert.ok(firstRow.includes('<time datetime="2026-10-21">2026.10.21</time>'));
     assert.ok(firstRow.includes(`<span class="news-category">${category}</span>`));
@@ -86,8 +86,8 @@ test('ICML 2027 invitation is published consistently without claiming acceptance
     const archiveHtml = fs.readFileSync(path.join(root, 'dist', archive), 'utf8');
     const archiveNews = archiveHtml.match(/<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/)[0];
     const items = [...archiveNews.matchAll(/<li><p>([\s\S]*?)<\/p>\s*<\/li>/g)];
-    assert.equal(items.length, 22);
-    assert.equal(plain(items[0][1]), `[10-21-2026] ${message}`);
+    assert.equal(items.length, 23);
+    assert.equal(plain(items.find(item => item[1].includes('[10-21-2026]'))[1]), `[10-21-2026] ${message}`);
     assert.equal((plain(archiveNews).match(/ICML 2027/g) || []).length, 1);
     assert.doesNotMatch(plain(firstRow + archiveNews), /Dear Xijun|formatting and anonymity|AI tools|We invite you/);
   }
@@ -173,7 +173,7 @@ for (const [language, archive] of [['zh', 'archive-zh.html'], ['en', 'archive.ht
     assert.ok(entry.includes('https://ieeexplore.ieee.org/document/11769461'));
     const news = html.match(/<section[^>]*data-archive-key="News"[\s\S]*?<\/section>/)[0];
     assert.ok(!news.includes(spacecraft));
-    assert.equal((news.match(/<li>/g) || []).length, 22);
+    assert.equal((news.match(/<li>/g) || []).length, 23);
   });
 }
 
