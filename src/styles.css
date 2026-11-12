@@ -344,3 +344,8 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 @media(max-width:900px){.homepage-header .language-switch{margin-left:auto}}
 @media(max-width:680px){.language-switch{gap:.375rem;min-width:6.125rem;min-height:2.5rem;padding:.5rem .625rem;font-size:.875rem}.homepage-header .menu-toggle{margin-left:0}}
 @media(max-width:360px){.homepage-header{gap:.625rem}.homepage-header .site-logo{width:128px}}
+
+/* Distinguish the filled Ph.D. intake while keeping other opportunities prominent. */
+.hero-refined .position-list{grid-template-columns:minmax(0,1fr) max-content}
+.hero-refined .position-list>.admission-filled,.join-positions>.admission-filled{max-width:100%;background:#e8eef3;border:1px solid #bccbd6;color:#4d6172;font-weight:600;white-space:normal;overflow-wrap:break-word}
+.join-positions{flex-wrap:wrap}
