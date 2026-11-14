@@ -350,10 +350,11 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 .hero-refined .position-list>.admission-filled,.join-positions>.admission-filled{max-width:100%;background:#e8eef3;border:1px solid #bccbd6;color:#4d6172;font-weight:600;padding-inline:.5rem;white-space:normal;overflow-wrap:break-word}
 .join-positions{flex-wrap:wrap}
 
-/* Give the dedicated application address a quiet, readable emphasis. */
-.hero-refined .recruit-email{align-items:center;gap:.5rem;min-width:0;min-height:2.5rem;padding:.5rem .625rem;border:1px solid #cbddea;border-radius:6px;background:#eef5fb;color:var(--sjtu-blue);font-size:.9375rem;font-weight:650;line-height:1.45}
-.hero-refined .recruit-email:hover{background:#e4eff8;border-color:#adc8dd;color:#074b80}
-.recruit-email-address{flex:1;min-width:0;overflow-wrap:anywhere}
-.hero-refined .recruit-email>span:last-child{flex:0 0 auto;color:#5a819e}
-.application-card>.button[href^="mailto:"]{gap:.5rem;font-size:.9375rem;font-weight:650}
-.legacy-content .archive-recruit a[href^="mailto:"]{padding:.125rem .25rem;border-radius:4px;background:#eef5fb;color:var(--sjtu-blue);font-size:1rem;font-weight:650;overflow-wrap:anywhere}
+/* Emphasize the full email address with typography alone, always on one line. */
+.hero-refined .recruit-email{align-items:center;justify-content:flex-start;gap:.375rem;min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--sjtu-blue);font-size:.9375rem;font-weight:600;line-height:1.5;white-space:nowrap}
+.hero-refined .recruit-email:hover{background:transparent;color:#074b80}
+.recruit-email-address{flex:0 0 auto;white-space:nowrap;overflow-wrap:normal;word-break:normal}
+.hero-refined .recruit-email>span:last-child{flex:0 0 auto;color:inherit}
+.application-card>.button[href^="mailto:"]{justify-content:flex-start;gap:.375rem;min-width:0;padding:0;border:0;background:transparent;color:var(--sjtu-blue);font-size:.9375rem;font-weight:600;white-space:nowrap}
+.application-card>.button[href^="mailto:"]:hover{background:transparent;color:#074b80;transform:none}
+.legacy-content .archive-recruit a[href^="mailto:"]{display:inline-block;padding:0;border:0;border-radius:0;background:transparent;color:var(--sjtu-blue);font-size:1rem;font-weight:600;white-space:nowrap;overflow-wrap:normal;word-break:normal}

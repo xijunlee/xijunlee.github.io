@@ -19,7 +19,7 @@ for (const [page, label, masters, interns, role] of [
     }
     assert.equal(html.split('class="admission-filled"').length - 1, 2);
     assert.ok(html.includes(role));
-    assert.ok(html.includes('styles.css?v=15'));
+    assert.ok(html.includes('styles.css?v=16'));
     for (const id of ['LmiqwT1bEiHADOkVMXnce8qOnTh', 'HmnBwR5TIigUQlk3G5XcwjuwnBg']) assert.ok(html.includes(id));
   });
 }
@@ -64,14 +64,16 @@ for (const page of ['archive-zh.html', 'archive.html']) {
     assert.ok(!recruit.includes('hotmail'));
     assert.ok(html.includes('lixijun AT sjtu DOT edu DOT cn'));
     assert.ok(html.includes('xijun.lee AT hotmail DOT com'));
-    assert.ok(html.includes('styles.css?v=15'));
+    assert.ok(html.includes('styles.css?v=16'));
   });
 }
 
-test('application email emphasis stays scoped, modestly enlarged and wrap-safe', () => {
+test('application email uses typography only and keeps the complete address on one line', () => {
   const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  assert.match(css, /\.hero-refined \.recruit-email\{[^}]*background:#eef5fb;[^}]*font-size:\.9375rem;[^}]*font-weight:650/);
-  assert.match(css, /\.recruit-email-address\{flex:1;min-width:0;overflow-wrap:anywhere\}/);
-  assert.match(css, /\.application-card>\.button\[href\^="mailto:"\]\{[^}]*font-size:\.9375rem;[^}]*font-weight:650/);
-  assert.match(css, /\.legacy-content \.archive-recruit a\[href\^="mailto:"\]\{[^}]*background:#eef5fb;[^}]*font-weight:650/);
+  assert.match(css, /\.hero-refined \.recruit-email\{[^}]*padding:0;border:0;[^}]*background:transparent;[^}]*font-size:\.9375rem;[^}]*font-weight:600;[^}]*white-space:nowrap/);
+  assert.match(css, /\.recruit-email-address\{flex:0 0 auto;white-space:nowrap;overflow-wrap:normal;word-break:normal\}/);
+  assert.match(css, /\.application-card>\.button\[href\^="mailto:"\]\{[^}]*padding:0;border:0;background:transparent;[^}]*font-size:\.9375rem;[^}]*white-space:nowrap/);
+  assert.match(css, /\.legacy-content \.archive-recruit a\[href\^="mailto:"\]\{display:inline-block;[^}]*border:0;[^}]*background:transparent;[^}]*white-space:nowrap/);
+  const rules = css.slice(css.indexOf('/* Emphasize the full email address'));
+  assert.doesNotMatch(rules, /text-overflow:ellipsis|overflow:hidden|background:#|border:1px/);
 });
