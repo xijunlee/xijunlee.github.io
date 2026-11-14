@@ -349,3 +349,11 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 .hero-refined .position-list{grid-template-columns:fit-content(75%) minmax(0,1fr)}
 .hero-refined .position-list>.admission-filled,.join-positions>.admission-filled{max-width:100%;background:#e8eef3;border:1px solid #bccbd6;color:#4d6172;font-weight:600;padding-inline:.5rem;white-space:normal;overflow-wrap:break-word}
 .join-positions{flex-wrap:wrap}
+
+/* Give the dedicated application address a quiet, readable emphasis. */
+.hero-refined .recruit-email{align-items:center;gap:.5rem;min-width:0;min-height:2.5rem;padding:.5rem .625rem;border:1px solid #cbddea;border-radius:6px;background:#eef5fb;color:var(--sjtu-blue);font-size:.9375rem;font-weight:650;line-height:1.45}
+.hero-refined .recruit-email:hover{background:#e4eff8;border-color:#adc8dd;color:#074b80}
+.recruit-email-address{flex:1;min-width:0;overflow-wrap:anywhere}
+.hero-refined .recruit-email>span:last-child{flex:0 0 auto;color:#5a819e}
+.application-card>.button[href^="mailto:"]{gap:.5rem;font-size:.9375rem;font-weight:650}
+.legacy-content .archive-recruit a[href^="mailto:"]{padding:.125rem .25rem;border-radius:4px;background:#eef5fb;color:var(--sjtu-blue);font-size:1rem;font-weight:650;overflow-wrap:anywhere}

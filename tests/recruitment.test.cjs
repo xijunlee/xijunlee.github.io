@@ -19,7 +19,7 @@ for (const [page, label, masters, interns, role] of [
     }
     assert.equal(html.split('class="admission-filled"').length - 1, 2);
     assert.ok(html.includes(role));
-    assert.ok(html.includes('styles.css?v=14'));
+    assert.ok(html.includes('styles.css?v=15'));
     for (const id of ['LmiqwT1bEiHADOkVMXnce8qOnTh', 'HmnBwR5TIigUQlk3G5XcwjuwnBg']) assert.ok(html.includes(id));
   });
 }
@@ -42,7 +42,7 @@ for (const page of ['index.html', 'en.html']) {
       const links = [...block.matchAll(/href="mailto:([^"]+)"/g)];
       assert.equal(links.length, 1);
       assert.equal(links[0][1].split('?')[0], recruitmentEmail);
-      assert.ok(block.includes(`>${recruitmentEmail} <span>`));
+      assert.ok(block.includes(`<span class="recruit-email-address">${recruitmentEmail}</span>`));
       assert.ok(!block.includes('lixijun@sjtu.edu.cn'));
       assert.ok(!block.includes('hotmail'));
     }
@@ -64,5 +64,14 @@ for (const page of ['archive-zh.html', 'archive.html']) {
     assert.ok(!recruit.includes('hotmail'));
     assert.ok(html.includes('lixijun AT sjtu DOT edu DOT cn'));
     assert.ok(html.includes('xijun.lee AT hotmail DOT com'));
+    assert.ok(html.includes('styles.css?v=15'));
   });
 }
+
+test('application email emphasis stays scoped, modestly enlarged and wrap-safe', () => {
+  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
+  assert.match(css, /\.hero-refined \.recruit-email\{[^}]*background:#eef5fb;[^}]*font-size:\.9375rem;[^}]*font-weight:650/);
+  assert.match(css, /\.recruit-email-address\{flex:1;min-width:0;overflow-wrap:anywhere\}/);
+  assert.match(css, /\.application-card>\.button\[href\^="mailto:"\]\{[^}]*font-size:\.9375rem;[^}]*font-weight:650/);
+  assert.match(css, /\.legacy-content \.archive-recruit a\[href\^="mailto:"\]\{[^}]*background:#eef5fb;[^}]*font-weight:650/);
+});
