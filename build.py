@@ -310,7 +310,7 @@ def archive_profile(lang):
     email_label='邮箱' if zh else 'E-mail'
     address_label='地址' if zh else 'Address'
     field_colon='：' if zh else ': '
-    return f'''<div id="toptitle"><h1>{'李希君（Xijun Li）' if zh else 'Xijun Li (李希君)'}</h1></div><table class="imgtable archive-profile"><tbody><tr><td><a href="https://xijunlee.github.io/" target="_blank" rel="noopener noreferrer"><img src="assets/portrait.png" alt="{'李希君肖像' if zh else 'Portrait of Xijun Li'}" width="134" height="180"></a></td><td><p>{identity_lines}<br><br>{email_label}{field_colon}lixijun AT sjtu DOT edu DOT cn ({'优先' if zh else 'preferred'}), xijun.lee AT hotmail DOT com<br>{address_label}{field_colon}{address}<br><br><span class="archive-profile-links">{links}</span></p></td></tr></tbody></table>'''
+    return f'''<div id="toptitle"><h1>{'李希君（Xijun Li）' if zh else 'Xijun Li (李希君)'}</h1></div><table class="imgtable archive-profile"><tbody><tr><td><a href="https://xijunlee.github.io/" target="_blank" rel="noopener noreferrer"><img src="assets/portrait.png" alt="{'李希君肖像' if zh else 'Portrait of Xijun Li'}" width="134" height="180"></a></td><td><p><span class="archive-profile-identity">{identity_lines}</span><br><br><span class="archive-profile-contact">{email_label}{field_colon}lixijun AT sjtu DOT edu DOT cn ({'优先' if zh else 'preferred'}), xijun.lee AT hotmail DOT com<br>{address_label}{field_colon}{address}</span><br><br><span class="archive-profile-links">{links}</span></p></td></tr></tbody></table>'''
 
 def archive_recruitment(lang):
     zh=lang == 'zh'
@@ -341,7 +341,49 @@ def archive_page(lang):
     description='李希君的完整学术档案：论文、项目、专利、经历、教学、服务和学生培养。' if zh else 'Complete academic archive of Xijun Li: publications, patents, grants, experience, teaching, service, and students.'
     page_title = f"上海交通大学 · 李希君 · {title}" if zh else f"Shanghai Jiao Tong University · Xijun Li · {title}"
     design_credit = '© 2026 · 由李希君和 Codex 共同设计' if zh else '© 2026 · Co-designed by Xijun Li and Codex'
-    return f'''<!doctype html><html lang="{'zh-CN' if zh else 'en'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{page_title}</title><meta name="description" content="{description}"><meta name="theme-color" content="#f3f8fc"><link rel="stylesheet" href="styles.css?v=18"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"></head><body data-lang="{lang}"><a class="skip-link" href="#archive-main">{'跳至主要内容' if zh else 'Skip to main content'}</a><header class="site-header"><div class="container header-inner"><a class="wordmark" href="{home}" aria-label="{'李希君主页' if zh else 'Xijun Li homepage'}"><img class="site-logo" src="assets/sjtu-banner-blue.png" alt="{'上海交通大学 Shanghai Jiao Tong University' if zh else 'Shanghai Jiao Tong University 上海交通大学'}"></a><div class="lang-switch archive-language">{switch}</div><a class="nav-join" href="{home}#join">{'招生与实习' if zh else 'Join Us'} ↗</a></div></header><div class="container archive-hero"><a class="archive-back" href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a><h1>{title}</h1><p>{subtitle}</p></div><div class="container archive-layout"><nav class="archive-nav" aria-label="{'档案目录' if zh else 'Archive sections'}">{nav}</nav><main id="archive-main" class="legacy-content">{body}</main></div><footer class="site-footer container"><a href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a><a href="{counterpart}" lang="{'en' if zh else 'zh-CN'}">{'English profile' if zh else '中文档案'} ↗</a><span>{design_credit}</span></footer></body></html>'''
+    return f'''<!doctype html>
+<html lang="{'zh-CN' if zh else 'en'}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{page_title}</title>
+<meta name="description" content="{description}">
+<meta name="theme-color" content="#f3f8fc">
+<link rel="stylesheet" href="styles.css?v=19">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="archive.js?v=1" defer>
+</script>
+</head>
+<body data-lang="{lang}">
+<a class="skip-link" href="#archive-main">{'跳至主要内容' if zh else 'Skip to main content'}</a>
+<header class="site-header">
+<div class="container header-inner">
+<a class="wordmark" href="{home}" aria-label="{'李希君主页' if zh else 'Xijun Li homepage'}">
+<img class="site-logo" src="assets/sjtu-banner-blue.png" alt="{'上海交通大学 Shanghai Jiao Tong University' if zh else 'Shanghai Jiao Tong University 上海交通大学'}">
+</a>
+<div class="lang-switch archive-language">{switch}</div>
+<a class="nav-join" href="{home}#join">{'招生与实习' if zh else 'Join Us'} ↗</a>
+</div>
+</header>
+<div class="container archive-hero">
+<a class="archive-back" href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a>
+<h1>{title}</h1>
+<p>{subtitle}</p>
+</div>
+<div class="container archive-layout">
+<details class="archive-directory" open>
+<summary>{'浏览档案目录' if zh else 'Browse profile sections'}</summary>
+<nav class="archive-nav" aria-label="{'档案目录' if zh else 'Archive sections'}">{nav}</nav>
+</details>
+<main id="archive-main" class="legacy-content">{body}</main>
+</div>
+<footer class="site-footer container">
+<a href="{home}">← {'返回主页' if zh else 'Back to homepage'}</a>
+<a href="{counterpart}" lang="{'en' if zh else 'zh-CN'}">{'English profile' if zh else '中文档案'} ↗</a>
+<span>{design_credit}</span>
+</footer>
+</body>
+</html>'''
 
 archive=archive_page('en').replace('</head>', ANALYTICS + '</head>')
 archive_zh=archive_page('zh').replace('</head>', ANALYTICS + '</head>')

@@ -19,7 +19,7 @@ for (const [page, label, masters, interns, role] of [
     }
     assert.equal(html.split('class="admission-filled"').length - 1, 2);
     assert.ok(html.includes(role));
-    assert.ok(html.includes('styles.css?v=18'));
+    assert.ok(html.includes('styles.css?v=19'));
     for (const id of ['LmiqwT1bEiHADOkVMXnce8qOnTh', 'HmnBwR5TIigUQlk3G5XcwjuwnBg']) assert.ok(html.includes(id));
   });
 }
@@ -64,7 +64,7 @@ for (const page of ['archive-zh.html', 'archive.html']) {
     assert.ok(!recruit.includes('hotmail'));
     assert.ok(html.includes('lixijun AT sjtu DOT edu DOT cn'));
     assert.ok(html.includes('xijun.lee AT hotmail DOT com'));
-    assert.ok(html.includes('styles.css?v=18'));
+    assert.ok(html.includes('styles.css?v=19'));
   });
 }
 

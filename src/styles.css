@@ -428,6 +428,37 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
   .legacy-content .archive-recruit ul{padding-left:1rem}
 }
 
+/* Keep long archive pages readable without a sidebar crowding narrow screens. */
+.archive-directory{position:sticky;top:96px;align-self:start;min-width:0}
+.archive-directory>summary{display:none}
+.archive-directory>.archive-nav{position:static;max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px)}
+@media(max-width:900px){
+  .archive-layout{display:block}
+  .archive-directory{position:static;margin-bottom:1.5rem}
+  .archive-directory>summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:2.75rem;padding:.625rem .75rem;border:1px solid var(--line);border-radius:.375rem;color:var(--ink);font-size:.875rem;font-weight:550;list-style:none;cursor:pointer}
+  .archive-directory>summary::-webkit-details-marker{display:none}
+  .archive-directory>summary::after{content:"+";font:1.25rem/1 var(--mono);color:var(--teal)}
+  .archive-directory[open]>summary::after{content:"−"}
+  .archive-directory>.archive-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.375rem;padding:.5rem 0 0;border:0;max-height:none;overflow:visible}
+  .archive-directory .archive-nav a{display:flex;align-items:center;min-width:0;min-height:2.75rem;margin:0;padding:.5rem .625rem;border-radius:.25rem;background:var(--soft);font-size:.875rem;line-height:1.5;overflow-wrap:anywhere}
+  .archive-section{scroll-margin-top:88px}
+}
+@media(min-width:600px) and (max-width:900px){
+  .archive-directory>.archive-nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .legacy-content .archive-profile,.legacy-content .archive-profile tbody{display:block}
+  .legacy-content .archive-profile tr{display:grid;grid-template-columns:6rem minmax(0,1fr);gap:1rem;align-items:start}
+  .legacy-content .archive-profile td:first-child{grid-column:1;grid-row:1;width:auto;padding:0}
+  .legacy-content .archive-profile td:last-child,.legacy-content .archive-profile td p{display:contents}
+  .legacy-content .archive-profile td p>br{display:none}
+  .legacy-content .archive-profile-identity{grid-column:2;grid-row:1;min-width:0;font-size:.875rem;line-height:1.7}
+  .legacy-content .archive-profile-contact,.legacy-content .archive-profile-links{grid-column:1/-1;min-width:0;font-size:.875rem;line-height:1.7}
+  .legacy-content .archive-profile img{width:6rem;height:auto}
+  .legacy-content .archive-profile-links{gap:.375rem .625rem}
+}
+@media print{.archive-directory{display:none}}
+
 /* Emphasize the full email address with typography alone, always on one line. */
 .hero-refined .recruit-email{align-items:center;justify-content:flex-start;gap:.375rem;min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--sjtu-blue);font-size:.9375rem;font-weight:600;line-height:1.5;white-space:nowrap}
 .hero-refined .recruit-email:hover{background:transparent;color:#074b80}
