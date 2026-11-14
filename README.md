@@ -74,6 +74,8 @@ npm run preview
 
 ### 修改首页文字或首页精选内容
 
+招生、科研实习申请和投递简历使用专用邮箱 `sjtu_l2o_recruiter@163.com`，统一由 `build.py` 的 `RECRUITMENT_EMAIL` 常量维护。首页模板使用 `{{RECRUITMENT_EMAIL}}`，完整档案的申请入口也读取同一常量；一般学术联系邮箱与个人邮箱不随招生邮箱调整。
+
 同时修改：
 
 - 中文：[src/index.html](src/index.html)

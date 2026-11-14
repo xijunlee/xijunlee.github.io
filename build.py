@@ -11,6 +11,7 @@ SRC = ROOT / 'src'
 CONTENT = ROOT / 'content'
 OUT = ROOT / 'dist'
 ANALYTICS = (CONTENT / '51la-snippet.html').read_text(encoding='utf-8')
+RECRUITMENT_EMAIL = 'sjtu_l2o_recruiter@163.com'
 
 class Text(HTMLParser):
     def __init__(self):
@@ -247,6 +248,7 @@ for f in SRC.iterdir():
     if f.is_file(): shutil.copy2(f, OUT/f.name)
 shutil.copytree(SRC/'assets', OUT/'assets', dirs_exist_ok=True)
 template_values = {
+    'RECRUITMENT_EMAIL': RECRUITMENT_EMAIL,
     'PUBLICATION_COUNT': publication_count,
     'PREPRINT_COUNT': preprint_count,
     'CCF_A_COUNT': stats['A'],
@@ -316,12 +318,12 @@ def archive_recruitment(lang):
     intern_title='科研实习生 · 长期招收' if zh else 'Research Interns · Year-round Recruitment'
     intern_copy='实验室具备充足的具身智能、GPU、NPU 与 CPU 等研究资源，并长期开放科研实习岗位。' if zh else 'Our lab provides abundant resources for embodied intelligence, GPU, NPU, and CPU research, with research internship applications welcome year-round.'
     student_title='博士生与硕士生' if zh else 'Ph.D. and Master Students'
-    student_copy='欢迎对 Learning to Optimize 以及大语言模型优化与推理感兴趣、有内驱力的同学联系。请将个人简历发送至邮箱预约交流。' if zh else 'We welcome self-driven students interested in Learning to Optimize and large language models for optimization and reasoning. Email your CV to arrange a discussion.'
+    student_copy='欢迎对 Learning to Optimize 以及大语言模型优化与推理感兴趣、有内驱力的同学联系。招生与科研实习申请请将个人简历发送至专用邮箱：' if zh else 'We welcome self-driven students interested in Learning to Optimize and large language models for optimization and reasoning. For student admissions and research internships, send your CV to the dedicated recruitment address:'
     apply_label='查看申请细则 ↗' if zh else 'Application details (Chinese) ↗'
-    email_label='发送个人简历 ↗' if zh else 'Email your CV ↗'
+    email_label=f'{RECRUITMENT_EMAIL} ↗'
     colon='：' if zh else ': '
     title=f'【{heading}】' if zh else f'[{heading}]'
-    return f'''<div class="infoblock archive-recruit" aria-label="{heading}"><div class="blockcontent"><p class="archive-recruit-title">{title}</p><ul><li><p><b>{intern_title}</b>{colon}{intern_copy} {archive_link('https://qcni2w0qwumb.feishu.cn/wiki/LmiqwT1bEiHADOkVMXnce8qOnTh?from=from_copylink', apply_label)}</p></li><li><p><b>{student_title}</b>{colon}{student_copy} {archive_link('mailto:lixijun@sjtu.edu.cn', email_label)}</p></li></ul></div></div>'''
+    return f'''<div class="infoblock archive-recruit" aria-label="{heading}"><div class="blockcontent"><p class="archive-recruit-title">{title}</p><ul><li><p><b>{intern_title}</b>{colon}{intern_copy} {archive_link('https://qcni2w0qwumb.feishu.cn/wiki/LmiqwT1bEiHADOkVMXnce8qOnTh?from=from_copylink', apply_label)}</p></li><li><p><b>{student_title}</b>{colon}{student_copy} {archive_link('mailto:' + RECRUITMENT_EMAIL, email_label)}</p></li></ul></div></div>'''
 
 def archive_section(row, lang):
     title=row[f'{lang}_title']

@@ -30,3 +30,38 @@ test('filled-intake badges use a readable neutral treatment and recruitment tags
   assert.match(css, /\.hero-refined \.position-list>\.admission-filled,\.join-positions>\.admission-filled\{[^}]*background:#e8eef3;[^}]*color:#4d6172;[^}]*white-space:normal/);
   assert.match(css, /\.join-positions\{flex-wrap:wrap\}/);
 });
+
+const recruitmentEmail = 'sjtu_l2o_recruiter@163.com';
+for (const page of ['index.html', 'en.html']) {
+  test(`${page}: recruitment links and visible addresses use only the dedicated application mailbox`, () => {
+    const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
+    const recruit = html.match(/<aside class="recruit-card"[\s\S]*?<\/aside>/)[0];
+    const join = html.match(/<section class="join-section"[\s\S]*?<\/section>/)[0];
+    for (const block of [recruit, join]) {
+      const links = [...block.matchAll(/href="mailto:([^"]+)"/g)];
+      assert.equal(links.length, 1);
+      assert.equal(links[0][1].split('?')[0], recruitmentEmail);
+      assert.ok(block.includes(`>${recruitmentEmail} <span>`));
+      assert.ok(!block.includes('lixijun@sjtu.edu.cn'));
+      assert.ok(!block.includes('hotmail'));
+    }
+    assert.match(join, /mailto:sjtu_l2o_recruiter@163\.com\?subject=/);
+    const heroLinks = html.match(/<div class="hero-links">[\s\S]*?<\/div>/)[0];
+    const footer = html.match(/<footer[\s\S]*?<\/footer>/)[0];
+    for (const block of [heroLinks, footer]) assert.ok(block.includes('mailto:lixijun@sjtu.edu.cn'));
+    assert.ok(!html.includes('{{RECRUITMENT_EMAIL}}'));
+  });
+}
+
+for (const page of ['archive-zh.html', 'archive.html']) {
+  test(`${page}: full-profile applications use the dedicated mailbox while general contact details stay intact`, () => {
+    const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
+    const recruit = html.match(/<div class="infoblock archive-recruit"[\s\S]*?<\/ul>/)[0];
+    assert.ok(recruit.includes(`href="mailto:${recruitmentEmail}"`));
+    assert.ok(recruit.includes(`>${recruitmentEmail} ↗</a>`));
+    assert.ok(!recruit.includes('lixijun@sjtu.edu.cn'));
+    assert.ok(!recruit.includes('hotmail'));
+    assert.ok(html.includes('lixijun AT sjtu DOT edu DOT cn'));
+    assert.ok(html.includes('xijun.lee AT hotmail DOT com'));
+  });
+}
