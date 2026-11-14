@@ -19,14 +19,15 @@ for (const [page, label, masters, interns, role] of [
     }
     assert.equal(html.split('class="admission-filled"').length - 1, 2);
     assert.ok(html.includes(role));
-    assert.ok(html.includes('styles.css?v=13'));
+    assert.ok(html.includes('styles.css?v=14'));
     for (const id of ['LmiqwT1bEiHADOkVMXnce8qOnTh', 'HmnBwR5TIigUQlk3G5XcwjuwnBg']) assert.ok(html.includes(id));
   });
 }
 
 test('filled-intake badges use a readable neutral treatment and recruitment tags can wrap', () => {
   const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-  assert.match(css, /\.hero-refined \.position-list\{grid-template-columns:minmax\(0,1fr\) max-content\}/);
+  assert.match(css, /\.hero-refined \.position-list\{grid-template-columns:fit-content\(75%\) minmax\(0,1fr\)\}/);
+  assert.match(css, /\.admission-filled\{[^}]*padding-inline:\.5rem;[^}]*white-space:normal/);
   assert.match(css, /\.hero-refined \.position-list>\.admission-filled,\.join-positions>\.admission-filled\{[^}]*background:#e8eef3;[^}]*color:#4d6172;[^}]*white-space:normal/);
   assert.match(css, /\.join-positions\{flex-wrap:wrap\}/);
 });
