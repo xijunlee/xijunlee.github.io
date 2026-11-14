@@ -346,9 +346,87 @@ body[data-lang="zh"] .hero-refined .experience-copy{gap:.0625rem}
 @media(max-width:360px){.homepage-header{gap:.625rem}.homepage-header .site-logo{width:128px}}
 
 /* Distinguish the filled Ph.D. intake while keeping other opportunities prominent. */
-.hero-refined .position-list{grid-template-columns:fit-content(75%) minmax(0,1fr)}
-.hero-refined .position-list>.admission-filled,.join-positions>.admission-filled{max-width:100%;background:#e8eef3;border:1px solid #bccbd6;color:#4d6172;font-weight:600;padding-inline:.5rem;white-space:normal;overflow-wrap:break-word}
+.hero-refined .position-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hero-refined .position-list>span{text-wrap:balance}
+.hero-refined .position-list>.admission-filled,.join-positions>.admission-filled{max-width:100%;background:#e8eef3;border:1px solid #bccbd6;color:#4d6172;font-weight:600;padding-inline:.5rem;white-space:normal;word-break:keep-all;overflow-wrap:normal}
 .join-positions{flex-wrap:wrap}
+
+/* Give each layout enough room for complete text at tablet and phone widths. */
+@media(min-width:1001px) and (max-width:1100px){
+  .hero-refined{grid-template-columns:minmax(0,1fr) 17.5rem;gap:1.5rem}
+}
+@media(min-width:681px) and (max-width:800px){
+  .hero-refined .recruit-body{display:flex;align-items:stretch;gap:0}
+  .hero-refined .position-list{margin-top:1rem;margin-bottom:.875rem}
+  .hero-refined .recruit-links{margin-top:0}
+  .join-layout,.visitor-bar{grid-template-columns:minmax(0,1fr)}
+  .join-layout{row-gap:1.875rem}
+  .join-copy{justify-content:flex-start}
+  .visitor-bar{row-gap:1rem;padding-block:1rem}
+}
+@media(max-width:680px){
+  .container{width:calc(100% - 2rem)}
+  .hero-refined{padding-block:1.5rem;gap:1.25rem}
+  .hero-profile{grid-template-columns:clamp(5.5rem,25vw,7rem) minmax(0,1fr);gap:1.25rem 1rem}
+  .hero-refined .hero-identity h1{font-size:clamp(1.75rem,7.5vw,2rem)}
+  .hero-summary h2{font-size:1.375rem;line-height:1.45}
+  .hero-refined .hero-description{font-size:.9375rem;line-height:1.75}
+  .hero-refined .experience-strip{gap:.375rem;margin-top:1.25rem;padding-top:.75rem}
+  .hero-refined .experience-item,body[data-lang="zh"] .hero-refined .experience-item{grid-template-columns:2.5rem minmax(0,1fr);gap:.75rem;padding:.5rem 0;min-height:4.5rem}
+  .hero-refined .experience-logo,body[data-lang="zh"] .hero-refined .experience-logo{width:2.5rem;height:2.5rem}
+  .hero-refined .experience-logo img,body[data-lang="zh"] .hero-refined .experience-logo img{width:2.375rem;height:2.375rem}
+  .hero-refined .experience-copy{display:flex;flex-direction:column;gap:.125rem}
+  .hero-refined .experience-copy small.experience-status{align-self:stretch;justify-content:flex-start;text-align:left;flex-wrap:wrap;font-size:.75rem;gap:.125rem .5rem;white-space:normal}
+  .hero-refined .experience-copy .experience-period{font-size:.75rem;white-space:nowrap}
+  .hero-refined .experience-copy strong{font-size:.9375rem;line-height:1.45}
+  .hero-refined .experience-copy em{font-size:.8125rem}
+  .hero-refined .recruit-body{padding:1rem}
+  .hero-refined .recruit-body p{font-size:.875rem;line-height:1.7}
+  .hero-refined .position-list{gap:.5rem;margin-top:1rem;margin-bottom:0}
+  .hero-refined .recruit-links{margin-top:.875rem}
+  .impact .metrics{grid-template-columns:repeat(2,minmax(0,1fr));padding-block:0}
+  .impact .metric{padding:1rem .875rem!important;border-left:0!important;border-top:0}
+  .impact .metric:nth-child(even){border-left:1px solid var(--line)!important}
+  .impact .metric:nth-child(odd){padding-left:0!important}
+  .impact .metric:nth-child(n+3){border-top:1px solid var(--line)}
+  .impact .metric:last-child{grid-column:auto}
+  .impact .metric>strong{font-size:2rem;margin-block:.5rem .375rem}
+  .impact .metric-top{gap:.25rem}
+  .impact .metric-label{font-size:.875rem;line-height:1.5}
+  .impact .metric-detail{line-height:1.6}
+  .section{padding-block:2.25rem}
+  .section-heading{gap:.75rem;margin-bottom:1.25rem}
+  .section-heading h2{font-size:1.375rem;line-height:1.5;letter-spacing:-.25px;text-wrap:balance}
+  .research-card,.grant-panel,.industry-panel,.student-achievement{min-width:0;padding:1.125rem}
+  .research-diagram{gap:.375rem;padding:.75rem .375rem;min-height:4.25rem}
+  .research-diagram span{white-space:normal;text-align:center}
+  .research-card h3{font-size:1.25rem;line-height:1.4}
+  .research-card>p{font-size:.9375rem;line-height:1.75}
+  .panel-heading{flex-wrap:wrap;gap:.25rem .75rem}
+  .paper{grid-template-columns:minmax(0,1fr);gap:.625rem}
+  .paper h3{font-size:1rem;line-height:1.6;overflow-wrap:anywhere}
+  .paper-authors{overflow-wrap:anywhere}
+  .join-copy h2{font-size:1.5rem;line-height:1.5}
+  .join-copy>p{font-size:.9375rem;line-height:1.75}
+  .join-positions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:.5rem}
+  .join-positions>span{white-space:normal;text-wrap:balance}
+  .join-positions>span.internship-highlight{grid-column:1/-1}
+  .resource-line{flex-wrap:wrap;gap:.375rem .75rem}
+  .resource-line p{min-width:0;overflow-wrap:anywhere}
+  .application-card{min-width:0;padding:1rem}
+  .application-card li{gap:.875rem}
+  .application-card li>div{min-width:0}
+  .visitor-bar{grid-template-columns:minmax(0,1fr);row-gap:1rem;padding-block:1rem}
+  .visitor-metrics{column-gap:.75rem}
+  .visitor-total>span,.visitor-note{font-size:.75rem}
+  .visitor-visual{width:8rem;height:8rem}
+}
+@media(max-width:360px){
+  .homepage-header .site-logo{width:120px}
+  .hero-refined .position-list>span{font-size:.8125rem;padding-inline:.375rem}
+  .legacy-content .archive-recruit{padding-inline:.75rem}
+  .legacy-content .archive-recruit ul{padding-left:1rem}
+}
 
 /* Emphasize the full email address with typography alone, always on one line. */
 .hero-refined .recruit-email{align-items:center;justify-content:flex-start;gap:.375rem;min-width:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--sjtu-blue);font-size:.9375rem;font-weight:600;line-height:1.5;white-space:nowrap}

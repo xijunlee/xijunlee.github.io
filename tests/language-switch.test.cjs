@@ -21,7 +21,7 @@ for (const [filename, href, lang, label, accessibleLabel] of [
     assert.match(link, /<svg[^>]+aria-hidden="true"[^>]+focusable="false"/);
     assert.doesNotMatch(link, /\shidden(?:\s|>)|onclick=|target=/);
     assert.equal((header.match(/class="language-switch"/g) || []).length, 1);
-    assert.ok(html.includes('styles.css?v=17'));
+    assert.ok(html.includes('styles.css?v=18'));
   });
 }
 test('language buttons have a high-contrast treatment and mobile sizing without changing archive selectors', () => {
