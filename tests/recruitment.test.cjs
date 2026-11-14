@@ -19,7 +19,7 @@ for (const [page, label, masters, interns, role] of [
     }
     assert.equal(html.split('class="admission-filled"').length - 1, 2);
     assert.ok(html.includes(role));
-    assert.ok(html.includes('styles.css?v=16'));
+    assert.ok(html.includes('styles.css?v=17'));
     for (const id of ['LmiqwT1bEiHADOkVMXnce8qOnTh', 'HmnBwR5TIigUQlk3G5XcwjuwnBg']) assert.ok(html.includes(id));
   });
 }
@@ -64,7 +64,7 @@ for (const page of ['archive-zh.html', 'archive.html']) {
     assert.ok(!recruit.includes('hotmail'));
     assert.ok(html.includes('lixijun AT sjtu DOT edu DOT cn'));
     assert.ok(html.includes('xijun.lee AT hotmail DOT com'));
-    assert.ok(html.includes('styles.css?v=16'));
+    assert.ok(html.includes('styles.css?v=17'));
   });
 }
 
@@ -76,4 +76,21 @@ test('application email uses typography only and keeps the complete address on o
   assert.match(css, /\.legacy-content \.archive-recruit a\[href\^="mailto:"\]\{display:inline-block;[^}]*border:0;[^}]*background:transparent;[^}]*white-space:nowrap/);
   const rules = css.slice(css.indexOf('/* Emphasize the full email address'));
   assert.doesNotMatch(rules, /text-overflow:ellipsis|overflow:hidden|background:#|border:1px/);
+});
+
+test('application step numbers use a medium blue-grey with readable, restrained contrast', () => {
+  const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
+  assert.match(css, /\.application-card li>span\{color:#5f778d;font-weight:500\}/);
+  const luminance = hex => {
+    const channels = hex.match(/../g).map(value => parseInt(value, 16) / 255)
+      .map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
+    return .2126 * channels[0] + .7152 * channels[1] + .0722 * channels[2];
+  };
+  const contrast = (luminance('fbfdff') + .05) / (luminance('5f778d') + .05);
+  assert.ok(contrast >= 4.5 && contrast < 6);
+  for (const page of ['index.html', 'en.html']) {
+    const html = fs.readFileSync(path.join(root, 'dist', page), 'utf8');
+    const application = html.match(/<div class="application-card">[\s\S]*?<\/ol>/)[0];
+    assert.deepEqual([...application.matchAll(/<li><span>(\d{2})<\/span>/g)].map(m => m[1]), ['01', '02', '03']);
+  }
 });
