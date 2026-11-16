@@ -13,7 +13,7 @@ window.HomepageGlobe = async ({ root, regions, english }) => {
     for (const [key, value] of Object.entries(attributes)) node.setAttribute(key, value);
     return node;
   };
-  const svg = element('svg', { viewBox: '0 0 160 160', class: 'visitor-globe', role: 'img', 'aria-label': english ? 'Visitor source regions, at country or province level' : '访客来源地区地球仪，按国家或省级汇总' });
+  const svg = element('svg', { viewBox: '0 0 160 160', class: 'visitor-globe', role: 'img', 'aria-label': english ? 'Visitor sources at the finest available city, state/province, or country level' : '访客来源地区地球仪，按可用的城市、州省或国家粒度汇总' });
   const title = element('title');
   title.textContent = english ? 'Visitor source regions; approximate representative positions' : '访客来源；光点为地区示意位置，非访客精确定位';
   svg.append(title);
@@ -29,7 +29,9 @@ window.HomepageGlobe = async ({ root, regions, english }) => {
   const dots = regions.map(region => {
     const dot = element('circle', { r: Math.min(4, 2 + Math.log2(region.sessions + 1) * 0.3), fill: '#df6553', stroke: '#fff', 'stroke-width': 0.65 });
     const tooltip = element('title');
-    tooltip.textContent = `${english ? region.en : region.zh} · ${region.sessions} ${english ? 'recorded sessions' : '次已记录会话'}`;
+    const levels = english ? { city: 'City', subdivision: 'State/province', country: 'Country' } : { city: '城市', subdivision: '州／省', country: '国家' };
+    const level = levels[region.level];
+    tooltip.textContent = `${english ? region.en : region.zh}${level ? ' · ' + level : ''} · ${region.sessions} ${english ? 'recorded sessions' : '次已记录会话'}`;
     dot.append(tooltip); points.append(dot);
     return { dot, region };
   });

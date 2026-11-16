@@ -13,8 +13,8 @@ function mockRequest(rows = []) {
 }
 test('country and province mapping never publishes raw visitor identifiers', async () => {
   const { aggregateRegions, identifyRegion } = await modules();
-  assert.equal(identifyRegion('中国 浙江省 杭州市').zh, '浙江');
-  assert.equal(identifyRegion('美国/加利福尼亚').id, 'US');
+  assert.equal(identifyRegion('中国 浙江省 杭州市').id, 'CITY:1808926');
+  assert.equal(identifyRegion('美国/加利福尼亚').id, 'ADM1:US.CA');
   assert.equal(identifyRegion('China Shanghai').zh, '上海');
   assert.equal(identifyRegion('unsupported private region'), null);
   const result = aggregateRegions([{ region: '上海', ip: 'private-ip', uuid: 'private-id' }, { region: 'unsupported private region' }]);

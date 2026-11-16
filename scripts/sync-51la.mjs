@@ -27,10 +27,10 @@ export function publicSnapshot(snapshot) {
   const days = snapshot.days.toSorted((a, b) => a.day.localeCompare(b.day)).slice(-90);
   const counts = new Map();
   for (const day of days) for (const row of day.counts) {
-    const entry = counts.get(row.id) || { ...regionCatalog.get(row.id), sessions: 0 };
+    const region = regionCatalog.get(row.id);
+    const entry = counts.get(row.id) || { id: region.id, zh: region.zh, en: region.en, lat: region.lat, lon: region.lon, level: region.level, sessions: 0 };
     entry.sessions += row.sessions;
-    // Only safe, fixed catalog names / representative coordinates are published.
-    delete entry.aliases;
+    // Fixed catalog labels/representative coordinates only, never raw API rows.
     counts.set(row.id, entry);
   }
   return {
@@ -94,6 +94,9 @@ export async function synchronize({ previous, request, now = new Date(), force =
     snapshot.days = snapshot.days.filter(row => row.day !== day);
     snapshot.days.push({ day, total: first.total, collected: rows.length, complete: rows.length === first.total, counts, unknown });
     console.log(`51LA synchronized: PV=${overview.totalPv}, UV=${overview.totalUv}; ${rows.length}/${first.total} sessions for ${day}.`);
+    const levels = { city: 0, subdivision: 0, country: 0 };
+    for (const row of counts) levels[regionCatalog.get(row.id).level] += row.sessions;
+    console.log(`51LA geographic precision (recorded sessions): ${JSON.stringify(levels)}; unmapped=${unknown}.`);
   } catch (error) {
     // No provider message, visitor rows, keys, signatures or raw URLs in logs.
     console.warn(`51LA sync deferred; last valid public data retained. ${error.message.startsWith('51LA:') ? error.message : '51LA: unexpected sync failure'}`);

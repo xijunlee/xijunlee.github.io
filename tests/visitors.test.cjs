@@ -101,6 +101,20 @@ test('globe renders real local geometry before animation and clips rear points',
   assert.equal(dots[1].attributes.display, 'none');
   assert.equal(visual.dataset.state, 'ready');
 });
+test('globe keeps separate US city/state/country points with location precision in tooltips', async () => {
+  const { identifyRegion } = await import('../scripts/visitor-regions.mjs');
+  const regions = ['美国/加利福尼亚州/洛杉矶', '美国/纽约州/纽约市', '美国/加利福尼亚州', '美国']
+    .map(name => ({ ...identifyRegion(name), sessions: 1 }));
+  const visual = await globe(regions);
+  const svg = visual.children[0];
+  assert.match(svg.attributes['aria-label'], /城市、州省或国家/);
+  const dots = svg.children.find(row => row.tag === 'g').children;
+  assert.equal(dots.length, 4);
+  assert.notEqual(dots[0].attributes.cx, dots[1].attributes.cx);
+  assert.match(dots[0].children[0].textContent, /洛杉矶 · 城市/);
+  assert.match(dots[2].children[0].textContent, /加利福尼亚州 · 州／省/);
+  assert.match(dots[3].children[0].textContent, /美国 · 国家/);
+});
 test('empty globe has no artificial location markers', async () => {
   const visual = await globe([]);
   assert.equal(visual.children[0].children.find(row => row.tag === 'g').children.length, 0);
@@ -117,7 +131,7 @@ test('both homepages restore statistics and map-credit links without branding or
     assert.ok(visitor.includes('visitor-metrics'));
     assert.ok(html.includes('data-visitor-unique'));
     assert.ok(html.includes('data-visitor-updated'));
-    assert.ok(html.includes('visitor-globe.js?v=6'));
+    assert.ok(html.includes('visitor-globe.js?v=7'));
     assert.ok(html.includes('visitors.js?v=7'));
     assert.ok(html.includes('styles.css?v=19'));
     assert.equal(html.includes('mapmyvisitors.com'), false);

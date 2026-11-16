@@ -106,6 +106,14 @@ jobs:
           path: .cache/51la/visitor-data.json
           key: 51la-public-v1-${{ steps.analytics-day.outputs.day }}
 
+      - name: Inspect source geographic precision (explicit diagnostic only)
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[diagnose-region-precision]')
+        continue-on-error: true
+        env:
+          LA_ACCESS_KEY: ${{ secrets.LA_ACCESS_KEY }}
+          LA_SECRET_KEY: ${{ secrets.LA_SECRET_KEY }}
+        run: node scripts/inspect-51la-regions.mjs
+
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
         with:
