@@ -222,16 +222,16 @@ grant_preview_en = [
     ('National AI 2030 Major Project', 'Core member · 2022—2025'),
 ]
 grants_en = ''.join(f'<div class="grant-item"><span class="grant-number">0{i}</span><div><strong>{name}</strong><p>{label}</p></div></div>' for i,(name,label) in enumerate(grant_preview_en,1))
-patents = ''
-for p in entries('Patent', 'zh')[:3]:
-    s=text(p); number,title=s.split(' ',1); title=title.split('：')[0]
-    patents += f'<div class="patent-item"><span>{escape(number)}</span><h4>{escape(title)}</h4></div>'
-patent_preview_en = [
-    ('CN122308802A', 'End-to-end generation of FPGA-executable programs for Xilinx environments'),
-    ('CN120996196A', 'Long-horizon planning with foundation models and symbolic solvers in open embodied environments'),
-    ('CN120578395A', 'Structure-aware code generation for combinatorial optimization'),
-]
-patents_en = ''.join(f'<div class="patent-item"><span>{number}</span><h4>{title}</h4></div>' for number,title in patent_preview_en)
+def render_patent_preview(lang):
+    preview = ''
+    for item in entries('Patent', lang)[:3]:
+        number, details = text(item).split(' ', 1)
+        title = details.split('：' if lang == 'zh' else ': ', 1)[0]
+        preview += f'<div class="patent-item"><span>{escape(number)}</span><h4>{escape(title)}</h4></div>'
+    return preview
+
+patents = render_patent_preview('zh')
+patents_en = render_patent_preview('en')
 students = ''
 students_en = ''
 for p in entries('Supervised and Co-supervised Students'):
