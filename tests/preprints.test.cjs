@@ -99,7 +99,7 @@ for (const language of ['zh', 'en']) {
     assert.match(status.textContent, /61/);
     const html = read(language === 'zh' ? 'index.html' : 'en.html');
     assert.ok(html.includes(language === 'zh' ? '另有 20 篇预印本与技术报告' : 'Plus 20 preprints and technical reports'));
-    assert.ok(html.includes('data.js?v=5'));
+    assert.ok(html.includes('data.js?v=6'));
     assert.equal((html.match(/class="news-row"/g) || []).length, 4);
     const news = html.match(/<section[^>]*id="news"[\s\S]*?<\/section>/)[0];
     for (const p of audit.added) assert.ok(!plain(news).includes(p.title));

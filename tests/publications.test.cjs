@@ -48,7 +48,7 @@ test('publication totals and both homepage counters update while preprints remai
     assert.match(html, /id="metric-ccf">24<span>/);
     assert.match(html, page === 'index.html' ? /B 类 4 篇 \/ C 类 5 篇/ : /4 B \/ 5 C publications/);
     assert.ok(html.includes(page === 'index.html' ? '全部 23 条动态' : 'All 23 updates'));
-    assert.ok(html.includes('data.js?v=5'));
+    assert.ok(html.includes('data.js?v=6'));
     assert.ok(html.includes('app.js?v=3'));
   }
 });
